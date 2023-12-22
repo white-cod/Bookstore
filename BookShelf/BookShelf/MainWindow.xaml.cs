@@ -16,6 +16,7 @@ namespace BookShelf
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = ((App)Application.Current).MainViewModel;
         }
     }
 }

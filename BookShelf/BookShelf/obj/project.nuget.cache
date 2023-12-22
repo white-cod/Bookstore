@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XJXHjpyrO8AaYP7piZGmblbweXDmh20gNVcZeyrV8K6AiZSaE2HnoxNBArD8TEZ2Kty8qi71BUI3FwoM8cDH1Q==",
+  "dgSpecHash": "PuaKfvHSpogsoE3oChc8MPw8b0t4LDn50ML/rZA/CfcFBrsjmYb079MmPqqehZXLOmURWnZgAODY5uH/mrq6tw==",
   "success": true,
-  "projectFilePath": "F:\\C++\\Bookstore\\BookShelf\\BookShelf\\BookShelf.csproj",
+  "projectFilePath": "D:\\Code\\C#\\Programs\\Bookstore\\BookShelf\\BookShelf\\BookShelf.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

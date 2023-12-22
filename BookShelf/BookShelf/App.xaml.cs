@@ -1,4 +1,5 @@
-﻿using System.Configuration;
+﻿using BookShelf.MVVM.ViewModel;
+using System.Configuration;
 using System.Data;
 using System.Windows;
 
@@ -9,6 +10,7 @@ namespace BookShelf
     /// </summary>
     public partial class App : Application
     {
+        public MainViewModel MainViewModel { get; } = new MainViewModel();
     }
 
 }

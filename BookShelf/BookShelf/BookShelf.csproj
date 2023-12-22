@@ -6,6 +6,23 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>Files\Icon\icon.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Files\Images\UserIcon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Files\Icon\icon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="MVVM\Model\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Files\Images\UserIcon.png" />
+  </ItemGroup>
 
 </Project>
