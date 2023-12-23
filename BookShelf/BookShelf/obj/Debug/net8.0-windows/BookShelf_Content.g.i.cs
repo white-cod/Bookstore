@@ -9,5 +9,7 @@
 //------------------------------------------------------------------------------
 
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("files/icon/icon.ico")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("files/images/catalogueicon.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("files/images/usericon.png")]
 
 

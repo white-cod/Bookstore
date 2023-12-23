@@ -10,11 +10,61 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Files\Fonts\DM-SANS\DMSans-Black.ttf" />
+    <None Remove="Files\Fonts\DM-SANS\DMSans-BlackItalic.ttf" />
+    <None Remove="Files\Fonts\DM-SANS\DMSans-Bold.ttf" />
+    <None Remove="Files\Fonts\DM-SANS\DMSans-BoldItalic.ttf" />
+    <None Remove="Files\Fonts\DM-SANS\DMSans-ExtraBold.ttf" />
+    <None Remove="Files\Fonts\DM-SANS\DMSans-ExtraBoldItalic.ttf" />
+    <None Remove="Files\Fonts\DM-SANS\DMSans-ExtraLight.ttf" />
+    <None Remove="Files\Fonts\DM-SANS\DMSans-ExtraLightItalic.ttf" />
+    <None Remove="Files\Fonts\DM-SANS\DMSans-Italic.ttf" />
+    <None Remove="Files\Fonts\DM-SANS\DMSans-Light.ttf" />
+    <None Remove="Files\Fonts\DM-SANS\DMSans-LightItalic.ttf" />
+    <None Remove="Files\Fonts\DM-SANS\DMSans-Medium.ttf" />
+    <None Remove="Files\Fonts\DM-SANS\DMSans-MediumItalic.ttf" />
+    <None Remove="Files\Fonts\DM-SANS\DMSans-Regular.ttf" />
+    <None Remove="Files\Fonts\DM-SANS\DMSans-SemiBold.ttf" />
+    <None Remove="Files\Fonts\DM-SANS\DMSans-SemiBoldItalic.ttf" />
+    <None Remove="Files\Fonts\DM-SANS\DMSans-Thin.ttf" />
+    <None Remove="Files\Fonts\DM-SANS\DMSans-ThinItalic.ttf" />
+    <None Remove="Files\Fonts\JOSEFIN-SANS\JosefinSans-Bold.ttf" />
+    <None Remove="Files\Fonts\JOSEFIN-SANS\JosefinSans-BoldItalic.ttf" />
+    <None Remove="Files\Fonts\JOSEFIN-SANS\JosefinSans-ExtraLight.ttf" />
+    <None Remove="Files\Fonts\JOSEFIN-SANS\JosefinSans-ExtraLightItalic.ttf" />
+    <None Remove="Files\Fonts\JOSEFIN-SANS\JosefinSans-Italic.ttf" />
+    <None Remove="Files\Fonts\JOSEFIN-SANS\JosefinSans-Light.ttf" />
+    <None Remove="Files\Fonts\JOSEFIN-SANS\JosefinSans-LightItalic.ttf" />
+    <None Remove="Files\Fonts\JOSEFIN-SANS\JosefinSans-Medium.ttf" />
+    <None Remove="Files\Fonts\JOSEFIN-SANS\JosefinSans-MediumItalic.ttf" />
+    <None Remove="Files\Fonts\JOSEFIN-SANS\JosefinSans-Regular.ttf" />
+    <None Remove="Files\Fonts\JOSEFIN-SANS\JosefinSans-SemiBold.ttf" />
+    <None Remove="Files\Fonts\JOSEFIN-SANS\JosefinSans-SemiBoldItalic.ttf" />
+    <None Remove="Files\Fonts\JOSEFIN-SANS\JosefinSans-Thin.ttf" />
+    <None Remove="Files\Fonts\JOSEFIN-SANS\JosefinSans-ThinItalic.ttf" />
+    <None Remove="Files\Fonts\RUBIK\Rubik-Black.ttf" />
+    <None Remove="Files\Fonts\RUBIK\Rubik-BlackItalic.ttf" />
+    <None Remove="Files\Fonts\RUBIK\Rubik-Bold.ttf" />
+    <None Remove="Files\Fonts\RUBIK\Rubik-BoldItalic.ttf" />
+    <None Remove="Files\Fonts\RUBIK\Rubik-ExtraBold.ttf" />
+    <None Remove="Files\Fonts\RUBIK\Rubik-ExtraBoldItalic.ttf" />
+    <None Remove="Files\Fonts\RUBIK\Rubik-Italic.ttf" />
+    <None Remove="Files\Fonts\RUBIK\Rubik-Light.ttf" />
+    <None Remove="Files\Fonts\RUBIK\Rubik-LightItalic.ttf" />
+    <None Remove="Files\Fonts\RUBIK\Rubik-Medium.ttf" />
+    <None Remove="Files\Fonts\RUBIK\Rubik-MediumItalic.ttf" />
+    <None Remove="Files\Fonts\RUBIK\Rubik-Regular.ttf" />
+    <None Remove="Files\Fonts\RUBIK\Rubik-SemiBold.ttf" />
+    <None Remove="Files\Fonts\RUBIK\Rubik-SemiBoldItalic.ttf" />
+    <None Remove="Files\Images\CatalogueIcon.png" />
     <None Remove="Files\Images\UserIcon.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="Files\Icon\icon.ico" />
+    <Content Include="Files\Images\CatalogueIcon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
@@ -22,7 +72,58 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Include="Files\Images\UserIcon.png" />
+    <Content Include="Files\Images\UserIcon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Files\Fonts\DM-SANS\DMSans-Black.ttf" />
+    <Resource Include="Files\Fonts\DM-SANS\DMSans-BlackItalic.ttf" />
+    <Resource Include="Files\Fonts\DM-SANS\DMSans-Bold.ttf" />
+    <Resource Include="Files\Fonts\DM-SANS\DMSans-BoldItalic.ttf" />
+    <Resource Include="Files\Fonts\DM-SANS\DMSans-ExtraBold.ttf" />
+    <Resource Include="Files\Fonts\DM-SANS\DMSans-ExtraBoldItalic.ttf" />
+    <Resource Include="Files\Fonts\DM-SANS\DMSans-ExtraLight.ttf" />
+    <Resource Include="Files\Fonts\DM-SANS\DMSans-ExtraLightItalic.ttf" />
+    <Resource Include="Files\Fonts\DM-SANS\DMSans-Italic.ttf" />
+    <Resource Include="Files\Fonts\DM-SANS\DMSans-Light.ttf" />
+    <Resource Include="Files\Fonts\DM-SANS\DMSans-LightItalic.ttf" />
+    <Resource Include="Files\Fonts\DM-SANS\DMSans-Medium.ttf" />
+    <Resource Include="Files\Fonts\DM-SANS\DMSans-MediumItalic.ttf" />
+    <Resource Include="Files\Fonts\DM-SANS\DMSans-Regular.ttf" />
+    <Resource Include="Files\Fonts\DM-SANS\DMSans-SemiBold.ttf" />
+    <Resource Include="Files\Fonts\DM-SANS\DMSans-SemiBoldItalic.ttf" />
+    <Resource Include="Files\Fonts\DM-SANS\DMSans-Thin.ttf" />
+    <Resource Include="Files\Fonts\DM-SANS\DMSans-ThinItalic.ttf" />
+    <Resource Include="Files\Fonts\JOSEFIN-SANS\JosefinSans-Bold.ttf" />
+    <Resource Include="Files\Fonts\JOSEFIN-SANS\JosefinSans-BoldItalic.ttf" />
+    <Resource Include="Files\Fonts\JOSEFIN-SANS\JosefinSans-ExtraLight.ttf" />
+    <Resource Include="Files\Fonts\JOSEFIN-SANS\JosefinSans-ExtraLightItalic.ttf" />
+    <Resource Include="Files\Fonts\JOSEFIN-SANS\JosefinSans-Italic.ttf" />
+    <Resource Include="Files\Fonts\JOSEFIN-SANS\JosefinSans-Light.ttf" />
+    <Resource Include="Files\Fonts\JOSEFIN-SANS\JosefinSans-LightItalic.ttf" />
+    <Resource Include="Files\Fonts\JOSEFIN-SANS\JosefinSans-Medium.ttf" />
+    <Resource Include="Files\Fonts\JOSEFIN-SANS\JosefinSans-MediumItalic.ttf" />
+    <Resource Include="Files\Fonts\JOSEFIN-SANS\JosefinSans-Regular.ttf" />
+    <Resource Include="Files\Fonts\JOSEFIN-SANS\JosefinSans-SemiBold.ttf" />
+    <Resource Include="Files\Fonts\JOSEFIN-SANS\JosefinSans-SemiBoldItalic.ttf" />
+    <Resource Include="Files\Fonts\JOSEFIN-SANS\JosefinSans-Thin.ttf" />
+    <Resource Include="Files\Fonts\JOSEFIN-SANS\JosefinSans-ThinItalic.ttf" />
+    <Resource Include="Files\Fonts\RUBIK\Rubik-Black.ttf" />
+    <Resource Include="Files\Fonts\RUBIK\Rubik-BlackItalic.ttf" />
+    <Resource Include="Files\Fonts\RUBIK\Rubik-Bold.ttf" />
+    <Resource Include="Files\Fonts\RUBIK\Rubik-BoldItalic.ttf" />
+    <Resource Include="Files\Fonts\RUBIK\Rubik-ExtraBold.ttf" />
+    <Resource Include="Files\Fonts\RUBIK\Rubik-ExtraBoldItalic.ttf" />
+    <Resource Include="Files\Fonts\RUBIK\Rubik-Italic.ttf" />
+    <Resource Include="Files\Fonts\RUBIK\Rubik-Light.ttf" />
+    <Resource Include="Files\Fonts\RUBIK\Rubik-LightItalic.ttf" />
+    <Resource Include="Files\Fonts\RUBIK\Rubik-Medium.ttf" />
+    <Resource Include="Files\Fonts\RUBIK\Rubik-MediumItalic.ttf" />
+    <Resource Include="Files\Fonts\RUBIK\Rubik-Regular.ttf" />
+    <Resource Include="Files\Fonts\RUBIK\Rubik-SemiBold.ttf" />
+    <Resource Include="Files\Fonts\RUBIK\Rubik-SemiBoldItalic.ttf" />
   </ItemGroup>
 
 </Project>
