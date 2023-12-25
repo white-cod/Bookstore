@@ -57,14 +57,20 @@
     <None Remove="Files\Fonts\RUBIK\Rubik-SemiBold.ttf" />
     <None Remove="Files\Fonts\RUBIK\Rubik-SemiBoldItalic.ttf" />
     <None Remove="Files\Images\CatalogueIcon.png" />
-    <None Remove="Files\Images\UserIcon.png" />
+    <None Remove="Files\Images\SearchIcon.png" />
+    <None Remove="Files\Images\SearchIconDefault.png" />
+    <None Remove="Files\Images\SearchIconMouseOver.png" />
+    <None Remove="Files\Images\ShoppingCartIconDefault.png" />
+    <None Remove="Files\Images\ShoppingCartIconMouseOver.png" />
+    <None Remove="Files\Images\UserIconDefault.png" />
+    <None Remove="Files\Images\UserIconMouseOver.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Content Include="Files\Icon\icon.ico" />
-    <Content Include="Files\Images\CatalogueIcon.png">
+    <Resource Include="Files\Images\CatalogueIcon.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>
@@ -72,9 +78,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="Files\Images\UserIcon.png">
+    <Resource Include="Files\Images\UserIconDefault.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>
@@ -124,6 +130,21 @@
     <Resource Include="Files\Fonts\RUBIK\Rubik-Regular.ttf" />
     <Resource Include="Files\Fonts\RUBIK\Rubik-SemiBold.ttf" />
     <Resource Include="Files\Fonts\RUBIK\Rubik-SemiBoldItalic.ttf" />
+    <Resource Include="Files\Images\SearchIconDefault.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Files\Images\SearchIconMouseOver.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Files\Images\ShoppingCartIconDefault.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Files\Images\ShoppingCartIconMouseOver.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Files\Images\UserIconMouseOver.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
 </Project>

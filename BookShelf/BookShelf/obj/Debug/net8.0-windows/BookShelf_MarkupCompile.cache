@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 D:\Code\C#\Programs\Bookstore\BookShelf\BookShelf\App.xaml
-21489940669
-31228585048
-10829989675
+41511482340
+1-2100245895
+12-1625577958
 198-688555687
-MainWindow.xaml;MVVM\View\HomeView.xaml;
+MainWindow.xaml;MVVM\View\BooksListView.xaml;MVVM\View\HomeView.xaml;Themes\CatalogueButtonTheme.xaml;
 
 False
 

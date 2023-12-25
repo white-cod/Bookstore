@@ -24,5 +24,6 @@ D:\Code\C#\Programs\Bookstore\BookShelf\BookShelf\obj\Debug\net8.0-windows\BookS
 D:\Code\C#\Programs\Bookstore\BookShelf\BookShelf\obj\Debug\net8.0-windows\BookShelf.genruntimeconfig.cache
 D:\Code\C#\Programs\Bookstore\BookShelf\BookShelf\obj\Debug\net8.0-windows\ref\BookShelf.dll
 D:\Code\C#\Programs\Bookstore\BookShelf\BookShelf\obj\Debug\net8.0-windows\BookShelf_Content.g.cs
-D:\Code\C#\Programs\Bookstore\BookShelf\BookShelf\bin\Debug\net8.0-windows\Files\Images\UserIcon.png
-D:\Code\C#\Programs\Bookstore\BookShelf\BookShelf\bin\Debug\net8.0-windows\Files\Images\CatalogueIcon.png
+D:\Code\C#\Programs\Bookstore\BookShelf\BookShelf\obj\Debug\net8.0-windows\Themes\CatalogueButtonTheme.baml
+D:\Code\C#\Programs\Bookstore\BookShelf\BookShelf\obj\Debug\net8.0-windows\MVVM\View\BooksListView.g.cs
+D:\Code\C#\Programs\Bookstore\BookShelf\BookShelf\obj\Debug\net8.0-windows\MVVM\View\BooksListView.baml

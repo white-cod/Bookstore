@@ -14,7 +14,6 @@ namespace BookShelf.Core
 
         public UpdateViewCommand(MainViewModel MainView) { this.MainView = MainView; }
 
-
         public event EventHandler CanExecuteChanged;
         public bool CanExecute(object parameter)
         {
@@ -27,7 +26,9 @@ namespace BookShelf.Core
                 case "Home":
                     MainView.CurrentView = new HomeViewModel();
                     break;
-
+                case "BooksList":
+                    MainView.CurrentView = new BooksListViewModel();
+                    break;
                 default:
                     MainView.CurrentView = new HomeViewModel();
                     break;
