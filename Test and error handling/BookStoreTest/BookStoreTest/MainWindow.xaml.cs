@@ -62,10 +62,10 @@ namespace BookStoreTest
             {
                 DataRow bookRow = booksTable.Rows[currentBookIndex];
 
-                titleLabel.Content = $"Title: {bookRow["title"]}";
-                authorLabel.Content = $"Author: {bookRow["author"]}";
-                publisherLabel.Content = $"Publisher: {bookRow["publisher"]}";
-                pagesLabel.Content = $"Pages: {bookRow["pages"]}";
+                titleLabel.Content = $"{bookRow["title"]}";
+                authorLabel.Content = $"{bookRow["author"]}";
+                publisherLabel.Content = $"{bookRow["publisher"]}";
+                pagesLabel.Content = $"{bookRow["pages"]}";
 
                 string? coverImagePath = bookRow["cover_path"] as string;
                 if (!string.IsNullOrEmpty(coverImagePath) && File.Exists(coverImagePath))
