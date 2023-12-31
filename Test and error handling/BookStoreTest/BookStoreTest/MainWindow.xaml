@@ -5,9 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BookStoreTest"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="650" Width="800">
+
     <Grid>
-        <Label x:Name="bookLabel" Content="" HorizontalAlignment="Left" VerticalAlignment="Center" Height="414" Width="459" Margin="10,0,0,0" />
-        <Button Content="Next Book" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="NextBookButton_Click" Margin="615,0,0,10" Height="26" Width="75" />
+        <Image x:Name="coverImage" HorizontalAlignment="Left" Stretch="Fill" VerticalAlignment="Top" Height="405" Width="309" Margin="10,10,0,0" />
+        <Button Content="Next" HorizontalAlignment="Left" VerticalAlignment="Bottom" Click="NextBookButton_Click" Margin="676,0,0,9" Height="33" Width="92" />
+        <Button Content="Back" HorizontalAlignment="Left" Click="BackButton_Click" Margin="579,0,0,9" VerticalAlignment="Bottom" Height="33" Width="92"/>
+
+        <Label Content="Title:" FontSize="16" Height="35" Width="50" Margin="336,0,0,581" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+        <Label x:Name="titleLabel" FontSize="14" VerticalAlignment="Bottom" Height="35" Margin="421,0,0,579" HorizontalAlignment="Left" Width="250"/>
+
+        <Label Content="Author:" FontSize="16" Height="35" Width="65" Margin="336,0,0,541" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+        <Label x:Name="authorLabel" FontSize="14" VerticalAlignment="Bottom" Height="35" Margin="421,0,0,539" HorizontalAlignment="Left" Width="250"/>
+
+        <Label Content="Publisher: " FontSize="16" Height="35" Width="85" Margin="336,0,0,501" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+        <Label x:Name="publisherLabel" FontSize="14" VerticalAlignment="Bottom" Height="35" Margin="421,0,0,499" HorizontalAlignment="Left" Width="250"/>
+
+        <Label Content="Pages: " FontSize="16" Height="35" Width="55" Margin="336,0,0,461" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+        <Label x:Name="pagesLabel" FontSize="14" VerticalAlignment="Bottom" Height="35" Margin="421,0,0,458" HorizontalAlignment="Left" Width="250"/>
+
+        <TextBox x:Name="summaryTextBox" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="336,0,0,72" Width="432" Height="381" TextWrapping="Wrap" IsReadOnly="True"/>
+    
     </Grid>
+
 </Window>

@@ -3397,11 +3397,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\C++\\Проэкт\\BookStoreTest\\BookStoreTest\\BookStoreTest.csproj",
+      "projectUniqueName": "F:\\C++\\Bookstore\\Test and error handling\\BookStoreTest\\BookStoreTest\\BookStoreTest.csproj",
       "projectName": "BookStoreTest",
-      "projectPath": "F:\\C++\\Проэкт\\BookStoreTest\\BookStoreTest\\BookStoreTest.csproj",
+      "projectPath": "F:\\C++\\Bookstore\\Test and error handling\\BookStoreTest\\BookStoreTest\\BookStoreTest.csproj",
       "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "F:\\C++\\Проэкт\\BookStoreTest\\BookStoreTest\\obj\\",
+      "outputPath": "F:\\C++\\Bookstore\\Test and error handling\\BookStoreTest\\BookStoreTest\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",

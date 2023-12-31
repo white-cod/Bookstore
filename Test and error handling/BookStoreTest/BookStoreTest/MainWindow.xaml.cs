@@ -11,6 +11,7 @@ using System.Windows.Shapes;
 using System.Data.SqlClient;
 using System.Data;
 using Microsoft.EntityFrameworkCore;
+using System.IO;
 
 namespace BookStoreTest
 {
@@ -27,6 +28,7 @@ namespace BookStoreTest
         {
             InitializeComponent();
             booksTable = GetBooksData();
+            currentBookIndex = 0;
             DisplayBookInfo();
         }
 
@@ -38,7 +40,10 @@ namespace BookStoreTest
             {
                 connection.Open();
 
-                string query = "SELECT * FROM Books";
+                string query = "SELECT Books.*, BookCovers.cover_path, BookSummaries.summary_path " +
+                               "FROM Books " +
+                               "LEFT JOIN BookCovers ON Books.book_id = BookCovers.book_id " +
+                               "LEFT JOIN BookSummaries ON Books.book_id = BookSummaries.book_id";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     using (SqlDataAdapter adapter = new SqlDataAdapter(command))
@@ -56,19 +61,59 @@ namespace BookStoreTest
             if (currentBookIndex < booksTable.Rows.Count)
             {
                 DataRow bookRow = booksTable.Rows[currentBookIndex];
-                string bookInfo = $"Title: {bookRow["title"]}\nAuthor: {bookRow["author"]}\nPublisher: {bookRow["publisher"]}\nPages: {bookRow["pages"]}";
-                bookLabel.Content = bookInfo;
+
+                titleLabel.Content = $"Title: {bookRow["title"]}";
+                authorLabel.Content = $"Author: {bookRow["author"]}";
+                publisherLabel.Content = $"Publisher: {bookRow["publisher"]}";
+                pagesLabel.Content = $"Pages: {bookRow["pages"]}";
+
+                string? coverImagePath = bookRow["cover_path"] as string;
+                if (!string.IsNullOrEmpty(coverImagePath) && File.Exists(coverImagePath))
+                {
+                    BitmapImage bitmapImage = new BitmapImage(new Uri(coverImagePath));
+                    coverImage.Source = bitmapImage;
+                }
+                else
+                {
+                    coverImage.Source = null;
+                }
+
+                string? summaryFilePath = bookRow["summary_path"] as string;
+                if (!string.IsNullOrEmpty(summaryFilePath) && File.Exists(summaryFilePath))
+                {
+                    string summaryText = File.ReadAllText(summaryFilePath);
+                    summaryTextBox.Text = summaryText;
+                }
+                else
+                {
+                    summaryTextBox.Text = "No summary available.";
+                }
             }
             else
             {
-                bookLabel.Content = "No more books.";
+                titleLabel.Content = "No more books.";
+                authorLabel.Content = string.Empty;
+                publisherLabel.Content = string.Empty;
+                pagesLabel.Content = string.Empty;
+                summaryTextBox.Text = string.Empty;
+                coverImage.Source = null;
             }
         }
+
 
         private void NextBookButton_Click(object sender, RoutedEventArgs e)
         {
             currentBookIndex++;
             DisplayBookInfo();
+        }
+
+        private void BackButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (currentBookIndex > 0)
+            {
+                currentBookIndex--;
+                DisplayBookInfo();
+            }
         }
 
     }
