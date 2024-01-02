@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = BookShelf
-build_property.ProjectDir = D:\Code\C#\temp\BookShelf\
+build_property.ProjectDir = D:\Code\C#\Programs\Bookstore\BookShelf\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

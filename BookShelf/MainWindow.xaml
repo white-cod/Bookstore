@@ -59,6 +59,42 @@
                 BorderThickness="0,0,0,1"
                 Background="LightGray">
             <Grid>
+                <!-- Page switchers -->
+                <Image MouseDown="PreviousPage_MouseDown"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       Height="50"
+                       Margin="0,0,50,0"
+                       Cursor="Hand">
+                    <Image.Style>
+                        <Style TargetType="Image">
+                            <Setter Property="Source" Value="/Files/Images/ArrowIconLeft.png"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Source" Value="/Files/Images/ArrowIconLeftActive.png"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+
+                <Image HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       Height="50"
+                       MouseDown="NextPage_MouseDown"
+                       Cursor="Hand">
+                    <Image.Style>
+                        <Style TargetType="Image">
+                            <Setter Property="Source" Value="Files/Images/ArrowIconRight.png"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Source" Value="Files/Images/ArrowIconRightActive.png"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+
                 <!-- Search -->
                 <Border HorizontalAlignment="Left"
                         VerticalAlignment="Center"
@@ -70,6 +106,7 @@
                                   Height="70"
                                   Focusable="False"
                                   ItemsSource="{Binding SearchOptions}">
+
                             <!-- ComboBox Styles -->
                             <ComboBox.ItemContainerStyle>
                                 <Style TargetType="ComboBoxItem">
@@ -86,6 +123,7 @@
                                     </Setter>
                                 </Style>
                             </ComboBox.ItemContainerStyle>
+
                             <ComboBox.Style>
                                 <Style TargetType="ComboBox">
                                     <Setter Property="Template">
@@ -118,6 +156,7 @@
                                 </Style>
                             </ComboBox.Style>
                         </ComboBox>
+
                         <!-- Search Box -->
                         <TextBox>
                             <TextBox.Style>
@@ -164,6 +203,7 @@
                                                                 </Style>
                                                             </Image.Style>
                                                         </Image>
+
                                                         <!-- Search text in box-->
                                                         <TextBlock IsHitTestVisible="False"
                                                                    Text="Search"
@@ -230,6 +270,5 @@
                              FontFamily="Files/Fonts/INTER/#Inter"/>
             </StackPanel>
         </Border>
-
     </Grid>
 </Window>

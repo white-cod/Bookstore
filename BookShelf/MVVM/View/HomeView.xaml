@@ -5,8 +5,319 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:BookShelf.MVVM.View"
              mc:Ignorable="d" 
-             d:DesignHeight="400" d:DesignWidth="800">
+             d:DesignHeight="790" d:DesignWidth="1290">
+
     <Grid>
-        <Label>HUI</Label>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <!-- Recommended -->
+        <Border Grid.Row="0"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Height="250"
+                Width="1200">
+            <Grid>
+                <Label Content="Recommended"
+                       FontSize="30"
+                       FontFamily="/Files/Fonts/INTER/#Inter"
+                       FontWeight="SemiBold"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Left"
+                       Margin="40,10,10,10"/>
+                <ListBox x:Name="RecommendedListBox"
+                         HorizontalAlignment="Center"
+                         VerticalAlignment="Center"
+                         Height="150"
+                         Width="1240"
+                         Margin="0,0,0,-30"
+                         ItemsSource="{Binding recommended_books}"
+                         BorderBrush="Gray"
+                         BorderThickness="0,2,0,2"
+                         ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                         ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                         PreviewMouseWheel="ListBox_PreviewMouseWheel">
+
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="ListBoxItem">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ListBoxItem">
+                                        <Border Background="{TemplateBinding Background}">
+                                            <ContentPresenter />
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <EventSetter Event="MouseDoubleClick" Handler="Book_MouseDoubleClick"/>
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Rows="1"/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+
+                    <ListBox.ItemTemplate>
+                        <DataTemplate DataType="ListBoxItem">
+                            <Grid Width="220"
+                                  Height="120"
+                                  Margin="3,0,3,0"
+                                  Cursor="Hand">
+
+                                <Grid.Style>
+                                    <Style TargetType="Grid">
+                                        <Setter Property="Background" Value="#adadad"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="LightGray"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Grid.Style>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{Binding cover}"
+                                       Height="100"
+                                       Width="100"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       Margin="5"/>
+                                <TextBlock Text="{Binding title}"
+                                           TextWrapping="Wrap"
+                                           FontSize="14"
+                                           FontFamily="/Files/Fonts/INTER/#Inter"
+                                           FontWeight="Bold"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Top"
+                                           Height="100"
+                                           Grid.Column="1"
+                                           Margin="5"/>
+                                <TextBlock Text="{Binding sale_price}"
+                                           TextWrapping="Wrap"
+                                           FontSize="14"
+                                           FontWeight="SemiBold"
+                                           FontFamily="/Files/Fonts/INTER/#Inter"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Bottom"
+                                           Grid.Column="1"
+                                           Height="40"
+                                           Margin="5"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Grid>
+        </Border>
+
+        <!-- Novelties -->
+        <Border Grid.Row="1"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Height="250"
+                Width="1200">
+            <Grid>
+                <Label Content="Novelties"
+                       FontSize="30"
+                       FontFamily="/Files/Fonts/INTER/#Inter"
+                       FontWeight="SemiBold"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Left"
+                       Margin="40,10,10,10"/>
+                <ListBox x:Name="NoveltiesListBox"
+                         HorizontalAlignment="Center"
+                         VerticalAlignment="Center"
+                         Height="150"
+                         Width="1240"
+                         Margin="0,0,0,-30"
+                         ItemsSource="{Binding new_books}"
+                         BorderBrush="Gray"
+                         BorderThickness="0,2,0,2"
+                         ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                         ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                         PreviewMouseWheel="ListBox_PreviewMouseWheel">
+
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="ListBoxItem">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ListBoxItem">
+                                        <Border Background="{TemplateBinding Background}">
+                                            <ContentPresenter />
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <EventSetter Event="MouseDoubleClick" Handler="Book_MouseDoubleClick"/>
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Rows="1"/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+
+                    <ListBox.ItemTemplate>
+                        <DataTemplate DataType="ListBoxItem">
+                            <Grid Width="220"
+                                  Height="120"
+                                  Margin="3,0,3,0"
+                                  Cursor="Hand">
+
+                                <Grid.Style>
+                                    <Style TargetType="Grid">
+                                        <Setter Property="Background" Value="#adadad"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="LightGray"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Grid.Style>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{Binding cover}"
+                                       Height="100"
+                                       Width="100"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       Margin="5"/>
+                                <TextBlock Text="{Binding title}"
+                                           TextWrapping="Wrap"
+                                           FontSize="14"
+                                           FontFamily="/Files/Fonts/INTER/#Inter"
+                                           FontWeight="Bold"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Top"
+                                           Height="100"
+                                           Grid.Column="1"
+                                           Margin="5"/>
+                                <TextBlock Text="{Binding cost_price}"
+                                           TextWrapping="Wrap"
+                                           FontSize="14"
+                                           FontWeight="SemiBold"
+                                           FontFamily="/Files/Fonts/INTER/#Inter"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Bottom"
+                                           Grid.Column="1"
+                                           Height="40"
+                                           Margin="5"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Grid>
+        </Border>
+
+        <!-- Special offers -->
+        <Border Grid.Row="2"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Height="250"
+                Width="1200">
+            <Grid>
+                <Label Content="Special offers"
+                       FontSize="30"
+                       FontFamily="/Files/Fonts/INTER/#Inter"
+                       FontWeight="SemiBold"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Left"
+                       Margin="40,10,10,10"/>
+                <ListBox x:Name="SpecialOffersListBox"
+                         HorizontalAlignment="Center"
+                         VerticalAlignment="Center"
+                         Height="150"
+                         Width="1240"
+                         Margin="0,0,0,-30"
+                         ItemsSource="{Binding offered_books}"
+                         BorderBrush="Gray"
+                         BorderThickness="0,2,0,2"
+                         ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                         ScrollViewer.VerticalScrollBarVisibility="Disabled"
+                         PreviewMouseWheel="ListBox_PreviewMouseWheel">
+
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="ListBoxItem">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ListBoxItem">
+                                        <Border Background="{TemplateBinding Background}">
+                                            <ContentPresenter />
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <EventSetter Event="MouseDoubleClick" Handler="Book_MouseDoubleClick"/>
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Rows="1"/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+
+                    <ListBox.ItemTemplate>
+                        <DataTemplate DataType="ListBoxItem">
+                            <Grid Width="220"
+                                  Height="120"
+                                  Margin="3,0,3,0"
+                                  Cursor="Hand">
+
+                                <Grid.Style>
+                                    <Style TargetType="Grid">
+                                        <Setter Property="Background" Value="#adadad"/>
+                                        <Style.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="True">
+                                                <Setter Property="Background" Value="LightGray"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </Grid.Style>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Image Source="{Binding cover}"
+                                       Height="100"
+                                       Width="100"
+                                       HorizontalAlignment="Center"
+                                       VerticalAlignment="Center"
+                                       Margin="5"/>
+                                <TextBlock Text="{Binding title}"
+                                           TextWrapping="Wrap"
+                                           FontSize="14"
+                                           FontFamily="/Files/Fonts/INTER/#Inter"
+                                           FontWeight="Bold"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Top"
+                                           Height="100"
+                                           Grid.Column="1"
+                                           Margin="5"/>
+                                <TextBlock Text="{Binding cost_price}"
+                                           TextWrapping="Wrap"
+                                           FontSize="14"
+                                           FontWeight="SemiBold"
+                                           FontFamily="/Files/Fonts/INTER/#Inter"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Bottom"
+                                           Grid.Column="1"
+                                           Height="40"
+                                           Margin="5"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Grid>
+        </Border>
     </Grid>
 </UserControl>

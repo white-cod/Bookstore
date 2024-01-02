@@ -12,6 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BookShelf.MVVM.ViewModel;
+using BookShelf.Core;
 
 namespace BookShelf
 {
@@ -19,13 +20,15 @@ namespace BookShelf
     {
         private const int ELEMENTS_LIMIT = 26; // elements limit in search string
         private MainViewModel mainViewModel { get; set; }
-        public ObservableCollection<string> SearchOptions { get; set; } // is public because of binding 
+        public ObservableCollection<string> SearchOptions { get; private set; } // is public because of binding 
         public MainWindow()
         {
-            InitializeComponent();
+            InitializeComponent();    
+
             mainViewModel = ((App)Application.Current).MainViewModel;
             SearchComboBox.DataContext = this;
             DataContext = mainViewModel;
+            PagesHistoryManager.pagesHistory.Add(mainViewModel.CurrentView);
 
             SearchOptions = new ObservableCollection<string>()
             {
@@ -52,6 +55,37 @@ namespace BookShelf
                 SearchOptions[2] = $"Search \"{searchOptionsText}\" in genres";
             }
             SearchComboBox.SelectedValue = string.Empty;
+        }
+
+        private void PreviousPage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if(PagesHistoryManager.pagesHistory.Count > 0)
+            {
+                int CurrentPageIndex = PagesHistoryManager.pagesHistory.IndexOf(mainViewModel.CurrentView);
+                if(CurrentPageIndex > 0 && CurrentPageIndex != -1) 
+                {
+                    mainViewModel.CurrentView = PagesHistoryManager.pagesHistory[CurrentPageIndex - 1];
+
+                    if (mainViewModel.CurrentView is HomeViewModel) HomeMenuButton.IsChecked = true;
+                    else if (mainViewModel.CurrentView is CatalogueListViewModel) CatalogueMenuButton.IsChecked = true;
+                }
+            }    
+        }
+
+        private void NextPage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if(PagesHistoryManager.pagesHistory.Count > 1)
+            {
+                int CurrentPageIndex = PagesHistoryManager.pagesHistory.IndexOf(mainViewModel.CurrentView);
+
+                if(CurrentPageIndex < PagesHistoryManager.pagesHistory.Count-1 && CurrentPageIndex != -1) 
+                {
+                    mainViewModel.CurrentView = PagesHistoryManager.pagesHistory[CurrentPageIndex + 1];
+
+                    if (mainViewModel.CurrentView is HomeViewModel) HomeMenuButton.IsChecked = true;
+                    else if (mainViewModel.CurrentView is CatalogueListViewModel) CatalogueMenuButton.IsChecked = true;
+                }
+            }
         }
     }
 }

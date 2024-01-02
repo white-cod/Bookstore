@@ -1,0 +1,30 @@
+﻿using System.Collections.ObjectModel;
+using System.Printing;
+using System.Text;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using BookShelf.Core;
+using BookShelf.MVVM.Model;
+using BookShelf.MVVM.ViewModel;
+
+
+namespace BookShelf.MVVM.ViewModel
+{
+    public class BookInfoViewModel : BaseViewModel
+    {
+        public Book CurrentBook { get; }
+
+        public BookInfoViewModel(Book book)
+        {
+            CurrentBook = book;
+        }
+    }
+}

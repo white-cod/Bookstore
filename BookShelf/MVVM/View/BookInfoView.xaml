@@ -1,0 +1,165 @@
+﻿<UserControl x:Class="BookShelf.MVVM.View.BookInfoView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BookShelf.MVVM.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="790" d:DesignWidth="1290">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="520"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Image Source="{Binding CurrentBook.cover}"
+               HorizontalAlignment="Center"
+               VerticalAlignment="Top"
+               Width="500"
+               Height="500"
+               Margin="0,40,0,0"/>
+
+        <StackPanel Orientation="Horizontal"
+                    VerticalAlignment="Bottom"
+                    HorizontalAlignment="Center"
+                    Margin="0,0,0,90">
+            <Button Height="50"
+                    Width="50"
+                    Padding="3">
+                <Button.Content>
+                    <Image Source="/Files/Images/ShoppingCartIconDefault.png"/>
+                </Button.Content>
+            </Button>
+            <Button Height="50"
+                    Width="350"
+                    Margin="20,0,0,0"
+                    Content="Buy"
+                    FontSize="30"
+                    FontFamily="/Files/Fonts/INTER/#Inter"
+                    FontWeight="SemiBold">
+            </Button>
+        </StackPanel>
+
+        <Border BorderThickness="0"
+                Grid.Column="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="150"/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Width="700"
+                           Height="130"
+                           VerticalAlignment="Top"
+                           Margin="20,30,20,0"
+                           Text="{Binding CurrentBook.title}"
+                           FontSize="30"
+                           FontFamily="/Files/Fonts/INTER/#Inter"
+                           FontWeight="SemiBold"/>
+
+                <StackPanel Grid.Row="1" Orientation="Vertical"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Margin="30">
+
+                    <StackPanel Margin="10" Orientation="Horizontal">
+                        <TextBlock Text="Author:" 
+                                   FontSize="24"
+                                   FontFamily="/Files/Fonts/INTER/#Inter"
+                                   FontWeight="Light"/>
+                        <TextBlock Text="{Binding CurrentBook.author}"
+                                   FontSize="24"
+                                   FontFamily="/Files/Fonts/INTER/#Inter"
+                                   FontWeight="Light"
+                                   Margin="30,0,0,0"/>
+                    </StackPanel>
+
+                    <StackPanel Margin="10" Orientation="Horizontal">
+                        <TextBlock Text="Publisher:" 
+                                   FontSize="24"
+                                   FontFamily="/Files/Fonts/INTER/#Inter"
+                                   FontWeight="Light"/>
+                        <TextBlock Text="{Binding CurrentBook.publisher}"
+                                   FontSize="24"
+                                   FontFamily="/Files/Fonts/INTER/#Inter"
+                                   FontWeight="Light"
+                                   Margin="30,0,0,0"/>
+                    </StackPanel>
+
+                    <StackPanel Margin="10" Orientation="Horizontal">
+                        <TextBlock Text="Pages:" 
+                                   FontSize="24"
+                                   FontFamily="/Files/Fonts/INTER/#Inter"
+                                   FontWeight="Light"/>
+                        <TextBlock Text="{Binding CurrentBook.pages}"
+                                   FontSize="24"
+                                   FontFamily="/Files/Fonts/INTER/#Inter"
+                                   FontWeight="Light"
+                                   Margin="30,0,0,0"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="1"
+                                Margin="0,10,0,0"
+                                VerticalAlignment="Top"
+                                Orientation="Horizontal"
+                                HorizontalAlignment="Left">
+
+                        <TextBlock Text="Sale Price:" 
+                                   FontSize="30"
+                                   FontFamily="/Files/Fonts/INTER/#Inter"
+                                   FontWeight="Light"/>
+
+                        <TextBlock Text="{Binding CurrentBook.sale_price}"
+                                   FontSize="30"
+                                   FontFamily="/Files/Fonts/INTER/#Inter"
+                                   FontWeight="Medium"
+                                   Margin="20,0,0,0"/>
+                    </StackPanel>
+
+                    <StackPanel Grid.Row="1"
+                                Margin="0,10,0,0"
+                                VerticalAlignment="Center"
+                                Orientation="Horizontal"
+                                HorizontalAlignment="Left">
+
+                        <TextBlock Text="Cost Price:" 
+                                   FontSize="30"
+                                   FontFamily="/Files/Fonts/INTER/#Inter"
+                                   FontWeight="Light"/>
+
+                        <TextBlock Text="{Binding CurrentBook.cost_price}"
+                                   FontSize="30"
+                                   FontFamily="/Files/Fonts/INTER/#Inter"
+                                   FontWeight="Medium"
+                                   Margin="20,0,0,0"/>
+                    </StackPanel>
+
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical"
+                            Grid.Row="2"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Left"
+                            Margin="30"
+                            Width="700"
+                            Height="260">
+
+                    <TextBlock Text="Description:"
+                               FontFamily="/Files/Fonts/INTER/#Inter"
+                               FontSize="24"
+                               FontWeight="Light"
+                               HorizontalAlignment="Left"/>
+                    <TextBlock Text="{Binding CurrentBook.summary}"
+                               FontSize="16"
+                               FontFamily="/Files/Fonts/INTER/#Inter"
+                               FontWeight="Light"
+                               TextWrapping="Wrap"
+                               Height="230"
+                               MaxHeight="230"/>
+                </StackPanel>
+
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

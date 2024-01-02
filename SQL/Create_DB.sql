@@ -1,4 +1,4 @@
-USE [master]
+ÔªøUSE [master]
 GO
 /****** Object:  Database [BookStore]    Script Date: 31.12.2023 22:10:18 ******/
 CREATE DATABASE [BookStore]
@@ -84,7 +84,7 @@ USE [BookStore]
 GO
 /****** Object:  Table [dbo].[BookCovers]    Script Date: 31.12.2023 22:10:18 ******/
 
-/****** “¿¡À»÷» Õ»∆≈ ******/
+/****** √í√Ä√Å√ã√à√ñ√à √ç√à√Ü√Ö ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

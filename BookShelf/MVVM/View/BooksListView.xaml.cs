@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace BookShelf.MVVM.View
 {
     /// <summary>
-    /// Interaction logic for BookListView.xaml
+    /// Interaction logic for BooksListView.xaml
     /// </summary>
-    public partial class BookListView : UserControl
+    public partial class BooksListView : UserControl
     {
-        public BookListView()
+        public BooksListView()
         {
             InitializeComponent();
         }

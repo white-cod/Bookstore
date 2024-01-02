@@ -51,7 +51,6 @@ namespace BookShelf.MVVM.View
                 "Youth Fantasy",
                 "Popular Science Literature",
                 "Documentary Prose",
-                "Action/Adventure",
                 "Philosophical Literature",
                 "Religious Literature",
                 "Personal Development"
