@@ -17,7 +17,10 @@ namespace BookShelf.Core
 {
     public static class DatabaseHelper
     {
-        private const string CONNECTION_STRING = "Data Source=DESKTOP-AJ6IRLC\\SQLEXPRESS;Initial Catalog=Bookstore;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
+        //private const string CONNECTION_STRING = "Data Source=DESKTOP-AJ6IRLC\\SQLEXPRESS;Initial Catalog=Bookstore;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
+
+        private const string CONNECTION_STRING = "Data Source=DESKTOP-C85D6OJ\\SQLEXPRESS;Initial Catalog=Bookstore;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
+
         private static DataTable booksTable;
 
         static DatabaseHelper()
@@ -75,6 +78,7 @@ namespace BookShelf.Core
             
             return selectedBooks;
         }
+
         public static List<Book> GetBooksByGenre(string genre) => GetBooksBy("genre", genre);
         public static List<Book> GetBooksByAuthor(string author) => GetBooksBy("author", author);
         public static List<Book> GetBooksByTitle(string title) => GetBooksBy("title", title);
