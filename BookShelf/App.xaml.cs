@@ -1,4 +1,5 @@
-﻿using BookShelf.MVVM.ViewModel;
+﻿using BookShelf.Core;
+using BookShelf.MVVM.ViewModel;
 using System.Configuration;
 using System.Data;
 using System.Windows;

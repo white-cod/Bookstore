@@ -1,4 +1,7 @@
-﻿using System;
+﻿using BookShelf.Core;
+using BookShelf.MVVM.Model;
+using BookShelf.MVVM.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +26,23 @@ namespace BookShelf.MVVM.View
         public BooksListView()
         {
             InitializeComponent();
+            DataContext = ((App)Application.Current).MainViewModel.CurrentView as BooksListViewModel;
+        }
+
+        private void Book_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            ListBoxItem item = sender as ListBoxItem;
+
+            if (item != null)
+            {
+                Book SelectedBook = item.DataContext as Book;
+
+                if (SelectedBook != null)
+                {
+                    BookDataManager.BookData = SelectedBook;
+                    ((App)Application.Current).MainViewModel.UpdateViewCommand.Execute("BookInfo");
+                }
+            }
         }
     }
 }

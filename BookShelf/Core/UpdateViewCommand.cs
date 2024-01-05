@@ -5,15 +5,28 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Collections.ObjectModel;
+using System.Printing;
+using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
+using System.Windows.Data;
+using System.Windows.Documents;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
+using System.Windows.Shapes;
+using System.Diagnostics.Eventing.Reader;
+using BookShelf.MVVM.View;
+using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace BookShelf.Core
 {
     public class UpdateViewCommand : ICommand // Support class for changing views in an app
-    { 
+    {
         private MainViewModel MainView;
         public UpdateViewCommand(MainViewModel MainView) { this.MainView = MainView; }
-
         public event EventHandler CanExecuteChanged;
         public bool CanExecute(object parameter)
         {
@@ -28,7 +41,10 @@ namespace BookShelf.Core
                     MainView.CurrentView = new HomeViewModel();
                     break;
                 case "BooksList":
-                    MainView.CurrentView = new BooksListViewModel();
+                    if (MainView.CurrentView is BooksListViewModel)
+                        ((BooksListViewModel)MainView.CurrentView).SearchedBooks = SearchManager.SearchedBooks;
+                    else
+                        MainView.CurrentView = new BooksListViewModel(SearchManager.SearchedBooks);
                     break;
                 case "Catalogue":
                     MainView.CurrentView = new CatalogueListViewModel();

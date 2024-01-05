@@ -18,6 +18,9 @@ namespace BookShelf.Core
     public static class DatabaseHelper
     {
         private const string CONNECTION_STRING = "Data Source=DESKTOP-AJ6IRLC\\SQLEXPRESS;Initial Catalog=Bookstore;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
+
+        // private const string CONNECTION_STRING = "Data Source=DESKTOP-C85D6OJ\\SQLEXPRESS;Initial Catalog=Bookstore;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
+
         private static DataTable booksTable;
 
         static DatabaseHelper()
@@ -51,7 +54,7 @@ namespace BookShelf.Core
 
         private static Book CreateBookObject(DataRow row)
         {
-            return new Book( row.Field<string>("title"),
+            return new Book(row.Field<string>("title"),
                              row.Field<string>("author"),
                              row.Field<string>("publisher"),
                              row.Field<int?>("pages"),
@@ -61,7 +64,7 @@ namespace BookShelf.Core
                              row.Field<decimal?>("sale_price"),
                              row.Field<int?>("continuation_of"),
                              row.Field<string?>("summary_path"),
-                             row.Field<string?>("cover_path") );
+                             row.Field<string?>("cover_path"));
         }
         public static List<Book> GetAllBooks()
         {
@@ -72,9 +75,10 @@ namespace BookShelf.Core
             {
                 if (row != null) selectedBooks.Add(CreateBookObject(row));
             }
-            
+
             return selectedBooks;
         }
+
         public static List<Book> GetBooksByGenre(string genre) => GetBooksBy("genre", genre);
         public static List<Book> GetBooksByAuthor(string author) => GetBooksBy("author", author);
         public static List<Book> GetBooksByTitle(string title) => GetBooksBy("title", title);

@@ -16,5 +16,5 @@ D:\Code\C#\Programs\Bookstore\BookShelf\App.xaml
 226-157234228
 MainWindow.xaml;MVVM\View\BookInfoView.xaml;MVVM\View\BooksListView.xaml;MVVM\View\CatalogueListView.xaml;MVVM\View\HomeView.xaml;Themes\CatalogueButtonTheme.xaml;Themes\CustomFocusVisualStyleTheme.xaml;Themes\MenuButtonTheme.xaml;
 
-False
+True
 

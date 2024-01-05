@@ -22,7 +22,7 @@
         </Grid.ColumnDefinitions>
 
         <!-- Variable view -->
-        <ContentControl Grid.Row="1" Grid.Column="1" Content="{Binding CurrentView}" Margin="5"/>
+        <ContentControl x:Name="Con" Grid.Row="1" Grid.Column="1" Content="{Binding CurrentView, Mode=TwoWay}" Margin="5"/>
 
         <!-- Top menu title -->
         <Border Grid.Row="0"
@@ -117,7 +117,8 @@
                                                 <TextBlock Text="{Binding}"
                                                            Background="Transparent" 
                                                            Cursor="Hand"
-                                                           Margin="5"/>
+                                                           Margin="5"
+                                                           MouseDown="SearchOption_MouseDown"/>
                                             </ControlTemplate>
                                         </Setter.Value>
                                     </Setter>
@@ -126,6 +127,7 @@
 
                             <ComboBox.Style>
                                 <Style TargetType="ComboBox">
+                                    <EventSetter Event="MouseDown" Handler="SearchOption_MouseDown"/>
                                     <Setter Property="Template">
                                         <Setter.Value>
                                             <ControlTemplate TargetType="ComboBox">
@@ -191,7 +193,8 @@
                                                                Height="50"
                                                                HorizontalAlignment="Right"
                                                                Margin="10,0,10,0"
-                                                               Cursor="Hand">
+                                                               Cursor="Hand"
+                                                               MouseDown="SearchImage_MouseDown">
                                                             <Image.Style>
                                                                 <Style TargetType="Image">
                                                                     <Setter Property="Source" Value="Files/Images/SearchIconDefault.png"/>

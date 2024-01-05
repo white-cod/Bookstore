@@ -13,11 +13,13 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BookShelf.MVVM.ViewModel;
 using BookShelf.Core;
+using System.Reflection.Metadata;
 
 namespace BookShelf
 {
     public partial class MainWindow : Window
     {
+        private TextBox SearchBox;
         private const int ELEMENTS_LIMIT = 26; // elements limit in search string
         private MainViewModel mainViewModel { get; set; }
         public ObservableCollection<string> SearchOptions { get; private set; } // is public because of binding 
@@ -53,6 +55,8 @@ namespace BookShelf
                 SearchOptions[0] = $"Search \"{searchOptionsText}\" in books";
                 SearchOptions[1] = $"Search \"{searchOptionsText}\" in authors";
                 SearchOptions[2] = $"Search \"{searchOptionsText}\" in genres";
+
+                if (this.SearchBox == null) this.SearchBox = SearchBox;
             }
             SearchComboBox.SelectedValue = string.Empty;
         }
@@ -85,6 +89,27 @@ namespace BookShelf
                     if (mainViewModel.CurrentView is HomeViewModel) HomeMenuButton.IsChecked = true;
                     else if (mainViewModel.CurrentView is CatalogueListViewModel) CatalogueMenuButton.IsChecked = true;
                 }
+            }
+        }
+
+        private void SearchOption_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            TextBlock SelectedSearchOption = sender as TextBlock;
+            if (SelectedSearchOption != null && SearchBox.Text != null)
+            { 
+                string SelectedOptionText = SelectedSearchOption.Text;
+                SearchType parameter = (SearchType)SearchOptions.IndexOf(SelectedOptionText);
+                SearchManager.Search(parameter, SearchBox.Text);
+                SearchBox.Text = string.Empty;
+            }
+        }
+
+        private void SearchImage_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if(!string.IsNullOrEmpty(SearchBox.Text))
+            {
+                SearchManager.Search(SearchType.Title, SearchBox.Text);
+                SearchBox.Text = string.Empty;           
             }
         }
     }
