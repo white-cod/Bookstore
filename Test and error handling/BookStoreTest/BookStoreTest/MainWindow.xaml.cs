@@ -17,7 +17,9 @@ namespace BookStoreTest
 {
     public partial class MainWindow : Window
     {
-        private const string ConnectionString = "Server=DESKTOP-AJ6IRLC\\SQLEXPRESS;Database=BookStore;Integrated Security=True;";
+        //private const string ConnectionString = "Server=DESKTOP-AJ6IRLC\\SQLEXPRESS;Database=BookStore;Integrated Security=True;";
+
+        private const string ConnectionString = "Server=DESKTOP-C85D6OJ\\SQLEXPRESS;Database=BookStore;Integrated Security=True;";
 
         private SqlConnection connection = new SqlConnection(ConnectionString);
 
@@ -30,6 +32,7 @@ namespace BookStoreTest
             booksTable = GetBooksData();
             currentBookIndex = 0;
             DisplayBookInfo();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
         private DataTable GetBooksData()
