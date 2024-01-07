@@ -22,13 +22,11 @@ namespace BookShelf.MVVM.View
     public partial class CatalogueListView : UserControl
     {
         public ObservableCollection<string> GenresList { get; private set; }
-        public ObservableCollection<string> AgesList { get; private set; }
         public CatalogueListView()
         {
             InitializeComponent();
 
             GenresListBox.DataContext = this;
-            AgesListBox.DataContext = this;
             GenresList = new ObservableCollection<string>()
             {
                 "Novel",
@@ -55,16 +53,6 @@ namespace BookShelf.MVVM.View
                 "Religious Literature",
                 "Personal Development"
             };
-
-            AgesList = new ObservableCollection<string>()
-            {
-                "For little children, 3+",
-                "For juniors, 6+",
-                "For teens, 12+",
-                "For adults, 18+"
-            };
-        }
-
-        
+        }      
     }
 }

@@ -7,11 +7,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="790" d:DesignWidth="1290">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-
         <!-- Genres list block -->
         <Border Grid.Column="0"
                 HorizontalAlignment="Center"
@@ -67,59 +62,6 @@
             </StackPanel>
         </Border>
 
-        <!-- Ages list -->
-        <Border Grid.Column="1"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Top"
-                Margin="0,50,0,0">
-            <StackPanel>
-                <Label HorizontalAlignment="Center"
-                       VerticalAlignment="Top"
-                       FontFamily="/Files/Fonts/INTER/#Inter"
-                       FontSize="30"
-                       FontWeight="SemiBold"
-                       Margin="20">By Age</Label>
-                <ListBox x:Name="AgesListBox" 
-                         ItemsSource="{Binding AgesList}"
-                         BorderThickness="0"
-                         Background="Transparent">
-                    <ListBox.ItemsPanel>
-                        <ItemsPanelTemplate>
-                            <UniformGrid Columns="1"/>
-                        </ItemsPanelTemplate>
-                    </ListBox.ItemsPanel>
-
-                    <ListBox.ItemContainerStyle>
-                        <Style TargetType="ListBoxItem">
-                            <Setter Property="FocusVisualStyle" Value="{StaticResource CustomFocusVisualStyleTheme}"/>
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="ListBoxItem">
-                                        <TextBlock Text="{Binding}"
-                                                   Cursor="Hand"
-                                                   HorizontalAlignment="Left"
-                                                   VerticalAlignment="Center"
-                                                   FontSize="20"
-                                                   FontFamily="/Files/Fonts/INTER/#Inter"
-                                                   Margin="10">
-                                            <TextBlock.Style>
-                                                <Style TargetType="TextBlock">
-                                                    <Setter Property="Background" Value="Transparent"/>
-                                                    <Style.Triggers>
-                                                        <Trigger Property="IsMouseOver" Value="True">
-                                                            <Setter Property="Background" Value="#adadad"/>
-                                                        </Trigger>
-                                                    </Style.Triggers>
-                                                </Style>
-                                            </TextBlock.Style>
-                                        </TextBlock>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-                    </ListBox.ItemContainerStyle>
-                </ListBox>
-            </StackPanel>
-        </Border>
+       
     </Grid>
 </UserControl>

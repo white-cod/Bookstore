@@ -63,7 +63,7 @@ namespace BookShelf
 
         private void PreviousPage_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if(PagesHistoryManager.pagesHistory.Count > 0)
+            if (e.ChangedButton == MouseButton.Left && PagesHistoryManager.pagesHistory.Count > 0)
             {
                 int CurrentPageIndex = PagesHistoryManager.pagesHistory.IndexOf(mainViewModel.CurrentView);
                 if(CurrentPageIndex > 0 && CurrentPageIndex != -1) 
@@ -78,7 +78,7 @@ namespace BookShelf
 
         private void NextPage_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if(PagesHistoryManager.pagesHistory.Count > 1)
+            if(e.ChangedButton == MouseButton.Left && PagesHistoryManager.pagesHistory.Count > 1)
             {
                 int CurrentPageIndex = PagesHistoryManager.pagesHistory.IndexOf(mainViewModel.CurrentView);
 
@@ -94,22 +94,33 @@ namespace BookShelf
 
         private void SearchOption_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            TextBlock SelectedSearchOption = sender as TextBlock;
-            if (SelectedSearchOption != null && SearchBox.Text != null)
-            { 
-                string SelectedOptionText = SelectedSearchOption.Text;
-                SearchType parameter = (SearchType)SearchOptions.IndexOf(SelectedOptionText);
-                SearchManager.Search(parameter, SearchBox.Text);
-                SearchBox.Text = string.Empty;
-            }
+            if (e.ChangedButton == MouseButton.Left)
+            {
+                TextBlock SelectedSearchOption = sender as TextBlock;
+                if (SelectedSearchOption != null && SearchBox.Text != null)
+                {
+                    string SelectedOptionText = SelectedSearchOption.Text;
+                    SearchType parameter = (SearchType)SearchOptions.IndexOf(SelectedOptionText);
+                    SearchManager.Search(parameter, SearchBox.Text);
+                    SearchBox.Text = string.Empty;
+                }
+            }            
         }
 
         private void SearchImage_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            if(!string.IsNullOrEmpty(SearchBox.Text))
+            if(!string.IsNullOrEmpty(SearchBox.Text) && e.ChangedButton == MouseButton.Left)
             {
                 SearchManager.Search(SearchType.Title, SearchBox.Text);
                 SearchBox.Text = string.Empty;           
+            }
+        }
+
+        private void ProfileOpen_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if(e.ChangedButton == MouseButton.Left)
+            {
+                // your code here
             }
         }
     }
