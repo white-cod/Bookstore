@@ -1,6 +1,6 @@
 USE [master]
 GO
-/****** Object:  Database [BookStore]    Script Date: 04.01.2024 15:05:25 ******/
+/****** Object:  Database [BookStore]    Script Date: 08.01.2024 13:39:23 ******/
 CREATE DATABASE [BookStore]
  CONTAINMENT = NONE
  ON  PRIMARY 
@@ -84,7 +84,7 @@ USE [BookStore]
 GO
 USE [BookStore]
 GO
-/****** Object:  Sequence [dbo].[Seq_Users]    Script Date: 04.01.2024 15:05:25 ******/
+/****** Object:  Sequence [dbo].[Seq_Users]    Script Date: 08.01.2024 13:39:23 ******/
 CREATE SEQUENCE [dbo].[Seq_Users] 
  AS [bigint]
  START WITH 1
@@ -93,7 +93,7 @@ CREATE SEQUENCE [dbo].[Seq_Users]
  MAXVALUE 9223372036854775807
  CACHE 
 GO
-/****** Object:  Table [dbo].[BookCovers]    Script Date: 04.01.2024 15:05:25 ******/
+/****** Object:  Table [dbo].[BookCovers]    Script Date: 08.01.2024 13:39:23 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -108,7 +108,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Books]    Script Date: 04.01.2024 15:05:25 ******/
+/****** Object:  Table [dbo].[Books]    Script Date: 08.01.2024 13:39:23 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -130,7 +130,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[BookSummaries]    Script Date: 04.01.2024 15:05:25 ******/
+/****** Object:  Table [dbo].[BookSummaries]    Script Date: 08.01.2024 13:39:23 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -145,7 +145,7 @@ PRIMARY KEY CLUSTERED
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Users]    Script Date: 04.01.2024 15:05:25 ******/
+/****** Object:  Table [dbo].[Users]    Script Date: 08.01.2024 13:39:23 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -154,6 +154,11 @@ CREATE TABLE [dbo].[Users](
 	[user_id] [int] NOT NULL,
 	[username] [nvarchar](50) NOT NULL,
 	[password] [nvarchar](255) NOT NULL,
+	[email] [nvarchar](255) NULL,
+	[nickname] [nvarchar](50) NULL,
+	[name] [nvarchar](100) NULL,
+	[date_of_birth] [date] NULL,
+	[avatar_path] [nvarchar](255) NULL,
  CONSTRAINT [PK_Users] PRIMARY KEY CLUSTERED 
 (
 	[user_id] ASC
