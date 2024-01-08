@@ -52,6 +52,8 @@
             </Button>
         </Border>
 
+        
+
         <!-- Search Border -->
         <Border Grid.Row="0"
                 Grid.Column="1"
@@ -59,41 +61,24 @@
                 BorderThickness="0,0,0,1"
                 Background="LightGray">
             <Grid>
-                <!-- Page switchers -->
-                <Image MouseDown="PreviousPage_MouseDown"
-                       HorizontalAlignment="Right"
-                       VerticalAlignment="Center"
-                       Height="50"
-                       Margin="0,0,50,0"
-                       Cursor="Hand">
+                <Image VerticalAlignment="Center"
+       HorizontalAlignment="Right"
+                       Cursor="Hand"
+                       Width="80"
+                       Height="80"
+                       MouseDown="ProfileOpen_MouseDown">
                     <Image.Style>
                         <Style TargetType="Image">
-                            <Setter Property="Source" Value="/Files/Images/ArrowIconLeft.png"/>
+                            <Setter Property="Source" Value="Files/Images/UserIconDefault.png"/>
                             <Style.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Source" Value="/Files/Images/ArrowIconLeftActive.png"/>
+                                    <Setter Property="Source" Value="Files/Images/UserIconMouseOver.png"/>
                                 </Trigger>
                             </Style.Triggers>
                         </Style>
                     </Image.Style>
                 </Image>
 
-                <Image HorizontalAlignment="Right"
-                       VerticalAlignment="Center"
-                       Height="50"
-                       MouseDown="NextPage_MouseDown"
-                       Cursor="Hand">
-                    <Image.Style>
-                        <Style TargetType="Image">
-                            <Setter Property="Source" Value="Files/Images/ArrowIconRight.png"/>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Source" Value="Files/Images/ArrowIconRightActive.png"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Image.Style>
-                </Image>
 
                 <!-- Search -->
                 <Border HorizontalAlignment="Left"
@@ -247,31 +232,70 @@
                 BorderBrush="Gray"
                 BorderThickness="0,0,1,0"
                 Background="LightGray">
-            <StackPanel Orientation="Vertical">
-                <RadioButton x:Name="HomeMenuButton"
-                             Content="Home"
-                             FontSize="30"
-                             Height="70"
-                             IsChecked="True"
-                             Style="{StaticResource MenuButtonTheme}"
-                             Command="{Binding UpdateViewCommand}"
-                             CommandParameter="Home"
-                             FontFamily="Files/Fonts/INTER/#Inter"/>
-                <RadioButton x:Name="CatalogueMenuButton"
-                             Content="Catalogue"
-                             FontSize="30"
-                             Height="70"
-                             Style="{StaticResource MenuButtonTheme}"
-                             Command="{Binding UpdateViewCommand}"
-                             CommandParameter="Catalogue"
-                             FontFamily="Files/Fonts/INTER/#Inter"/>
-                <RadioButton x:Name="AboutMenuButton"
-                             Content="About"
-                             FontSize="30"
-                             Height="70"
-                             Style="{StaticResource MenuButtonTheme}"
-                             FontFamily="Files/Fonts/INTER/#Inter"/>
-            </StackPanel>
+            <Grid>
+                <StackPanel Orientation="Vertical">
+                    <RadioButton x:Name="HomeMenuButton"
+                                 Content="Home"
+                                 FontSize="30"
+                                 Height="70"
+                                 IsChecked="True"
+                                 Style="{StaticResource MenuButtonTheme}"
+                                 Command="{Binding UpdateViewCommand}"
+                                 CommandParameter="Home"
+                                 FontFamily="Files/Fonts/INTER/#Inter"/>
+                    <RadioButton x:Name="CatalogueMenuButton"
+                                 Content="Catalogue"
+                                 FontSize="30"
+                                 Height="70"
+                                 Style="{StaticResource MenuButtonTheme}"
+                                 Command="{Binding UpdateViewCommand}"
+                                 CommandParameter="Catalogue"
+                                 FontFamily="Files/Fonts/INTER/#Inter"/>
+                    <RadioButton x:Name="AboutMenuButton"
+                                 Content="About"
+                                 FontSize="30"
+                                 Height="70"
+                                 Style="{StaticResource MenuButtonTheme}"
+                                 FontFamily="Files/Fonts/INTER/#Inter"/>
+                </StackPanel>
+
+                <!-- Page switchers -->
+                <Image MouseDown="PreviousPage_MouseDown"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Bottom"
+                       Height="50"
+                       Margin="0,0,50,10"
+                       Cursor="Hand">
+                    <Image.Style>
+                        <Style TargetType="Image">
+                            <Setter Property="Source" Value="/Files/Images/ArrowIconLeft.png"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Source" Value="/Files/Images/ArrowIconLeftActive.png"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+
+                <Image HorizontalAlignment="Right"
+                       VerticalAlignment="Bottom"
+                       Height="50"
+                       Margin="0,0,0,10"
+                       MouseDown="NextPage_MouseDown"
+                       Cursor="Hand">
+                    <Image.Style>
+                        <Style TargetType="Image">
+                            <Setter Property="Source" Value="Files/Images/ArrowIconRight.png"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Source" Value="Files/Images/ArrowIconRightActive.png"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+            </Grid>
         </Border>
     </Grid>
 </Window>
