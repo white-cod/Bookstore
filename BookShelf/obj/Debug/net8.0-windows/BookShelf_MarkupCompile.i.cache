@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Code\C#\Programs\Bookstore\BookShelf\obj\Debug\net8.0-windows\
+F:\C++\Bookstore\BookShelf\obj\Debug\net8.0-windows\
 BookShelf
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-D:\Code\C#\Programs\Bookstore\BookShelf\App.xaml
-8-432877719
+F:\C++\Bookstore\BookShelf\App.xaml
+11-1025499865
 1-2100245895
-231007848522
-226-157234228
-MainWindow.xaml;MVVM\View\BookInfoView.xaml;MVVM\View\BooksListView.xaml;MVVM\View\CatalogueListView.xaml;MVVM\View\HomeView.xaml;Themes\CatalogueButtonTheme.xaml;Themes\CustomFocusVisualStyleTheme.xaml;Themes\MenuButtonTheme.xaml;
+261707995375
+226-1730461827
+LoginWindow.xaml;MainWindow.xaml;MVVM\View\BookInfoView.xaml;MVVM\View\BooksListView.xaml;MVVM\View\CatalogueListView.xaml;MVVM\View\HomeView.xaml;PersonalCabinetWindow.xaml;RegistrationWindow.xaml;Themes\CatalogueButtonTheme.xaml;Themes\CustomFocusVisualStyleTheme.xaml;Themes\MenuButtonTheme.xaml;
 
 True
 

@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:BookShelf"
              xmlns:viewModel="clr-namespace:BookShelf.MVVM.ViewModel"
              xmlns:view="clr-namespace:BookShelf.MVVM.View"
-             StartupUri="MainWindow.xaml"
+             StartupUri="RegistrationWindow.xaml"
             >
     <Application.Resources>
         <ResourceDictionary>

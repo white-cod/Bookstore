@@ -281,3 +281,9 @@ F:\C++\Bookstore\BookShelf\obj\Debug\net8.0-windows\refint\BookShelf.dll
 F:\C++\Bookstore\BookShelf\obj\Debug\net8.0-windows\BookShelf.pdb
 F:\C++\Bookstore\BookShelf\obj\Debug\net8.0-windows\BookShelf.genruntimeconfig.cache
 F:\C++\Bookstore\BookShelf\obj\Debug\net8.0-windows\ref\BookShelf.dll
+F:\C++\Bookstore\BookShelf\obj\Debug\net8.0-windows\LoginWindow.g.cs
+F:\C++\Bookstore\BookShelf\obj\Debug\net8.0-windows\RegistrationWindow.g.cs
+F:\C++\Bookstore\BookShelf\obj\Debug\net8.0-windows\PersonalCabinetWindow.g.cs
+F:\C++\Bookstore\BookShelf\obj\Debug\net8.0-windows\LoginWindow.baml
+F:\C++\Bookstore\BookShelf\obj\Debug\net8.0-windows\PersonalCabinetWindow.baml
+F:\C++\Bookstore\BookShelf\obj\Debug\net8.0-windows\RegistrationWindow.baml

@@ -23,6 +23,7 @@ namespace BookShelf
         private const int ELEMENTS_LIMIT = 26; // Elements limit in the search's option string
         private MainViewModel mainViewModel { get; set; }
         public ObservableCollection<string> SearchOptions { get; private set; } // The search boxes the "autocomplete" variants
+
         public MainWindow()
         {
             InitializeComponent();    
@@ -125,7 +126,8 @@ namespace BookShelf
         {
             if(e.ChangedButton == MouseButton.Left)
             {
-                // your code here
+                PersonalCabinetWindow personalCabinetWindow = new PersonalCabinetWindow();
+                personalCabinetWindow.Show();
             }
         }
     }
