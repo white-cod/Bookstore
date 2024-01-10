@@ -12,17 +12,17 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BookShelf.MVVM.ViewModel;
-using BookShelf.Core;
 using System.Reflection.Metadata;
+using BookShelf.Core.Managers;
 
 namespace BookShelf
 {
     public partial class MainWindow : Window
     {
-        private TextBox SearchBox;
-        private const int ELEMENTS_LIMIT = 26; // elements limit in search string
+        private TextBox SearchBox; // The search box on the top menu
+        private const int ELEMENTS_LIMIT = 26; // Elements limit in the search's option string
         private MainViewModel mainViewModel { get; set; }
-        public ObservableCollection<string> SearchOptions { get; private set; } // is public because of binding 
+        public ObservableCollection<string> SearchOptions { get; private set; } // The search boxes the "autocomplete" variants
         public MainWindow()
         {
             InitializeComponent();    
@@ -40,27 +40,30 @@ namespace BookShelf
             };
         }
 
-        private void StoreTitle_Click(object sender, RoutedEventArgs e) => HomeMenuButton.IsChecked = true; // handling a click on the title in the top menu
-        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void StoreTitle_Click(object sender, RoutedEventArgs e) => HomeMenuButton.IsChecked = true; // Top menu's click handling
+        // When the user clicks on the top title, the home menu button also checks
+        private void SearchBox_TextChanged(object sender, TextChangedEventArgs e) // This method helps to "autocomplete" the search variants in the search box
         {
             TextBox SearchBox = sender as TextBox;
 
             if (!string.IsNullOrEmpty(SearchBox.Text))
             {
-                SearchComboBox.IsDropDownOpen = true;
+                SearchComboBox.IsDropDownOpen = true; // Dropdown the variants combo box 
                 string searchOptionsText;
-                if (SearchBox.Text.Length > ELEMENTS_LIMIT) searchOptionsText = SearchBox.Text.Substring(0, ELEMENTS_LIMIT) + "..."; // if the text length is longer than the element limit, it just stops adding new elements to the searched string in the options
+                if (SearchBox.Text.Length > ELEMENTS_LIMIT) searchOptionsText = SearchBox.Text.Substring(0, ELEMENTS_LIMIT) + "..."; // If the text length is longer than the element limit, it just stops adding new elements to the searched string in the options
                 else searchOptionsText = SearchBox.Text;
 
+                // Changing of the SearchOptions elements
                 SearchOptions[0] = $"Search \"{searchOptionsText}\" in books";
                 SearchOptions[1] = $"Search \"{searchOptionsText}\" in authors";
                 SearchOptions[2] = $"Search \"{searchOptionsText}\" in genres";
 
-                if (this.SearchBox == null) this.SearchBox = SearchBox;
+                if (this.SearchBox == null) this.SearchBox = SearchBox; // Since the search field is in the template in XAML, so we just get it from this method
             }
             SearchComboBox.SelectedValue = string.Empty;
         }
 
+        #region Pages changing
         private void PreviousPage_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left && PagesHistoryManager.pagesHistory.Count > 0)
@@ -91,7 +94,8 @@ namespace BookShelf
                 }
             }
         }
-
+        #endregion
+        #region Search handling
         private void SearchOption_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
@@ -100,8 +104,8 @@ namespace BookShelf
                 if (SelectedSearchOption != null && SearchBox.Text != null)
                 {
                     string SelectedOptionText = SelectedSearchOption.Text;
-                    SearchType parameter = (SearchType)SearchOptions.IndexOf(SelectedOptionText);
-                    SearchManager.Search(parameter, SearchBox.Text);
+                    SearchType parameter = (SearchType)SearchOptions.IndexOf(SelectedOptionText); // Getting the Search Type according to it's index
+                    SearchManager.Search(parameter, SearchBox.Text); // The search method from the search manager
                     SearchBox.Text = string.Empty;
                 }
             }            
@@ -116,6 +120,7 @@ namespace BookShelf
             }
         }
 
+        #endregion
         private void ProfileOpen_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if(e.ChangedButton == MouseButton.Left)

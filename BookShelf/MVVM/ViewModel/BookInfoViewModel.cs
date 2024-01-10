@@ -20,7 +20,7 @@ namespace BookShelf.MVVM.ViewModel
 {
     public class BookInfoViewModel : BaseViewModel
     {
-        public Book CurrentBook { get; }
+        public Book CurrentBook { get; } // The current book which information are shown in the view
 
         public BookInfoViewModel(Book book)
         {

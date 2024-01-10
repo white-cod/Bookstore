@@ -16,7 +16,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BookShelf.MVVM.Model;
-using BookShelf.Core;
+using BookShelf.Core.Managers;
 
 namespace BookShelf.MVVM.View
 {
@@ -28,25 +28,28 @@ namespace BookShelf.MVVM.View
         public HomeView()
         {
             InitializeComponent();
-            DataContext = ((App)Application.Current).MainViewModel.CurrentView as HomeViewModel; // linking view with viewmodel
+            DataContext = ((App)Application.Current).MainViewModel.CurrentView as HomeViewModel;
         }
 
         private void ListBox_PreviewMouseWheel(object sender, MouseWheelEventArgs e) => e.Handled = true;
 
-        private void Book_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void Book_MouseDoubleClick(object sender, MouseButtonEventArgs e) // Opens the book's information
         {
-            ListBoxItem item = sender as ListBoxItem;
-
-            if(item != null)
+            if(e.ChangedButton == MouseButton.Left)
             {
-                Book SelectedBook = item.DataContext as Book;
+                ListBoxItem item = sender as ListBoxItem;
 
-                if(SelectedBook != null)
+                if (item != null)
                 {
-                    BookDataManager.BookData = SelectedBook;
-                    ((App)Application.Current).MainViewModel.UpdateViewCommand.Execute("BookInfo");
+                    Book SelectedBook = item.DataContext as Book;
+
+                    if (SelectedBook != null)
+                    {
+                        BookDataManager.BookData = SelectedBook;
+                        ((App)Application.Current).MainViewModel.UpdateViewCommand.Execute("BookInfo");
+                    }
                 }
-            }
+            }          
         }
     }
 }

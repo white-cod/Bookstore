@@ -1,4 +1,4 @@
-﻿using BookShelf.Core;
+﻿using BookShelf.Core.Managers;
 using BookShelf.MVVM.Model;
 using BookShelf.MVVM.ViewModel;
 using System;
@@ -29,19 +29,23 @@ namespace BookShelf.MVVM.View
             DataContext = ((App)Application.Current).MainViewModel.CurrentView as BooksListViewModel;
         }
 
-        private void Book_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void OpenBook_DoubleClick(object sender, MouseButtonEventArgs e) // Opens the book's information
         {
-            ListBoxItem item = sender as ListBoxItem;
-
-            if (item != null)
+                      if (e.ChangedButton == MouseButton.Left)
             {
-                Book SelectedBook = item.DataContext as Book;
+                ListBoxItem item = sender as ListBoxItem;
 
-                if (SelectedBook != null)
+                if (item != null)
                 {
-                    BookDataManager.BookData = SelectedBook;
-                    ((App)Application.Current).MainViewModel.UpdateViewCommand.Execute("BookInfo");
+                    Book SelectedBook = item.DataContext as Book;
+
+                    if (SelectedBook != null)
+                    {
+                        BookDataManager.BookData = SelectedBook;
+                        ((App)Application.Current).MainViewModel.UpdateViewCommand.Execute("BookInfo");
+                    }
                 }
+
             }
         }
     }

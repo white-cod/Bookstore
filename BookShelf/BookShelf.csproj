@@ -23,15 +23,13 @@
     <None Remove="Files\Images\ArrowIconLeftActive.png" />
     <None Remove="Files\Images\ArrowIconRight.png" />
     <None Remove="Files\Images\ArrowIconRightActive.png" />
-    <None Remove="Files\Images\CatalogueIcon.png" />
     <None Remove="Files\Images\SearchIcon.png" />
     <None Remove="Files\Images\SearchIconActive.png" />
-    <None Remove="Files\Images\SearchIconDefault.png" />
     <None Remove="Files\Images\SearchIconMouseOver.png" />
-    <None Remove="Files\Images\ShoppingCartIconDefault.png" />
-    <None Remove="Files\Images\ShoppingCartIconMouseOver.png" />
-    <None Remove="Files\Images\UserIconDefault.png" />
-    <None Remove="Files\Images\UserIconMouseOver.png" />
+    <None Remove="Files\Images\ShoppingCartIcon.png" />
+    <None Remove="Files\Images\ShoppingCartIconActive.png" />
+    <None Remove="Files\Images\UserIcon.png" />
+    <None Remove="Files\Images\UserIconActive.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -49,9 +47,6 @@
     <Resource Include="Files\Images\ArrowIconLeftActive.png" />
     <Resource Include="Files\Images\ArrowIconRight.png" />
     <Resource Include="Files\Images\ArrowIconRightActive.png" />
-    <Resource Include="Files\Images\CatalogueIcon.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Resource>
   </ItemGroup>
 
   <ItemGroup>
@@ -63,22 +58,22 @@
     <Resource Include="Files\Images\SearchIconActive.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Files\Images\UserIconDefault.png">
+    <Resource Include="Files\Images\UserIcon.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Files\Images\SearchIconDefault.png">
+    <Resource Include="Files\Images\SearchIcon.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Files\Images\ShoppingCartIconDefault.png">
+    <Resource Include="Files\Images\ShoppingCartIcon.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Files\Images\ShoppingCartIconMouseOver.png">
+    <Resource Include="Files\Images\ShoppingCartIconActive.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Files\Images\UserIconMouseOver.png">
+    <Resource Include="Files\Images\UserIconActive.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

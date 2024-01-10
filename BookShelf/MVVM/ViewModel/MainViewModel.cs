@@ -1,4 +1,4 @@
-﻿using BookShelf.Core;
+﻿using BookShelf.Core.Other;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Transactions;
 using System.Windows.Input;
+
 
 namespace BookShelf.MVVM.ViewModel
 {
@@ -23,7 +24,6 @@ namespace BookShelf.MVVM.ViewModel
                 OnPropertyChanged(nameof(CurrentView));
             }
         }
-
         public MainViewModel()
         {
             UpdateViewCommand = new UpdateViewCommand(this);

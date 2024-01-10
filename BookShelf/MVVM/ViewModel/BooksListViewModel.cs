@@ -12,7 +12,6 @@ namespace BookShelf.MVVM.ViewModel
     public class BooksListViewModel : BaseViewModel
     {
         private ObservableCollection<Book> searchedBooks;
-
         public ObservableCollection<Book> SearchedBooks
         {
             get { return searchedBooks; }
@@ -29,7 +28,5 @@ namespace BookShelf.MVVM.ViewModel
         {
             SearchedBooks = Books;
         }
-
-        public event EventHandler SearchedBooksChanged;
     }
 }

@@ -12,7 +12,7 @@ using System.Data.SqlClient;
 using System.Data;
 using Microsoft.EntityFrameworkCore;
 using System.IO;
-using BookShelf.Core;
+using BookShelf.Core.Other;
 
 namespace BookShelf.MVVM.Model
 {

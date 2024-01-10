@@ -22,7 +22,7 @@
         </Grid.ColumnDefinitions>
 
         <!-- Variable view -->
-        <ContentControl x:Name="Con" Grid.Row="1" Grid.Column="1" Content="{Binding CurrentView, Mode=TwoWay}" Margin="5"/>
+        <ContentControl Grid.Row="1" Grid.Column="1" Content="{Binding CurrentView, Mode=TwoWay}" Margin="5"/>
 
         <!-- Top menu title -->
         <Border Grid.Row="0"
@@ -52,33 +52,69 @@
             </Button>
         </Border>
 
-        
-
-        <!-- Search Border -->
+        <!-- Top menu border -->
         <Border Grid.Row="0"
                 Grid.Column="1"
                 BorderBrush="Gray"
                 BorderThickness="0,0,0,1"
                 Background="LightGray">
             <Grid>
+                <!-- Profile button -->
                 <Image VerticalAlignment="Center"
-       HorizontalAlignment="Right"
+                       HorizontalAlignment="Right"
                        Cursor="Hand"
                        Width="80"
                        Height="80"
                        MouseDown="ProfileOpen_MouseDown">
                     <Image.Style>
                         <Style TargetType="Image">
-                            <Setter Property="Source" Value="Files/Images/UserIconDefault.png"/>
+                            <Setter Property="Source" Value="Files/Images/UserIcon.png"/>
                             <Style.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Source" Value="Files/Images/UserIconMouseOver.png"/>
+                                    <Setter Property="Source" Value="Files/Images/UserIconActive.png"/>
                                 </Trigger>
                             </Style.Triggers>
                         </Style>
                     </Image.Style>
                 </Image>
 
+                <!-- Previous page button -->
+                <Image MouseDown="PreviousPage_MouseDown"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       Height="50"
+                       Margin="230,0,0,0"
+                       Cursor="Hand">
+                    <Image.Style>
+                        <Style TargetType="Image">
+                            <Setter Property="Source" Value="/Files/Images/ArrowIconLeft.png"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Source" Value="/Files/Images/ArrowIconLeftActive.png"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
+
+                <!-- Next page button -->
+                <Image HorizontalAlignment="Center"
+                       Margin="320,0,0,0"
+                       VerticalAlignment="Center"
+                       Height="50"
+                       MouseDown="NextPage_MouseDown"
+                       Cursor="Hand">
+                    <Image.Style>
+                        <Style TargetType="Image">
+                            <Setter Property="Source" Value="Files/Images/ArrowIconRight.png"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Source" Value="Files/Images/ArrowIconRightActive.png"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Image.Style>
+                </Image>
 
                 <!-- Search -->
                 <Border HorizontalAlignment="Left"
@@ -92,7 +128,7 @@
                                   Focusable="False"
                                   ItemsSource="{Binding SearchOptions}">
 
-                            <!-- ComboBox Styles -->
+                            <!-- ComboBox Items Style -->
                             <ComboBox.ItemContainerStyle>
                                 <Style TargetType="ComboBoxItem">
                                     <Setter Property="FocusVisualStyle" Value="{StaticResource CustomFocusVisualStyleTheme}"/>
@@ -110,9 +146,9 @@
                                 </Style>
                             </ComboBox.ItemContainerStyle>
 
+                            <!-- ComboBox Styles -->
                             <ComboBox.Style>
                                 <Style TargetType="ComboBox">
-                                    <EventSetter Event="MouseDown" Handler="SearchOption_MouseDown"/>
                                     <Setter Property="Template">
                                         <Setter.Value>
                                             <ControlTemplate TargetType="ComboBox">
@@ -182,7 +218,7 @@
                                                                MouseDown="SearchImage_MouseDown">
                                                             <Image.Style>
                                                                 <Style TargetType="Image">
-                                                                    <Setter Property="Source" Value="Files/Images/SearchIconDefault.png"/>
+                                                                    <Setter Property="Source" Value="Files/Images/SearchIcon.png"/>
                                                                     <Style.Triggers>
                                                                         <Trigger Property="IsMouseOver" Value="True">
                                                                             <Setter Property="Source" Value="Files/Images/SearchIconActive.png"/>
@@ -251,50 +287,7 @@
                                  Command="{Binding UpdateViewCommand}"
                                  CommandParameter="Catalogue"
                                  FontFamily="Files/Fonts/INTER/#Inter"/>
-                    <RadioButton x:Name="AboutMenuButton"
-                                 Content="About"
-                                 FontSize="30"
-                                 Height="70"
-                                 Style="{StaticResource MenuButtonTheme}"
-                                 FontFamily="Files/Fonts/INTER/#Inter"/>
                 </StackPanel>
-
-                <!-- Page switchers -->
-                <Image MouseDown="PreviousPage_MouseDown"
-                       HorizontalAlignment="Right"
-                       VerticalAlignment="Bottom"
-                       Height="50"
-                       Margin="0,0,50,10"
-                       Cursor="Hand">
-                    <Image.Style>
-                        <Style TargetType="Image">
-                            <Setter Property="Source" Value="/Files/Images/ArrowIconLeft.png"/>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Source" Value="/Files/Images/ArrowIconLeftActive.png"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Image.Style>
-                </Image>
-
-                <Image HorizontalAlignment="Right"
-                       VerticalAlignment="Bottom"
-                       Height="50"
-                       Margin="0,0,0,10"
-                       MouseDown="NextPage_MouseDown"
-                       Cursor="Hand">
-                    <Image.Style>
-                        <Style TargetType="Image">
-                            <Setter Property="Source" Value="Files/Images/ArrowIconRight.png"/>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Source" Value="Files/Images/ArrowIconRightActive.png"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Image.Style>
-                </Image>
             </Grid>
         </Border>
     </Grid>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BookShelf.Core.Managers;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -21,38 +22,77 @@ namespace BookShelf.MVVM.View
     /// </summary>
     public partial class CatalogueListView : UserControl
     {
-        public ObservableCollection<string> GenresList { get; private set; }
+        public ObservableCollection<string> GenresCategoriesList { get; private set; }
         public CatalogueListView()
         {
             InitializeComponent();
 
-            GenresListBox.DataContext = this;
-            GenresList = new ObservableCollection<string>()
+            GenresCategoriesListBox.DataContext = this;
+            GenresCategoriesList = new ObservableCollection<string>()
             {
-                "Novel",
-                "Detective",
                 "Science Fiction",
                 "Fantasy",
-                "Horror",
-                "Adventure",
-                "Historical Literature",
-                "Science Fiction",
+                "Detective",
                 "Thriller",
-                "Mystery",
-                "Classic",
-                "Poetry",
+                "Romance",
+                "Adventure",
                 "Drama",
                 "Comedy",
-                "Biography/Autobiography",
-                "Psychological Novel",
-                "Romance",
-                "Youth Fantasy",
-                "Popular Science Literature",
-                "Documentary Prose",
-                "Philosophical Literature",
+                "Horror",
+                "Historical Fiction",
+                "Science Fiction",
+                "Mystery",
                 "Religious Literature",
-                "Personal Development"
+                "Philosophy",
+                "Psychology",
+                "Romantic Novel",
+                "Memoirs",
+                "Biography",
+                "Poetry",
+                "Classic",
+                "Contemporary Literature",
+                "Non-Fiction",
+                "Children's Literature",
+                "Young Adult Literature",
+                "Folklore",
+                "Popular Science",
+                "Travel Guides",
+                "Culinary",
+                "Art and Photography",
+                "Business and Economics",
+                "Sports",
+                "Science and Education",
+                "Technology and Computers",
+                "Politics and Social Sciences",
+                "Esotericism and Occultism",
+                "Music",
+                "Coming-of-age",
+                "Humor",
+                "Dystopian",
+                "Self-Development",
+                "Ecology and Nature",
+                "Military Literature",
+                "Fantasy for Children",
+                "Adventure for Children",
+                "Science Fiction for Teens",
+                "Software Development",
+                "Autobiography",
+                "Collecting and Antiques",
+                "Finance and Investments",
+                "Painting and Crafts"
             };
-        }      
+        }
+
+        private void ElementClick_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if(e.ChangedButton == MouseButton.Left && sender != null)
+            {
+                var clicked_block = sender as TextBlock;
+                if(!string.IsNullOrEmpty(clicked_block.Text))
+                {
+                    SearchManager.Search(SearchType.Genre, clicked_block.Text);
+                }
+            }
+        }
     }
 }

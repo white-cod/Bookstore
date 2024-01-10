@@ -1,4 +1,4 @@
-﻿using BookShelf.Core;
+﻿using BookShelf.Core.Other;
 using System;
 using System.Collections.Generic;
 using System.Linq;

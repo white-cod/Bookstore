@@ -34,21 +34,22 @@
                         <Setter.Value>
                             <ControlTemplate TargetType="ListBoxItem">
                                 <Border Background="{TemplateBinding Background}">
-                                    <ContentPresenter />
+                                    <ContentPresenter/>
                                 </Border>
                             </ControlTemplate>
                         </Setter.Value>
                     </Setter>
-                    <EventSetter Event="MouseDoubleClick" Handler="Book_MouseDoubleClick"/>
+                    <EventSetter Event="MouseDoubleClick" Handler="OpenBook_DoubleClick"/>
                 </Style>
             </ListBox.ItemContainerStyle>
 
             <ListBox.ItemTemplate>
                 <DataTemplate DataType="ListBoxItem">
-                    <Grid Width="1200"
+                    <Grid Width="1190"
                           Height="170"
                           Margin="3,0,3,0"
-                          Cursor="Hand">
+                          Cursor="Hand"
+                          >
 
                         <Grid.Style>
                             <Style TargetType="Grid">
@@ -81,6 +82,7 @@
                                    HorizontalAlignment="Left"
                                    VerticalAlignment="Top"
                                    Height="100"
+                                   Width="600"
                                    Grid.Column="1"
                                    Margin="5"/>
 
@@ -93,6 +95,7 @@
                                    VerticalAlignment="Bottom"
                                    Grid.Column="1"
                                    Height="40"
+                                   Width="100"
                                    Margin="5"/>
 
                         <TextBlock Text="{Binding author}"
@@ -104,6 +107,7 @@
                                    VerticalAlignment="Center"
                                    Grid.Column="1"
                                    Height="40"
+                                   Width="400"
                                    Margin="5"/>
                     </Grid>
                 </DataTemplate>
