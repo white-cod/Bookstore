@@ -77,7 +77,7 @@ namespace BookStoreTest {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/BookStoreTest;V1.0.0.0;component/registrationwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/BookStoreTest;component/registrationwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\RegistrationWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -59,6 +59,8 @@ namespace BookStoreTest
 
             Application.Current.StartupUri = new Uri("MainWindow.xaml", UriKind.RelativeOrAbsolute);
 
+            LoginWindow loginWindow = new LoginWindow();
+            loginWindow.Show();
             Close();
         }
 

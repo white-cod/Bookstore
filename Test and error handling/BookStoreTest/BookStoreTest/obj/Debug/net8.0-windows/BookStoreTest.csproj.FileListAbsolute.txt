@@ -197,3 +197,5 @@ F:\C++\Bookstore\Test and error handling\BookStoreTest\BookStoreTest\obj\Debug\n
 F:\C++\Bookstore\Test and error handling\BookStoreTest\BookStoreTest\obj\Debug\net8.0-windows\RegistrationWindow.baml
 F:\C++\Bookstore\Test and error handling\BookStoreTest\BookStoreTest\obj\Debug\net8.0-windows\LoginWindow.g.cs
 F:\C++\Bookstore\Test and error handling\BookStoreTest\BookStoreTest\obj\Debug\net8.0-windows\LoginWindow.baml
+F:\C++\Bookstore\Test and error handling\BookStoreTest\BookStoreTest\obj\Debug\net8.0-windows\PersonalCabinetWindow.g.cs
+F:\C++\Bookstore\Test and error handling\BookStoreTest\BookStoreTest\obj\Debug\net8.0-windows\PersonalCabinetWindow.baml

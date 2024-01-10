@@ -24,7 +24,9 @@
         <Label Content="Pages: " FontSize="16" Height="35" Width="55" Margin="336,0,0,449" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
         <Label x:Name="pagesLabel" FontSize="14" VerticalAlignment="Bottom" Height="35" Margin="421,0,0,446" HorizontalAlignment="Left" Width="250"/>
 
-        <TextBox x:Name="summaryTextBox" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="336,0,0,72" Width="432" Height="369" TextWrapping="Wrap" IsReadOnly="True"/>
+        <TextBox x:Name="summaryTextBox" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="336,0,0,62" Width="432" Height="369" TextWrapping="Wrap" IsReadOnly="True"/>
+
+        <Button x:Name="OpenPersonalCabinet" Content="Profile" Margin="10,0,0,10" VerticalAlignment="Bottom" Height="32" HorizontalAlignment="Left" Width="92" Click="OpenPersonalCabinet_Click"/>
 
     </Grid>
 

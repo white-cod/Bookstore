@@ -16,6 +16,7 @@ using System.Data;
 using Microsoft.EntityFrameworkCore;
 using System.IO;
 using System.Security.Cryptography;
+using static BookStoreTest.MainWindow;
 
 namespace BookStoreTest
 {
@@ -49,9 +50,9 @@ namespace BookStoreTest
 
             if (AuthenticateUser(username, password))
             {
+                CurrentUser.Username = username;
                 MainWindow mainWindow = new MainWindow();
                 mainWindow.Show();
-
                 Close();
             }
             else
@@ -59,6 +60,7 @@ namespace BookStoreTest
                 MessageBox.Show("Invalid username or password.", "Login Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
+
 
         private bool AuthenticateUser(string username, string password)
         {

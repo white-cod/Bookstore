@@ -17,7 +17,7 @@ namespace BookStoreTest
 {
     public partial class MainWindow : Window
     {
-        //private const string ConnectionString = "Server=DESKTOP-AJ6IRLC\\SQLEXPRESS;Database=BookStore;Integrated Security=True;";
+        //private const string ConnectionString = "Server=DESKTOP-AJ6IRLC\\\SQLEXPRESS;Database=BookStore;Integrated Security=True;";
 
         private const string ConnectionString = "Server=DESKTOP-C85D6OJ\\SQLEXPRESS;Database=BookStore;Integrated Security=True;";
 
@@ -25,6 +25,17 @@ namespace BookStoreTest
 
         private DataTable booksTable;
         private int currentBookIndex = 0;
+
+        public static class CurrentUser
+        {
+            public static int UserId { get; set; }
+            public static string Username { get; set; }
+            public static string Email { get; set; }
+            public static string Nickname { get; set; }
+            public static string Name { get; set; }
+            public static DateTime? DateOfBirth { get; set; }
+            public static string AvatarPath { get; set; }
+        }
 
         public MainWindow()
         {
@@ -43,10 +54,7 @@ namespace BookStoreTest
             {
                 connection.Open();
 
-                string query = "SELECT Books.*, BookCovers.cover_path, BookSummaries.summary_path " +
-                               "FROM Books " +
-                               "LEFT JOIN BookCovers ON Books.book_id = BookCovers.book_id " +
-                               "LEFT JOIN BookSummaries ON Books.book_id = BookSummaries.book_id";
+                string query = "SELECT Books.*, BookCovers.cover_path, BookSummaries.summary_path " + "FROM Books " + "LEFT JOIN BookCovers ON Books.book_id = BookCovers.book_id " + "LEFT JOIN BookSummaries ON Books.book_id = BookSummaries.book_id";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     using (SqlDataAdapter adapter = new SqlDataAdapter(command))
@@ -117,6 +125,12 @@ namespace BookStoreTest
                 currentBookIndex--;
                 DisplayBookInfo();
             }
+        }
+
+        private void OpenPersonalCabinet_Click(object sender, RoutedEventArgs e)
+        {
+            PersonalCabinetWindow personalCabinetWindow = new PersonalCabinetWindow();
+            personalCabinetWindow.Show();
         }
 
     }
