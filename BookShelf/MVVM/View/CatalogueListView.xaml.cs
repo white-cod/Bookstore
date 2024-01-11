@@ -30,7 +30,7 @@ namespace BookShelf.MVVM.View
             GenresCategoriesListBox.DataContext = this;
             GenresCategoriesList = new ObservableCollection<string>()
             {
-                "Science Fiction",
+                "Fiction",
                 "Fantasy",
                 "Detective",
                 "Thriller",

@@ -7,17 +7,17 @@
         xmlns:local="clr-namespace:BookShelf"
         mc:Ignorable="d"
         Title="Bookshelf"
-        Height="900"
-        Width="1600"
+        Height="585"
+        Width="1040"
         ResizeMode="NoResize">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
+            <RowDefinition Height="70"/>
             <RowDefinition />
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="170"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
@@ -33,7 +33,7 @@
             <Button x:Name="StoreTitle"
                     Background="White"
                     Foreground="Black"
-                    FontSize="36"
+                    FontSize="24"
                     FontFamily="Files/Fonts/INTER/#Inter"
                     FontWeight="SemiBold"
                     Content="BookShelf"
@@ -63,8 +63,8 @@
                 <Image VerticalAlignment="Center"
                        HorizontalAlignment="Right"
                        Cursor="Hand"
-                       Width="80"
-                       Height="80"
+                       Width="60"
+                       Height="60"
                        MouseDown="ProfileOpen_MouseDown">
                     <Image.Style>
                         <Style TargetType="Image">
@@ -82,8 +82,8 @@
                 <Image MouseDown="PreviousPage_MouseDown"
                        HorizontalAlignment="Center"
                        VerticalAlignment="Center"
-                       Height="50"
-                       Margin="230,0,0,0"
+                       Height="40"
+                       Margin="20,0,0,0"
                        Cursor="Hand">
                     <Image.Style>
                         <Style TargetType="Image">
@@ -99,9 +99,9 @@
 
                 <!-- Next page button -->
                 <Image HorizontalAlignment="Center"
-                       Margin="320,0,0,0"
+                       Margin="90,0,0,0"
                        VerticalAlignment="Center"
-                       Height="50"
+                       Height="40"
                        MouseDown="NextPage_MouseDown"
                        Cursor="Hand">
                     <Image.Style>
@@ -123,8 +123,8 @@
                     <Grid>
                         <!-- Search ComboBox -->
                         <ComboBox x:Name="SearchComboBox"
-                                  Width="680"
-                                  Height="70"
+                                  Width="400"
+                                  Height="50"
                                   Focusable="False"
                                   ItemsSource="{Binding SearchOptions}">
 
@@ -157,7 +157,7 @@
                                                            Focusable="False" PopupAnimation="Slide">
                                                         <Grid Name="DropDown" SnapsToDevicePixels="True" MinWidth="{TemplateBinding ActualWidth}">
                                                             <Border x:Name="DropDownBorder" Background="White" BorderThickness="3" BorderBrush="#adadad"/>
-                                                            <ScrollViewer Margin="20" SnapsToDevicePixels="True">
+                                                            <ScrollViewer Margin="10" SnapsToDevicePixels="True">
                                                                 <StackPanel IsItemsHost="True" KeyboardNavigation.DirectionalNavigation="Contained"/>
                                                             </ScrollViewer>
                                                         </Grid>
@@ -169,7 +169,7 @@
                                                         <Setter TargetName="DropDownBorder" Property="Margin" Value="0,3,0,0"/>
                                                     </Trigger>
                                                     <Trigger Property="HasItems" Value="True">
-                                                        <Setter Property="FontSize" Value="24"/>
+                                                        <Setter Property="FontSize" Value="16"/>
                                                         <Setter Property="FontFamily" Value="Files/Fonts/INTER/#Inter"/>
                                                     </Trigger>
                                                 </ControlTemplate.Triggers>
@@ -189,8 +189,8 @@
                                             <ControlTemplate TargetType="TextBox">
                                                 <Border CornerRadius="10"
                                                         Background="White"
-                                                        Width="700"
-                                                        Height="70"
+                                                        Width="400"
+                                                        Height="50"
                                                         BorderThickness="3"
                                                         BorderBrush="#adadad"
                                                         Padding="5">
@@ -202,16 +202,16 @@
                                                                  BorderThickness="0"
                                                                  VerticalContentAlignment="Center"
                                                                  Padding="5"
-                                                                 Width="620"
+                                                                 Width="335"
                                                                  HorizontalAlignment="Left"
                                                                  Foreground="Black"
-                                                                 FontSize="28"
+                                                                 FontSize="20"
                                                                  FontFamily="Files/Fonts/INTER/#Inter"
                                                                  Cursor="IBeam"
                                                                  TextChanged="SearchBox_TextChanged"/>
                                                         <!-- Search image -->
-                                                        <Image Width="50"
-                                                               Height="50"
+                                                        <Image Width="30"
+                                                               Height="30"
                                                                HorizontalAlignment="Right"
                                                                Margin="10,0,10,0"
                                                                Cursor="Hand"
@@ -234,7 +234,7 @@
                                                                    VerticalAlignment="Center"
                                                                    HorizontalAlignment="Left"
                                                                    Margin="10,0,0,0"
-                                                                   FontSize="28"
+                                                                   FontSize="20"
                                                                    Foreground="Gray"
                                                                    Grid.Column="1"
                                                                    FontFamily="Files/Fonts/INTER/#Inter">
@@ -272,7 +272,7 @@
                 <StackPanel Orientation="Vertical">
                     <RadioButton x:Name="HomeMenuButton"
                                  Content="Home"
-                                 FontSize="30"
+                                 FontSize="22"
                                  Height="70"
                                  IsChecked="True"
                                  Style="{StaticResource MenuButtonTheme}"
@@ -281,7 +281,7 @@
                                  FontFamily="Files/Fonts/INTER/#Inter"/>
                     <RadioButton x:Name="CatalogueMenuButton"
                                  Content="Catalogue"
-                                 FontSize="30"
+                                 FontSize="22"
                                  Height="70"
                                  Style="{StaticResource MenuButtonTheme}"
                                  Command="{Binding UpdateViewCommand}"

@@ -5,18 +5,18 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:BookShelf.MVVM.View"
              mc:Ignorable="d" 
-             d:DesignHeight="790" d:DesignWidth="1290">
+             d:DesignHeight="500" d:DesignWidth="860">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="520"/>
+            <ColumnDefinition Width="250"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
         <Image Source="{Binding CurrentBook.cover}"
                HorizontalAlignment="Center"
                VerticalAlignment="Top"
-               Width="500"
-               Height="500"
+               Width="200"
+               Height="200"
                Margin="0,40,0,0"/>
 
         <StackPanel Orientation="Horizontal"
@@ -31,7 +31,7 @@
                 </Button.Content>
             </Button>
             <Button Height="50"
-                    Width="350"
+                    Width="150"
                     Margin="20,0,0,0"
                     Content="Buy"
                     FontSize="30"
@@ -44,32 +44,32 @@
                 Grid.Column="1">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="150"/>
-                    <RowDefinition/>
+                    <RowDefinition Height="90"/>
+                    <RowDefinition Height="200"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
-                <TextBlock Width="700"
-                           Height="130"
+                <TextBlock Width="560"
+                           Height="60"
                            VerticalAlignment="Top"
-                           Margin="20,30,20,0"
+                           Margin="20,20,20,0"
                            Text="{Binding CurrentBook.title}"
-                           FontSize="30"
+                           FontSize="24"
                            FontFamily="/Files/Fonts/INTER/#Inter"
                            FontWeight="SemiBold"/>
 
                 <StackPanel Grid.Row="1" Orientation="Vertical"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
-                            Margin="30">
+                            Margin="10">
 
                     <StackPanel Margin="10" Orientation="Horizontal">
                         <TextBlock Text="Author:" 
-                                   FontSize="24"
+                                   FontSize="18"
                                    FontFamily="/Files/Fonts/INTER/#Inter"
                                    FontWeight="Light"/>
                         <TextBlock Text="{Binding CurrentBook.author}"
-                                   FontSize="24"
+                                   FontSize="18"
                                    FontFamily="/Files/Fonts/INTER/#Inter"
                                    FontWeight="Light"
                                    Margin="30,0,0,0"/>
@@ -77,11 +77,11 @@
 
                     <StackPanel Margin="10" Orientation="Horizontal">
                         <TextBlock Text="Publisher:" 
-                                   FontSize="24"
+                                   FontSize="18"
                                    FontFamily="/Files/Fonts/INTER/#Inter"
                                    FontWeight="Light"/>
                         <TextBlock Text="{Binding CurrentBook.publisher}"
-                                   FontSize="24"
+                                   FontSize="18"
                                    FontFamily="/Files/Fonts/INTER/#Inter"
                                    FontWeight="Light"
                                    Margin="30,0,0,0"/>
@@ -89,11 +89,11 @@
 
                     <StackPanel Margin="10" Orientation="Horizontal">
                         <TextBlock Text="Pages:" 
-                                   FontSize="24"
+                                   FontSize="18"
                                    FontFamily="/Files/Fonts/INTER/#Inter"
                                    FontWeight="Light"/>
                         <TextBlock Text="{Binding CurrentBook.pages}"
-                                   FontSize="24"
+                                   FontSize="18"
                                    FontFamily="/Files/Fonts/INTER/#Inter"
                                    FontWeight="Light"
                                    Margin="30,0,0,0"/>
@@ -124,9 +124,9 @@
                             Grid.Row="2"
                             VerticalAlignment="Top"
                             HorizontalAlignment="Left"
-                            Margin="30"
-                            Width="700"
-                            Height="260">
+                            Margin="10"
+                            Width="580"
+                            Height="180">
 
                     <TextBlock Text="Description:"
                                FontFamily="/Files/Fonts/INTER/#Inter"
@@ -134,12 +134,12 @@
                                FontWeight="Light"
                                HorizontalAlignment="Left"/>
                     <TextBlock Text="{Binding CurrentBook.summary}"
-                               FontSize="16"
+                               FontSize="12"
                                FontFamily="/Files/Fonts/INTER/#Inter"
                                FontWeight="Light"
                                TextWrapping="Wrap"
-                               Height="230"
-                               MaxHeight="230"/>
+                               Height="140"
+                               MaxHeight="140"/>
                 </StackPanel>
 
             </Grid>

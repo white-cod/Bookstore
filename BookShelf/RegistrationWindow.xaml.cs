@@ -22,7 +22,9 @@ namespace BookShelf
 {
     public partial class RegistrationWindow : Window
     {
-        private const string ConnectionString = "Data Source=DESKTOP-C85D6OJ\\SQLEXPRESS;Initial Catalog=Bookstore;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
+        private const string ConnectionString = "Data Source=DESKTOP-AJ6IRLC\\SQLEXPRESS;Initial Catalog=Bookstore;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
+
+        //private const string ConnectionString = "Data Source=DESKTOP-C85D6OJ\\SQLEXPRESS;Initial Catalog=Bookstore;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
 
         public RegistrationWindow()
         {

@@ -17,9 +17,9 @@ namespace BookShelf.Core.Helpers
 {
     public static class DatabaseHelper // Class that helps to get and handle data from the database
     {
-        // private const string CONNECTION_STRING = "Data Source=DESKTOP-AJ6IRLC\\SQLEXPRESS;Initial Catalog=Bookstore;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
+        private const string ConnectionString = "Data Source=DESKTOP-AJ6IRLC\\SQLEXPRESS;Initial Catalog=Bookstore;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
 
-        private const string CONNECTION_STRING = "Data Source=DESKTOP-C85D6OJ\\SQLEXPRESS;Initial Catalog=Bookstore;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
+        // private const string ConnectionString = "Data Source=DESKTOP-C85D6OJ\\SQLEXPRESS;Initial Catalog=Bookstore;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
 
         private static DataTable booksTable;
         static DatabaseHelper()
@@ -31,7 +31,7 @@ namespace BookShelf.Core.Helpers
             DataTable dataTable = new DataTable();
 
 
-            using (SqlConnection connection = new SqlConnection(CONNECTION_STRING))
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
             {
                 connection.Open();
 
@@ -65,26 +65,6 @@ namespace BookShelf.Core.Helpers
                              row.Field<string?>("cover_path"));
         }
 
-        public static class CurrentUser
-        {
-            public static int UserId { get; set; }
-            public static string Username { get; set; }
-            public static string Email { get; set; }
-            public static string Nickname { get; set; }
-            public static string Name { get; set; }
-            public static DateTime? DateOfBirth { get; set; }
-            public static string AvatarPath { get; set; }
-        }
-
-        public class UserData
-        {
-            public string? Username { get; set; }
-            public string? Email { get; set; }
-            public string? Nickname { get; set; }
-            public string? Name { get; set; }
-            public DateTime? DateOfBirth { get; set; }
-            public string? AvatarPath { get; set; }
-        }
         #region Get methods
         public static List<Book> GetAllBooks()
         {
@@ -118,6 +98,27 @@ namespace BookShelf.Core.Helpers
         }
 
         #endregion
+
+        public static class CurrentUser
+        {
+            public static int UserId { get; set; }
+            public static string Username { get; set; }
+            public static string Email { get; set; }
+            public static string Nickname { get; set; }
+            public static string Name { get; set; }
+            public static DateTime? DateOfBirth { get; set; }
+            public static string AvatarPath { get; set; }
+        }
+
+        public class UserData
+        {
+            public string? Username { get; set; }
+            public string? Email { get; set; }
+            public string? Nickname { get; set; }
+            public string? Name { get; set; }
+            public DateTime? DateOfBirth { get; set; }
+            public string? AvatarPath { get; set; }
+        }
     }
 
 }

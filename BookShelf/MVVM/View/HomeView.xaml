@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:BookShelf.MVVM.View"
              mc:Ignorable="d" 
-             d:DesignHeight="790" d:DesignWidth="1290">
+             d:DesignHeight="500" d:DesignWidth="860">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -18,21 +18,21 @@
         <Border Grid.Row="0"
                 VerticalAlignment="Center"
                 HorizontalAlignment="Center"
-                Height="250"
-                Width="1200">
+                Height="160"
+                Width="860">
             <Grid>
                 <Label Content="Recommended"
-                       FontSize="30"
+                       FontSize="22"
                        FontFamily="/Files/Fonts/INTER/#Inter"
                        FontWeight="SemiBold"
                        VerticalAlignment="Top"
                        HorizontalAlignment="Left"
-                       Margin="40,10,10,10"/>
+                       Margin="30,0,0,0"/>
                 <ListBox x:Name="RecommendedListBox"
                          HorizontalAlignment="Center"
                          VerticalAlignment="Center"
-                         Height="150"
-                         Width="1240"
+                         Height="100"
+                         Width="800"
                          Margin="0,0,0,-30"
                          ItemsSource="{Binding recommended_books}"
                          BorderBrush="Gray"
@@ -64,8 +64,8 @@
 
                     <ListBox.ItemTemplate>
                         <DataTemplate DataType="ListBoxItem">
-                            <Grid Width="220"
-                                  Height="120"
+                            <Grid Width="140"
+                                  Height="95"
                                   Margin="3,0,3,0"
                                   Cursor="Hand">
 
@@ -84,24 +84,24 @@
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
                                 <Image Source="{Binding cover}"
-                                       Height="100"
-                                       Width="100"
+                                       Height="60"
+                                       Width="60"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        Margin="5"/>
                                 <TextBlock Text="{Binding title}"
                                            TextWrapping="Wrap"
-                                           FontSize="14"
+                                           FontSize="12"
                                            FontFamily="/Files/Fonts/INTER/#Inter"
                                            FontWeight="Bold"
                                            HorizontalAlignment="Center"
                                            VerticalAlignment="Top"
-                                           Height="100"
+                                           Height="40"
                                            Grid.Column="1"
                                            Margin="5"/>
                                 <TextBlock Text="{Binding sale_price}"
                                            TextWrapping="Wrap"
-                                           FontSize="14"
+                                           FontSize="12"
                                            FontWeight="SemiBold"
                                            FontFamily="/Files/Fonts/INTER/#Inter"
                                            HorizontalAlignment="Center"
@@ -120,21 +120,21 @@
         <Border Grid.Row="1"
                 VerticalAlignment="Center"
                 HorizontalAlignment="Center"
-                Height="250"
-                Width="1200">
+                Height="160"
+                Width="860">
             <Grid>
                 <Label Content="Novelties"
-                       FontSize="30"
+                       FontSize="22"
                        FontFamily="/Files/Fonts/INTER/#Inter"
                        FontWeight="SemiBold"
                        VerticalAlignment="Top"
                        HorizontalAlignment="Left"
-                       Margin="40,10,10,10"/>
+                       Margin="30,0,0,0"/>
                 <ListBox x:Name="NoveltiesListBox"
                          HorizontalAlignment="Center"
                          VerticalAlignment="Center"
-                         Height="150"
-                         Width="1240"
+                         Height="100"
+                         Width="800"
                          Margin="0,0,0,-30"
                          ItemsSource="{Binding new_books}"
                          BorderBrush="Gray"
@@ -166,8 +166,8 @@
 
                     <ListBox.ItemTemplate>
                         <DataTemplate DataType="ListBoxItem">
-                            <Grid Width="220"
-                                  Height="120"
+                            <Grid Width="140"
+                                  Height="95"
                                   Margin="3,0,3,0"
                                   Cursor="Hand">
 
@@ -186,24 +186,24 @@
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
                                 <Image Source="{Binding cover}"
-                                       Height="100"
-                                       Width="100"
+                                       Height="60"
+                                       Width="60"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        Margin="5"/>
                                 <TextBlock Text="{Binding title}"
                                            TextWrapping="Wrap"
-                                           FontSize="14"
+                                           FontSize="12"
                                            FontFamily="/Files/Fonts/INTER/#Inter"
                                            FontWeight="Bold"
                                            HorizontalAlignment="Center"
                                            VerticalAlignment="Top"
-                                           Height="100"
+                                           Height="40"
                                            Grid.Column="1"
                                            Margin="5"/>
                                 <TextBlock Text="{Binding cost_price}"
                                            TextWrapping="Wrap"
-                                           FontSize="14"
+                                           FontSize="12"
                                            FontWeight="SemiBold"
                                            FontFamily="/Files/Fonts/INTER/#Inter"
                                            HorizontalAlignment="Center"
@@ -222,28 +222,28 @@
         <Border Grid.Row="2"
                 VerticalAlignment="Center"
                 HorizontalAlignment="Center"
-                Height="250"
-                Width="1200">
+                Height="160"
+                Width="860">
             <Grid>
                 <Label Content="Special offers"
-                       FontSize="30"
+                       FontSize="22"
                        FontFamily="/Files/Fonts/INTER/#Inter"
                        FontWeight="SemiBold"
                        VerticalAlignment="Top"
                        HorizontalAlignment="Left"
-                       Margin="40,10,10,10"/>
+                       Margin="30,0,0,0" Grid.ColumnSpan="2"/>
                 <ListBox x:Name="SpecialOffersListBox"
                          HorizontalAlignment="Center"
                          VerticalAlignment="Center"
-                         Height="150"
-                         Width="1240"
-                         Margin="0,0,0,-30"
+                         Height="100"
+                         Width="800"
+                         Margin="0,15,0,0"
                          ItemsSource="{Binding offered_books}"
                          BorderBrush="Gray"
                          BorderThickness="0,2,0,2"
                          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
                          ScrollViewer.VerticalScrollBarVisibility="Disabled"
-                         PreviewMouseWheel="ListBox_PreviewMouseWheel">
+                         PreviewMouseWheel="ListBox_PreviewMouseWheel" Grid.ColumnSpan="2">
 
                     <ListBox.ItemContainerStyle>
                         <Style TargetType="ListBoxItem">
@@ -268,8 +268,8 @@
 
                     <ListBox.ItemTemplate>
                         <DataTemplate DataType="ListBoxItem">
-                            <Grid Width="220"
-                                  Height="120"
+                            <Grid Width="140"
+                                  Height="95"
                                   Margin="3,0,3,0"
                                   Cursor="Hand">
 
@@ -288,24 +288,24 @@
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
                                 <Image Source="{Binding cover}"
-                                       Height="100"
-                                       Width="100"
+                                       Height="60"
+                                       Width="60"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Center"
                                        Margin="5"/>
                                 <TextBlock Text="{Binding title}"
                                            TextWrapping="Wrap"
-                                           FontSize="14"
+                                           FontSize="12"
                                            FontFamily="/Files/Fonts/INTER/#Inter"
                                            FontWeight="Bold"
                                            HorizontalAlignment="Center"
                                            VerticalAlignment="Top"
-                                           Height="100"
+                                           Height="40"
                                            Grid.Column="1"
                                            Margin="5"/>
                                 <TextBlock Text="{Binding cost_price}"
                                            TextWrapping="Wrap"
-                                           FontSize="14"
+                                           FontSize="12"
                                            FontWeight="SemiBold"
                                            FontFamily="/Files/Fonts/INTER/#Inter"
                                            HorizontalAlignment="Center"

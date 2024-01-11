@@ -287,3 +287,9 @@ F:\C++\Bookstore\BookShelf\obj\Debug\net8.0-windows\PersonalCabinetWindow.g.cs
 F:\C++\Bookstore\BookShelf\obj\Debug\net8.0-windows\LoginWindow.baml
 F:\C++\Bookstore\BookShelf\obj\Debug\net8.0-windows\PersonalCabinetWindow.baml
 F:\C++\Bookstore\BookShelf\obj\Debug\net8.0-windows\RegistrationWindow.baml
+D:\Code\C#\Programs\Bookstore\BookShelf\obj\Debug\net8.0-windows\LoginWindow.g.cs
+D:\Code\C#\Programs\Bookstore\BookShelf\obj\Debug\net8.0-windows\PersonalCabinetWindow.g.cs
+D:\Code\C#\Programs\Bookstore\BookShelf\obj\Debug\net8.0-windows\RegistrationWindow.g.cs
+D:\Code\C#\Programs\Bookstore\BookShelf\obj\Debug\net8.0-windows\LoginWindow.baml
+D:\Code\C#\Programs\Bookstore\BookShelf\obj\Debug\net8.0-windows\PersonalCabinetWindow.baml
+D:\Code\C#\Programs\Bookstore\BookShelf\obj\Debug\net8.0-windows\RegistrationWindow.baml

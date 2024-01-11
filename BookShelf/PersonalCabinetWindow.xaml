@@ -7,31 +7,45 @@
         mc:Ignorable="d"
         Title="PersonalCabinetWindow" Height="450" Width="800" ResizeMode="NoResize">
     <Grid>
-        <Label Content="Welcome to Your Personal Cabinet!" FontSize="16" FontWeight="Bold" Margin="0,10,0,0" Height="32" VerticalAlignment="Top" HorizontalAlignment="Center" Width="280"/>
-        <Image x:Name="avatarImage" Stretch="Fill" Margin="20,0,0,165" Height="210" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="210">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
 
-        </Image>
-        <Button Content="Change" Click="SelectAvatarButton_Click" Margin="20,0,0,132" Height="28" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="79" />
+        <Label Content="Welcome to Your Personal Cabinet!" FontSize="16" FontWeight="Bold" FontFamily="/Files/Fonts/INTER/#Inter" Margin="0,10,0,0" Height="32" VerticalAlignment="Top" HorizontalAlignment="Center" Width="280" Grid.ColumnSpan="2"/>
+        <Image x:Name="avatarImage" Stretch="Fill" Height="220" VerticalAlignment="Center" HorizontalAlignment="Center" Width="220" Grid.Column="0" Margin="0,0,0,50"/>
+
+        <Button Content="Change" FontFamily="/Files/Fonts/INTER/#Inter" Click="SelectAvatarButton_Click" Margin="0,0,0,10" Height="28" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="79" />
+        <StackPanel Orientation="Horizontal"
+                    Grid.Column="1"
+                    Width="500"
+                    Height="330"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
 
 
-        <TextBlock Text="Account name: " Margin="260,0,438,346" TextWrapping="Wrap" VerticalAlignment="Bottom"/>
-        <TextBox x:Name="usernameTextBox" IsReadOnly="True" Margin="347,0,0,344" Height="18" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="320" />
 
+            <StackPanel Orientation="Vertical">
+                <TextBlock FontFamily="/Files/Fonts/INTER/#Inter" Text="Account name:" Margin="10,10,5,0" />
+                <TextBlock FontFamily="/Files/Fonts/INTER/#Inter" Text="Email:"  Margin="10,10,5,0" />
+                <TextBlock FontFamily="/Files/Fonts/INTER/#Inter" Text="Nickname:" Margin="10,10,5,0" />
+                <TextBlock FontFamily="/Files/Fonts/INTER/#Inter" Text="Name:" Margin="10,10,5,0" />
+                <TextBlock FontFamily="/Files/Fonts/INTER/#Inter" Text="Date of Birth:" Margin="10,10,5,0" />
+            </StackPanel>
 
-        <TextBlock Text="Email:" Margin="260,0,0,305" HorizontalAlignment="Left" Width="35" Height="18" VerticalAlignment="Bottom" />
-        <TextBox x:Name="editEmailTextBox" TextChanged="TextBox_TextChanged" Margin="300,0,0,305" HorizontalAlignment="Left" Width="320" Height="18" VerticalAlignment="Bottom" />
+            <StackPanel Orientation="Vertical">
+                <TextBox x:Name="usernameTextBox" FontFamily="/Files/Fonts/INTER/#Inter" Margin="10,8,0,0" IsReadOnly="True" Width="350"/>
+                <TextBox x:Name="editEmailTextBox" FontFamily="/Files/Fonts/INTER/#Inter" TextChanged="TextBox_TextChanged" Margin="10,8,0,0" Width="350"/>
+                <TextBox x:Name="editNicknameTextBox" FontFamily="/Files/Fonts/INTER/#Inter" TextChanged="TextBox_TextChanged" Margin="10,8,0,0" Width="350"/>
+                <TextBox x:Name="editNameTextBox" FontFamily="/Files/Fonts/INTER/#Inter" TextChanged="TextBox_TextChanged" Margin="10,8,0,0" Width="350" />
+                <DatePicker x:Name="editDateOfBirthDatePicker" FontFamily="/Files/Fonts/INTER/#Inter" Margin="10,8,0,0" Width="350"/>
+            </StackPanel>
+        
 
-        <TextBlock Text="Nickname:" Height="18" Margin="260,0,0,265" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="61" />
-        <TextBox x:Name="editNicknameTextBox" TextChanged="TextBox_TextChanged" Margin="326,0,0,265" HorizontalAlignment="Left" Width="320" Height="18" VerticalAlignment="Bottom" />
-
-        <TextBlock Text="Name:" Height="18" Margin="260,0,0,225" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="40" />
-        <TextBox x:Name="editNameTextBox" TextChanged="TextBox_TextChanged" Margin="305,0,0,225" HorizontalAlignment="Left" Width="320" Height="18" VerticalAlignment="Bottom" />
-
-        <TextBlock Text="Date of Birth:" Height="18" Margin="260,0,0,185" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="74" />
-        <DatePicker x:Name="editDateOfBirthDatePicker" Height="25" Margin="0,0,0,181" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="120" />
-
-        <Button Content="Save" x:Name="SaveButton" Click="SaveButton_Click" IsEnabled="False" Margin="611,0,0,10" HorizontalAlignment="Left" Width="80" Height="26" VerticalAlignment="Bottom" />
-        <Button Content="Cancel" Click="CancelEditButton_Click" Margin="696,0,0,10" Height="26" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="80" />
+        
+        </StackPanel>
+        <Button Grid.Column="1" FontFamily="/Files/Fonts/INTER/#Inter" Content="Save" x:Name="SaveButton" Click="SaveButton_Click" IsEnabled="False" HorizontalAlignment="Right" Margin="10,10,110,10" Width="80" Height="26" VerticalAlignment="Bottom" />
+        <Button Grid.Column="1" FontFamily="/Files/Fonts/INTER/#Inter" Content="Cancel" Click="CancelEditButton_Click" Height="26" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="80" Margin="10" />
 
     </Grid>
 </Window>
