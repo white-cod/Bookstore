@@ -25,7 +25,8 @@
                     Margin="0,0,0,90">
             <Button Height="50"
                     Width="50"
-                    Padding="3">
+                    Padding="3"
+                    Click="Button_Click">
                 <Button.Content>
                     <Image Source="/Files/Images/ShoppingCartIcon.png"/>
                 </Button.Content>

@@ -31,7 +31,7 @@ namespace BookShelf.MVVM.View
 
         private void OpenBook_DoubleClick(object sender, MouseButtonEventArgs e) // Opens the book's information
         {
-                      if (e.ChangedButton == MouseButton.Left)
+            if (e.ChangedButton == MouseButton.Left)
             {
                 ListBoxItem item = sender as ListBoxItem;
 

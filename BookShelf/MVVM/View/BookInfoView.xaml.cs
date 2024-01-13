@@ -26,5 +26,11 @@ namespace BookShelf.MVVM.View
             InitializeComponent();
             DataContext = ((App)Application.Current).MainViewModel.CurrentView as BookInfoViewModel;
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ShoppingCartWindow shoppingCartWindow = new ShoppingCartWindow();
+            shoppingCartWindow.Show();
+        }
     }
 }

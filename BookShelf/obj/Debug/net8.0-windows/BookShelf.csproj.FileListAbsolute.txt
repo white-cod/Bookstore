@@ -293,3 +293,5 @@ D:\Code\C#\Programs\Bookstore\BookShelf\obj\Debug\net8.0-windows\RegistrationWin
 D:\Code\C#\Programs\Bookstore\BookShelf\obj\Debug\net8.0-windows\LoginWindow.baml
 D:\Code\C#\Programs\Bookstore\BookShelf\obj\Debug\net8.0-windows\PersonalCabinetWindow.baml
 D:\Code\C#\Programs\Bookstore\BookShelf\obj\Debug\net8.0-windows\RegistrationWindow.baml
+F:\C++\Bookstore\BookShelf\obj\Debug\net8.0-windows\ShoppingCartWindow.g.cs
+F:\C++\Bookstore\BookShelf\obj\Debug\net8.0-windows\ShoppingCartWindow.baml

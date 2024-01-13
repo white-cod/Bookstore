@@ -43,6 +43,25 @@ namespace BookStoreTest
             Close();
         }
 
+        private int GetUserIdByUsername(string username)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+
+                string query = "SELECT user_id FROM Users WHERE username = @Username";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Username", username);
+
+                    object result = command.ExecuteScalar();
+
+                    return result != null ? (int)result : -1;
+                }
+            }
+        }
+
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
             string username = usernameTextBox.Text.Trim();
@@ -50,6 +69,7 @@ namespace BookStoreTest
 
             if (AuthenticateUser(username, password))
             {
+                CurrentUser.UserId = GetUserIdByUsername(username);
                 CurrentUser.Username = username;
                 MainWindow mainWindow = new MainWindow();
                 mainWindow.Show();
@@ -60,7 +80,6 @@ namespace BookStoreTest
                 MessageBox.Show("Invalid username or password.", "Login Error", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
-
 
         private bool AuthenticateUser(string username, string password)
         {

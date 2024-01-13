@@ -111,7 +111,6 @@ namespace BookStoreTest
             }
         }
 
-
         private void NextBookButton_Click(object sender, RoutedEventArgs e)
         {
             currentBookIndex++;

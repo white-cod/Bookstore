@@ -27,6 +27,7 @@ namespace BookStoreTest
         {
             InitializeComponent();
             LoadUserData();
+            WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
         public class UserData
@@ -212,6 +213,14 @@ namespace BookStoreTest
 
         private void CancelEditButton_Click(object sender, RoutedEventArgs e)
         {
+            Close();
+        }
+
+        private void CartOpen_Click(object sender, RoutedEventArgs e)
+        {
+            ShoppingCartWindow shoppingCartWindow = new ShoppingCartWindow();
+            shoppingCartWindow.Show();
+
             Close();
         }
     }

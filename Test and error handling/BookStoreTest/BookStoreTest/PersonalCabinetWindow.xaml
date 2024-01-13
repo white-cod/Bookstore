@@ -32,6 +32,7 @@
 
         <Button Content="Save" x:Name="SaveButton" Click="SaveButton_Click" IsEnabled="False" Margin="611,0,0,10" HorizontalAlignment="Left" Width="80" Height="26" VerticalAlignment="Bottom" />
         <Button Content="Cancel" Click="CancelEditButton_Click" Margin="696,0,0,10" Height="26" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="80" />
+        <Button Content="My Cart" x:Name="CartOpen" HorizontalAlignment="Left" Margin="20,0,0,10" VerticalAlignment="Bottom" RenderTransformOrigin="1.607,1.009" Width="80" Height="26" Click="CartOpen_Click"/>
 
     </Grid>
 </Window>

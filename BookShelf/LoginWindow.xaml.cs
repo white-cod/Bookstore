@@ -23,9 +23,7 @@ namespace BookShelf
 {
     public partial class LoginWindow : Window
     {
-        private const string ConnectionString = "Data Source=DESKTOP-AJ6IRLC\\SQLEXPRESS;Initial Catalog=Bookstore;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
-
-        // private const string ConnectionString = "Data Source=DESKTOP-C85D6OJ\\SQLEXPRESS;Initial Catalog=Bookstore;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
+        private const string ConnectionString = "Data Source=DESKTOP-C85D6OJ\\SQLEXPRESS;Initial Catalog=Bookstore;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False";
 
         public LoginWindow()
         {
@@ -53,6 +51,7 @@ namespace BookShelf
 
             if (AuthenticateUser(username, password))
             {
+                CurrentUser.UserId = GetUserIdByUsername(username);
                 CurrentUser.Username = username;
                 MainWindow mainWindow = new MainWindow();
                 mainWindow.Show();
@@ -64,6 +63,24 @@ namespace BookShelf
             }
         }
 
+        private int GetUserIdByUsername(string username)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+
+                string query = "SELECT user_id FROM Users WHERE username = @Username";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@Username", username);
+
+                    object result = command.ExecuteScalar();
+
+                    return result != null ? (int)result : -1;
+                }
+            }
+        }
 
         private bool AuthenticateUser(string username, string password)
         {

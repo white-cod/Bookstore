@@ -40,12 +40,13 @@
                 <TextBox x:Name="editNameTextBox" FontFamily="/Files/Fonts/INTER/#Inter" TextChanged="TextBox_TextChanged" Margin="10,8,0,0" Width="350" />
                 <DatePicker x:Name="editDateOfBirthDatePicker" FontFamily="/Files/Fonts/INTER/#Inter" Margin="10,8,0,0" Width="350"/>
             </StackPanel>
-        
 
-        
+
+
         </StackPanel>
         <Button Grid.Column="1" FontFamily="/Files/Fonts/INTER/#Inter" Content="Save" x:Name="SaveButton" Click="SaveButton_Click" IsEnabled="False" HorizontalAlignment="Right" Margin="10,10,110,10" Width="80" Height="26" VerticalAlignment="Bottom" />
         <Button Grid.Column="1" FontFamily="/Files/Fonts/INTER/#Inter" Content="Cancel" Click="CancelEditButton_Click" Height="26" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="80" Margin="10" />
+        <Button Grid.Column="1" x:Name="CartOpen" Content="My Cart" HorizontalAlignment="Left" Margin="258,0,0,10" VerticalAlignment="Bottom" Height="25" Width="80" Click="CartOpen_Click"/>
 
     </Grid>
 </Window>
