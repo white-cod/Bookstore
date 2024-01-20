@@ -117,7 +117,7 @@ namespace BookShelf {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/BookShelf;component/personalcabinetwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/BookShelf;V1.0.0.0;component/personalcabinetwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\PersonalCabinetWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

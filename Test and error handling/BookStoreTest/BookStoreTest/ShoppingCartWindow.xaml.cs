@@ -20,12 +20,35 @@ using System.Collections.Generic;
 using System.Globalization;
 using static BookStoreTest.MainWindow;
 using static BookStoreTest.PersonalCabinetWindow;
+using System.ComponentModel;
 
 namespace BookStoreTest
 {
-    public partial class ShoppingCartWindow : Window
+    public partial class ShoppingCartWindow : Window, INotifyPropertyChanged
     {
         private const string ConnectionString = "Server=DESKTOP-C85D6OJ\\SQLEXPRESS;Database=BookStore;Integrated Security=True;";
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        private bool _isRemoveButtonEnabled;
+
+        public bool IsRemoveButtonEnabled
+        {
+            get { return _isRemoveButtonEnabled; }
+            set
+            {
+                if (_isRemoveButtonEnabled != value)
+                {
+                    _isRemoveButtonEnabled = value;
+                    OnPropertyChanged(nameof(IsRemoveButtonEnabled));
+                }
+            }
+        }
 
         public class CartItem
         {
@@ -47,14 +70,26 @@ namespace BookStoreTest
  
         }
 
+        private void CartListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            IsRemoveButtonEnabled = cartListView.SelectedItem != null;
+        }
+
         private List<CartItem> cartItems;
 
-        public ShoppingCartWindow()
+        public ShoppingCartWindow(double left = 0, double top = 0)
         {
             InitializeComponent();
             cartItems = GetShoppingCartItems(CurrentUser.UserId);
+            DataContext = this;
             DisplayShoppingCart();
-            WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
+            Left = left;
+            Top = top;
+
+            cartItems = GetShoppingCartItems(CurrentUser.UserId);
+            DisplayShoppingCart();
+            WindowStartupLocation = WindowStartupLocation.Manual;
         }
 
         private List<CartItem> GetShoppingCartItems(int userId)
@@ -117,6 +152,7 @@ namespace BookStoreTest
         private void DisplayShoppingCart()
         {
             cartListView.ItemsSource = cartItems;
+            cartListView.SelectionChanged += CartListView_SelectionChanged;
 
             decimal totalAmount = cartItems.Sum(item => item.TotalCost);
             totalAmountTextBox.Text = totalAmount.ToString(CultureInfo.InvariantCulture) + " $";
@@ -129,10 +165,9 @@ namespace BookStoreTest
                     DisplayMemberBinding = new Binding("CoverImage")
                 };
 
-                gridView.Columns.Add(coverColumn);
+               
             }
         }
-
 
         private void AddToCartButton_Click(object sender, RoutedEventArgs e)
         {
@@ -289,12 +324,52 @@ namespace BookStoreTest
             }
         }
 
-        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        private void OpenPersonalCabinetWindow()
         {
             PersonalCabinetWindow personalCabinetWindow = new PersonalCabinetWindow();
+
+            personalCabinetWindow.Left = Left;
+            personalCabinetWindow.Top = Top;
+
             personalCabinetWindow.Show();
 
             Close();
+        }
+
+        private void CloseButton_Click(object sender, RoutedEventArgs e)
+        {
+            OpenPersonalCabinetWindow();
+        }
+
+        private void RemoveButton_Click(object sender, RoutedEventArgs e)
+        {
+            CartItem selectedCartItem = cartListView.SelectedItem as CartItem;
+
+            if (selectedCartItem != null)
+            {
+                RemoveBookFromCart(selectedCartItem.BookId);
+            }
+        }
+
+        private void RemoveBookFromCart(int bookId)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionString))
+            {
+                connection.Open();
+
+                string query = "DELETE FROM ShoppingCarts WHERE user_id = @UserId AND book_id = @BookId";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@UserId", CurrentUser.UserId);
+                    command.Parameters.AddWithValue("@BookId", bookId);
+
+                    command.ExecuteNonQuery();
+                }
+            }
+
+            cartItems = GetShoppingCartItems(CurrentUser.UserId);
+            DisplayShoppingCart();
         }
     }
 }

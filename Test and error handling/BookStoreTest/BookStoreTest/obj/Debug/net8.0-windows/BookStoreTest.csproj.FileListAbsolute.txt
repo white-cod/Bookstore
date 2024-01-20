@@ -201,3 +201,5 @@ F:\C++\Bookstore\Test and error handling\BookStoreTest\BookStoreTest\obj\Debug\n
 F:\C++\Bookstore\Test and error handling\BookStoreTest\BookStoreTest\obj\Debug\net8.0-windows\PersonalCabinetWindow.baml
 F:\C++\Bookstore\Test and error handling\BookStoreTest\BookStoreTest\obj\Debug\net8.0-windows\ShoppingCartWindow.g.cs
 F:\C++\Bookstore\Test and error handling\BookStoreTest\BookStoreTest\obj\Debug\net8.0-windows\ShoppingCartWindow.baml
+F:\C++\Bookstore\Test and error handling\BookStoreTest\BookStoreTest\obj\Debug\net8.0-windows\AddBookWindow.g.cs
+F:\C++\Bookstore\Test and error handling\BookStoreTest\BookStoreTest\obj\Debug\net8.0-windows\AddBookWindow.baml

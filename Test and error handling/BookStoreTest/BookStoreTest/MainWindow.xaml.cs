@@ -26,7 +26,7 @@ namespace BookStoreTest
         private DataTable booksTable;
         private int currentBookIndex = 0;
 
-        public static class CurrentUser
+        public class CurrentUser
         {
             public static int UserId { get; set; }
             public static string Username { get; set; }
@@ -35,6 +35,7 @@ namespace BookStoreTest
             public static string Name { get; set; }
             public static DateTime? DateOfBirth { get; set; }
             public static string AvatarPath { get; set; }
+            public static bool IsAuthor { get; set; }
         }
 
         public MainWindow()
