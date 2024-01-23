@@ -1,0 +1,112 @@
+﻿<UserControl x:Class="BookShelfProject.MVVM.Views.HomeView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BookShelfProject.MVVM.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="565" d:DesignWidth="980">
+
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Themes/BookListBoxTheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <!-- Recommended Books -->
+        <Border Grid.Row="0"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Height="160"
+                Width="940">
+            <Grid>
+                <Label Content="Recommended"
+                       FontSize="22"
+                       FontFamily="/Files/Fonts/INTER/#Inter"
+                       FontWeight="SemiBold"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Left"
+                       Margin="30,0,0,0"/>
+                <ListBox Height="120"
+                         VerticalAlignment="Bottom"
+                         ItemContainerStyle="{StaticResource BookListBoxItemTheme}" 
+                         ItemsSource="{Binding RecommendedBooks}"
+                         ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                         ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Rows="1"/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                </ListBox>
+            </Grid>
+        </Border>
+
+        <!-- Novelties -->
+        <Border Grid.Row="1"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Height="160"
+                Width="940">
+            <Grid>
+                <Label Content="Novelties"
+                       FontSize="22"
+                       FontFamily="/Files/Fonts/INTER/#Inter"
+                       FontWeight="SemiBold"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Left"
+                       Margin="30,0,0,0"/>
+                <ListBox Height="120"
+                         VerticalAlignment="Bottom"
+                         ItemContainerStyle="{StaticResource BookListBoxItemTheme}" 
+                         ItemsSource="{Binding NewBooks}"
+                         ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                         ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Rows="1"/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                </ListBox>
+            </Grid>
+        </Border>
+
+        <!-- Special offers -->
+        <Border Grid.Row="2"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Height="160"
+                Width="940">
+            <Grid>
+                <Label Content="Special offers"
+                       FontSize="22"
+                       FontFamily="/Files/Fonts/INTER/#Inter"
+                       FontWeight="SemiBold"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Left"
+                       Margin="30,0,0,0"/>
+                <ListBox Height="120"
+                         VerticalAlignment="Bottom"
+                         ItemContainerStyle="{StaticResource BookListBoxItemTheme}" 
+                         ItemsSource="{Binding OfferedBooks}"
+                         ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                         ScrollViewer.VerticalScrollBarVisibility="Disabled">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Rows="1"/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+                </ListBox>
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

@@ -1,0 +1,93 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Files\Fonts\INTER\Inter-Black.ttf" />
+    <None Remove="Files\Fonts\INTER\Inter-Bold.ttf" />
+    <None Remove="Files\Fonts\INTER\Inter-ExtraBold.ttf" />
+    <None Remove="Files\Fonts\INTER\Inter-ExtraLight.ttf" />
+    <None Remove="Files\Fonts\INTER\Inter-Light.ttf" />
+    <None Remove="Files\Fonts\INTER\Inter-Medium.ttf" />
+    <None Remove="Files\Fonts\INTER\Inter-Regular.ttf" />
+    <None Remove="Files\Fonts\INTER\Inter-SemiBold.ttf" />
+    <None Remove="Files\Fonts\INTER\Inter-Thin.ttf" />
+    <None Remove="Files\Images\ArrowIconLeft.png" />
+    <None Remove="Files\Images\ArrowIconLeftActive.png" />
+    <None Remove="Files\Images\ArrowIconRight.png" />
+    <None Remove="Files\Images\ArrowIconRightActive.png" />
+    <None Remove="Files\Images\SearchIcon.png" />
+    <None Remove="Files\Images\SearchIconActive.png" />
+    <None Remove="Files\Images\SearchIconMouseOver.png" />
+    <None Remove="Files\Images\ShoppingCartIcon.png" />
+    <None Remove="Files\Images\ShoppingCartIconActive.png" />
+    <None Remove="Files\Images\UserIcon.png" />
+    <None Remove="Files\Images\UserIconActive.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="8.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" Version="8.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Files\Fonts\INTER\Inter-Black.ttf" />
+    <Resource Include="Files\Fonts\INTER\Inter-Bold.ttf" />
+    <Resource Include="Files\Fonts\INTER\Inter-ExtraBold.ttf" />
+    <Resource Include="Files\Fonts\INTER\Inter-ExtraLight.ttf" />
+    <Resource Include="Files\Fonts\INTER\Inter-Light.ttf" />
+    <Resource Include="Files\Fonts\INTER\Inter-Medium.ttf" />
+    <Resource Include="Files\Fonts\INTER\Inter-Regular.ttf" />
+    <Resource Include="Files\Fonts\INTER\Inter-SemiBold.ttf" />
+    <Resource Include="Files\Fonts\INTER\Inter-Thin.ttf" />
+    <Resource Include="Files\Images\ArrowIconLeft.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Files\Images\ArrowIconLeftActive.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Files\Images\ArrowIconRight.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Files\Images\ArrowIconRightActive.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Files\Images\SearchIcon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Files\Images\SearchIconActive.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Files\Images\SearchIconMouseOver.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Files\Images\ShoppingCartIcon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Files\Images\ShoppingCartIconActive.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Files\Images\UserIcon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Files\Images\UserIconActive.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+</Project>

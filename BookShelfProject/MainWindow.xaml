@@ -1,0 +1,280 @@
+﻿ <Window x:Class="BookShelfProject.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BookShelfProject"
+        xmlns:viewModel="clr-namespace:BookShelfProject.MVVM.ViewModels"
+        xmlns:view="clr-namespace:BookShelfProject.MVVM.Views"
+        xmlns:converters="clr-namespace:BookShelfProject.Core.Converters"
+        mc:Ignorable="d"
+        Title="BookShelf" Height="675" Width="1200"
+        ResizeMode="NoResize">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <converters:ViewModelToBooleanConverter x:Key="ViewModelToBooleanConverter"/>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Themes/MenuButtonTheme.xaml"/>
+                <ResourceDictionary Source="Themes/CustomFocusVisualStyleTheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <ContentControl x:Name="CurrentСontentControl"
+                        Content="{Binding CurrentViewModel}"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        Margin="10" Grid.ColumnSpan="2">
+            <ContentControl.Resources>
+                <DataTemplate DataType="{x:Type viewModel:HomeViewModel}">
+                    <view:HomeView/>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type viewModel:CatalogueViewModel}">
+                    <view:CatalogueView/>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type viewModel:SearchResultViewModel}">
+                    <view:SearchResultView/>
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type viewModel:BookPageViewModel}">
+                    <view:BookPageView/>
+                </DataTemplate>
+            </ContentControl.Resources>
+        </ContentControl>
+
+        <Border Grid.Column="0"
+                Grid.Row="0"
+                Background="LightGray"
+                BorderBrush="Gray"
+                BorderThickness="0,0,2,2">
+            <Button VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    Content="Bookshelf"
+                    FontSize="28"
+                    FontFamily="Files/Fonts/INTER/#Inter"
+                    FontWeight="SemiBold"
+                    BorderThickness="0"
+                    Cursor="Hand"
+                    Command="{Binding NavigateHomeCommand}">
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <ContentPresenter/>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </Border>
+
+        <Border Grid.Row="1"
+                Grid.Column="0"
+                Background="LightGray"
+                BorderThickness="0,0,2,0"
+                BorderBrush="Gray">
+            <StackPanel Orientation="Vertical">
+                <RadioButton x:Name="HomeMenuButton"
+             Style="{StaticResource MenuButtonTheme}"
+ IsChecked="{Binding CurrentViewModel, Mode=TwoWay, Converter={StaticResource ViewModelToBooleanConverter}, ConverterParameter={x:Type viewModel:HomeViewModel}}"
+             Content="Home"
+             Height="60"
+             FontSize="24"
+             FontFamily="Files/Fonts/INTER/#Inter"
+             FontWeight="Medium"
+             Command="{Binding NavigateHomeCommand}"/>
+                
+                <RadioButton x:Name="CatalogueMenuButton"
+                             Style="{StaticResource MenuButtonTheme}"
+                            IsChecked="{Binding CurrentViewModel, Mode=TwoWay, Converter={StaticResource ViewModelToBooleanConverter}, ConverterParameter={x:Type viewModel:CatalogueViewModel}}"
+                             Content="Catalogue"
+                             Height="60"
+                             FontSize="24"
+                             FontFamily="Files/Fonts/INTER/#Inter"
+                             FontWeight="Medium"                 
+                             Command="{Binding NavigateCatalogueCommand}"/>
+            </StackPanel>
+            
+        </Border>
+
+        <Border Grid.Row="0"
+                Grid.Column="1"
+                Background="LightGray"
+                BorderBrush="Gray"
+                BorderThickness="0,0,0,2" Grid.ColumnSpan="2">
+
+            <Grid>
+
+                <!-- Profile button -->
+                <Button VerticalAlignment="Center"
+       HorizontalAlignment="Right"
+       Cursor="Hand"
+       Width="70"
+       Height="70"
+                        Command="{Binding Path=_OpenProfileCommand}">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Grid>
+                                <Image >
+                                    <Image.Style>
+                                        <Style TargetType="Image">
+                                            <Setter Property="Source" Value="/Files/Images/UserIcon.png"/>
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Source" Value="Files/Images/UserIconActive.png"/>
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Image.Style>
+                                </Image>
+                            </Grid>
+                        </ControlTemplate>
+                    </Button.Template>
+                    
+                </Button>
+
+                <!-- Previous page button -->
+                <Button HorizontalAlignment="Center"
+        VerticalAlignment="Center"
+        Height="50"
+        Margin="0,0,90,0"
+        Command="{Binding Path=_NavigatePreviousCommand}"
+        BorderThickness="0"
+        Cursor="Hand">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Grid>
+                                <Image>
+                                    <Image.Style>
+                                        <Style TargetType="Image">
+                                            <Setter Property="Source" Value="/Files/Images/ArrowIconLeft.png"/>
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Source" Value="/Files/Images/ArrowIconLeftActive.png"/>
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Image.Style>
+                                </Image>
+                            </Grid>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <!-- Next page button -->
+                <Button HorizontalAlignment="Center"
+VerticalAlignment="Center"
+Height="50"
+Margin="10,0,0,0"
+Command="{Binding Path=_NavigateNextCommand}"
+BorderThickness="0"
+Cursor="Hand">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Grid>
+                                <Image>
+                                    <Image.Style>
+                                        <Style TargetType="Image">
+                                            <Setter Property="Source" Value="Files/Images/ArrowIconRight.png"/>
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Source" Value="Files/Images/ArrowIconRightActive.png"/>
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Image.Style>
+                                </Image>
+                            </Grid>
+                        </ControlTemplate>
+
+                    </Button.Template>
+                </Button>
+
+
+                <TextBox HorizontalAlignment="Left"
+                     Margin="20,0,0,0">
+                    <TextBox.Style>
+                        <Style TargetType="TextBox">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="TextBox">
+                                        <Border CornerRadius="10"
+                                            Background="White"
+                                            Width="400"
+                                            Height="50"
+                                            BorderThickness="3"
+                                            BorderBrush="#adadad"
+                                            Padding="5">
+                                            <Grid>
+                                                <TextBox x:Name="SearchBox"
+                                                     Margin="1"
+                                                     Text="{TemplateBinding Text}"
+                                                     BorderThickness="0"
+                                                     VerticalContentAlignment="Center"
+                                                     Padding="5"
+                                                     Width="335"
+                                                     HorizontalAlignment="Left"
+                                                     Foreground="Black"
+                                                     FontSize="20"
+                                                     FontFamily="Files/Fonts/INTER/#Inter"
+                                                     Cursor="IBeam"/>
+                                                <Button Width="30"
+                                                    Height="30"
+                                                    VerticalAlignment="Center"
+                                                    HorizontalAlignment="Right"
+                                                    Cursor="Hand"
+                                                    Background="Transparent"
+                                                    BorderThickness="0"
+                                                    Command="{Binding SearchBookCommand}"
+                                                    CommandParameter="{Binding Path=Text, ElementName=SearchBox}">
+                                                    <Button.Template>
+                                                        <ControlTemplate TargetType="Button">
+                                                            <Border Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Padding="{TemplateBinding Padding}">
+                                                                <Image x:Name="_searchIcon" Source="Files/Images/SearchIcon.png"/>
+                                                            </Border>
+                                                            <ControlTemplate.Triggers>
+                                                                <Trigger Property="IsMouseOver" Value="True">
+                                                                    <Setter TargetName="_searchIcon" Property="Source" Value="Files/Images/SearchIconActive.png"/>
+                                                                </Trigger>
+                                                            </ControlTemplate.Triggers>
+                                                        </ControlTemplate>
+                                                    </Button.Template>
+                                                </Button>
+                                                <TextBlock IsHitTestVisible="False"
+                                                       Text="Search"
+                                                       VerticalAlignment="Center"
+                                                       HorizontalAlignment="Left"
+                                                       Margin="10,0,0,0"
+                                                       FontSize="20"
+                                                       Foreground="Gray"
+                                                       Grid.Column="1"
+                                                       FontFamily="Files/Fonts/INTER/#Inter">
+                                                    <TextBlock.Style>
+                                                        <Style TargetType="TextBlock">
+                                                            <Style.Triggers>
+                                                                <DataTrigger Binding="{Binding Text, ElementName=SearchBox}" Value="">
+                                                                    <Setter Property="Visibility" Value="Visible"/>
+                                                                </DataTrigger>
+                                                            </Style.Triggers>
+                                                            <Setter Property="Visibility" Value="Hidden"/>
+                                                        </Style>
+                                                    </TextBlock.Style>
+                                                </TextBlock>
+                                            </Grid>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </TextBox.Style>
+                </TextBox>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

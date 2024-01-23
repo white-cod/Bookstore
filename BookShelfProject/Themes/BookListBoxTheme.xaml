@@ -1,0 +1,81 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="BookButtonTheme" TargetType="Button">
+        <Setter Property="Width" Value="170"/>
+        <Setter Property="Height" Value="110"/>
+        <Setter Property="Margin" Value="3,0,3,0"/>
+        <Setter Property="Cursor" Value="Hand"/>
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Grid.Style>
+                            <Style TargetType="Grid">
+                                <Setter Property="Background" Value="#adadad"/>
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="LightGray"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Grid.Style>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Source="{Binding Path=CoverPath}"
+                               Height="80"
+                               Width="80"
+                               HorizontalAlignment="Center"
+                               VerticalAlignment="Center"
+                               Margin="5"/>
+
+                        <TextBlock Text="{Binding Path=Title}"
+                                   TextWrapping="Wrap"
+                                   FontSize="10"
+                                   FontFamily="/Files/Fonts/INTER/#Inter"
+                                   FontWeight="Bold"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Top"
+                                   Height="40"
+                                   Grid.Column="1"
+                                   Margin="5"/>
+
+                        <TextBlock Text="{Binding Path=SalePrice}"
+                                   TextWrapping="Wrap"
+                                   FontSize="12"
+                                   FontWeight="SemiBold"
+                                   FontFamily="/Files/Fonts/INTER/#Inter"
+                                   HorizontalAlignment="Center"
+                                   VerticalAlignment="Bottom"
+                                   Grid.Column="1"
+                                   Height="20"
+                                   Margin="3"/>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="BookListBoxItemTheme" TargetType="ListBoxItem">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ListBoxItem">
+                    <Button Style="{StaticResource BookButtonTheme}" 
+                            Content="{Binding}"
+                            CommandParameter="{Binding}">
+                        <Button.Command>
+                            <Binding Path="DataContext._OpenBookPageCommand"
+                                     RelativeSource="{RelativeSource FindAncestor, AncestorType={x:Type ListBox}}"/>
+                        </Button.Command>
+                        
+                    </Button>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

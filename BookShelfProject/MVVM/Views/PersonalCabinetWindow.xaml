@@ -1,0 +1,113 @@
+﻿<Window x:Class="BookShelfProject.MVVM.Views.PersonalCabinetWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BookShelfProject.MVVM.Views"
+        xmlns:converters="clr-namespace:BookShelfProject.Core.Converters"
+        mc:Ignorable="d"
+        Title="PersonalCabinetWindow" Height="450" Width="800"
+        ResizeMode="NoResize"
+        FontFamily="/Files/Fonts/INTER/#Inter"
+        MouseLeftButtonDown="Window_MouseLeftButtonDown">
+    <Window.Style>
+        <Style TargetType="Window">
+            <Setter Property="WindowStyle" Value="None"/>
+            <Setter Property="AllowsTransparency" Value="True"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+        </Style>
+    </Window.Style>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="250"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Welcome to Your Personal Cabinet!" 
+               FontSize="16" FontWeight="Bold"
+               Margin="0,10,0,0" Height="32"
+               VerticalAlignment="Top" 
+               HorizontalAlignment="Center" 
+               Width="280" 
+               Grid.ColumnSpan="2"/>
+        
+    <Image x:Name="avatarImage" 
+           Stretch="Fill" Height="220" 
+           VerticalAlignment="Center" 
+           HorizontalAlignment="Center" 
+           Width="220"
+           Grid.Column="0" 
+           Margin="0,0,0,50"
+           Source="{Binding AvatarPath}"/>
+
+    <Button Content="Change" 
+             Margin="0,0,0,10"
+            Height="28" 
+            VerticalAlignment="Bottom" 
+            HorizontalAlignment="Center" 
+            Width="79"
+            Command="{Binding _ChangeAvatarCommand}"/>
+
+        <StackPanel Orientation="Horizontal"
+                Grid.Column="1"
+                Width="500"
+                Height="330"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center">
+
+            <StackPanel Orientation="Vertical">
+            <TextBlock Text="Account name:" 
+                       Margin="10,11,5,0" />
+             <TextBlock Text="Email:"  
+                        Margin="10,11,5,0" />
+             <TextBlock Text="Date of Birth:" 
+                        Margin="10,11,5,0" />
+        </StackPanel>
+
+        <StackPanel Orientation="Vertical">
+            <TextBox Margin="10,8,0,0" 
+                     IsReadOnly="False"
+                     Width="350"
+                     Text="{Binding Username, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                <TextBox Margin="10,8,0,0" 
+                         Width="350"
+                         Text="{Binding Email, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+                <DatePicker Margin="10,8,0,0" 
+                            Width="350"
+                            SelectedDate="{Binding BirthDate, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"/>
+        </StackPanel>
+
+
+
+    </StackPanel>
+    <Button Grid.Column="1" 
+            Content="Save" 
+            IsEnabled="{Binding IsSaveButtonEnabled}"
+            HorizontalAlignment="Right" 
+            Margin="10,10,110,10" 
+            Width="80" 
+            Height="26" 
+            VerticalAlignment="Bottom" 
+            Command="{Binding _SaveProfileChangesCommand}"/>
+        
+    <Button Grid.Column="1" 
+            Content="Cancel" 
+            Height="26" 
+            VerticalAlignment="Bottom" 
+            HorizontalAlignment="Right" 
+            Width="80" 
+            Margin="10" 
+            Command="{Binding Path=_OpenShopWindowCommand}"/>
+        
+    <Button Grid.Column="1" 
+            Content="My Cart" 
+            HorizontalAlignment="Left" 
+            Margin="20,0,0,10" 
+            VerticalAlignment="Bottom" 
+            Height="25" 
+            Width="80"/>
+
+    </Grid>
+</Window>

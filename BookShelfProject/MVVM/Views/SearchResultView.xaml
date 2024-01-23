@@ -1,0 +1,91 @@
+﻿<UserControl x:Class="BookShelfProject.MVVM.Views.SearchResultView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BookShelfProject.MVVM.Views"
+             xmlns:type="clr-namespace:BookShelfProject.Core.Commands"
+             xmlns:converters="clr-namespace:BookShelfProject.Core.Converters"
+             mc:Ignorable="d" 
+             d:DesignHeight="565" d:DesignWidth="980">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <converters:FilterTypeToBoolean x:Key="FilterTypeToBoolean"/>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Themes/RadioButtonStyleTheme.xaml"/>
+                <ResourceDictionary Source="/Themes/SearchListBoxItemTheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <TextBlock Text="Search results"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Left"
+                   FontSize="30"
+                   FontWeight="SemiBold"
+                   FontFamily="/Files/Fonts/INTER/#Inter"
+                   Margin="20"
+                  />
+
+        <StackPanel VerticalAlignment="Top"
+                    HorizontalAlignment="Right"
+                    Orientation="Horizontal"
+                    Margin="0,20,20,0">
+            <TextBlock Text="Filter"
+                        FontSize="30"
+                        FontWeight="SemiBold"
+                        FontFamily="/Files/Fonts/INTER/#Inter"
+                        Margin="10,5,10,5"/>
+            <RadioButton Content="All" Style="{StaticResource RadioButtonTheme}" 
+                         FontFamily="/Files/Fonts/INTER/#Inter"  
+                         FontWeight="SemiBold" 
+                         FontSize="24" 
+                         VerticalAlignment="Center"
+                         Height="45"
+                         Width="70"
+                         IsChecked="{Binding Path=_FilterType, Mode=TwoWay,Converter={StaticResource FilterTypeToBoolean},ConverterParameter={x:Static type:FilterType.All}}"
+                         Command="{Binding FilterAllCommand}"/>
+            <RadioButton Content="Book" Style="{StaticResource RadioButtonTheme}" 
+                         FontFamily="/Files/Fonts/INTER/#Inter"  
+                         FontWeight="SemiBold" 
+                         FontSize="24" 
+                         VerticalAlignment="Center"
+                         Height="45"
+                         Width="100"
+                         IsChecked="{Binding Path=_FilterType, Mode=TwoWay,Converter={StaticResource FilterTypeToBoolean},ConverterParameter={x:Static type:FilterType.Book}}"
+                         Command="{Binding FilterByTitleCommand}"
+                         />
+            <RadioButton Content="Author" Style="{StaticResource RadioButtonTheme}" 
+                         FontFamily="/Files/Fonts/INTER/#Inter"  
+                         FontWeight="SemiBold" 
+                         FontSize="24" 
+                         VerticalAlignment="Center"
+                         Height="45"
+                         Width="115"
+                         IsChecked="{Binding Path=_FilterType, Mode=TwoWay,Converter={StaticResource FilterTypeToBoolean},ConverterParameter={x:Static type:FilterType.Author}}"
+                         Command="{Binding FilterByAuthorCommand}"
+                         />
+            <RadioButton Content="Genre" Style="{StaticResource RadioButtonTheme}" 
+                         FontFamily="/Files/Fonts/INTER/#Inter"  
+                         FontWeight="SemiBold" 
+                         FontSize="24" 
+                         VerticalAlignment="Center"
+                         Height="45"
+                         Width="110"
+                         Command="{Binding FilterByGenreCommand}"
+                         IsChecked="{Binding Path=_FilterType, Mode=TwoWay,Converter={StaticResource FilterTypeToBoolean},ConverterParameter={x:Static type:FilterType.Genre}}"
+                         />
+        </StackPanel>
+
+        <ListBox VerticalAlignment="Center"
+                 HorizontalAlignment="Center"
+                 Width="900"
+                 Height="420"
+                 Margin="0,50,0,0"
+                 ItemContainerStyle="{StaticResource BookListBoxItemTheme}"
+                 ItemsSource="{Binding ResultsList}"
+                 >
+            
+        </ListBox>
+    </Grid>
+</UserControl>

@@ -3392,19 +3392,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\User\\.nuget\\packages\\": {}
+    "C:\\Users\\1rtem\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\C++\\Bookstore\\Test and error handling\\BookStoreTest\\BookStoreTest\\BookStoreTest.csproj",
+      "projectUniqueName": "D:\\Code\\C#\\Programs\\Bookstore\\Test and error handling\\BookStoreTest\\BookStoreTest\\BookStoreTest.csproj",
       "projectName": "BookStoreTest",
-      "projectPath": "F:\\C++\\Bookstore\\Test and error handling\\BookStoreTest\\BookStoreTest\\BookStoreTest.csproj",
-      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "F:\\C++\\Bookstore\\Test and error handling\\BookStoreTest\\BookStoreTest\\obj\\",
+      "projectPath": "D:\\Code\\C#\\Programs\\Bookstore\\Test and error handling\\BookStoreTest\\BookStoreTest\\BookStoreTest.csproj",
+      "packagesPath": "C:\\Users\\1rtem\\.nuget\\packages\\",
+      "outputPath": "D:\\Code\\C#\\Programs\\Bookstore\\Test and error handling\\BookStoreTest\\BookStoreTest\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\1rtem\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3412,6 +3417,7 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -3461,5 +3467,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'System.Data.SqlClient' 4.8.5 has a known high severity vulnerability, https://github.com/advisories/GHSA-98g6-xh36-x2p7",
+      "libraryId": "System.Data.SqlClient",
+      "targetGraphs": [
+        "net8.0-windows7.0"
+      ]
+    }
+  ]
 }

@@ -1,0 +1,76 @@
+﻿<UserControl x:Class="BookShelfProject.MVVM.Views.CatalogueView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:BookShelfProject.MVVM.Views"
+             mc:Ignorable="d" 
+             d:DesignHeight="565" d:DesignWidth="980">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Themes/CustomFocusVisualStyleTheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <!-- Categories -->
+        <Border Grid.Column="0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Margin="0,10,0,0">
+            <StackPanel>
+                <Label HorizontalAlignment="Center"
+                       VerticalAlignment="Top"
+                       FontFamily="/Files/Fonts/INTER/#Inter"
+                       FontSize="26"
+                       FontWeight="SemiBold"
+                       Margin="10,5,10,10">Genres and categories</Label>
+                <ListBox x:Name="GenresCategoriesListBox" 
+                         ItemsSource="{Binding Categories}"
+                         BorderThickness="0"
+                         Background="Transparent"
+                         Height="450"
+                         Width="900">
+                    <ListBox.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Columns="5"/>
+                        </ItemsPanelTemplate>
+                    </ListBox.ItemsPanel>
+
+                    <ListBox.ItemContainerStyle>
+                        <Style TargetType="ListBoxItem">
+                            <Setter Property="FocusVisualStyle" Value="{StaticResource CustomFocusVisualStyleTheme}"/>
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                            <Setter Property="VerticalContentAlignment" Value="Stretch"/>
+                            <Setter Property="Padding" Value="0"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="ListBoxItem">
+                                        <Button Command="{Binding Path=DataContext._OpenSearchResultCommand, RelativeSource={RelativeSource AncestorType={x:Type ListBox}}}"
+                                                CommandParameter="{Binding}"
+                                                Content="{Binding}"
+                                                Cursor="Hand"
+                                                HorizontalContentAlignment="Stretch"
+                                                VerticalContentAlignment="Stretch"
+                                                FontSize="12"
+                                                FontFamily="/Files/Fonts/INTER/#Inter"
+                                                Margin="5"
+                                                BorderThickness="0"
+                                                Background="Transparent">
+                                            <Button.Template>
+                                                <ControlTemplate TargetType="Button">
+                                                    <ContentPresenter/>
+                                                </ControlTemplate>
+                                            </Button.Template>
+                                        </Button>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </Style>
+                    </ListBox.ItemContainerStyle>
+                </ListBox>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>
