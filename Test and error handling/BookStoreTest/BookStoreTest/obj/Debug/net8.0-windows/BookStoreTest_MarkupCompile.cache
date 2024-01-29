@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 F:\C++\Bookstore\Test and error handling\BookStoreTest\BookStoreTest\App.xaml
-61911814431
+91576527693
 
-9209942396
-2271325979521
-AddBookWindow.xaml;LoginWindow.xaml;MainWindow.xaml;PersonalCabinetWindow.xaml;RegistrationWindow.xaml;ShoppingCartWindow.xaml;
+12-1059154729
+227-1653759006
+AddBookWindow.xaml;AdministratorWindow.xaml;EditBookWindow.xaml;LoginWindow.xaml;MainWindow.xaml;PersonalCabinetWindow.xaml;RegistrationWindow.xaml;ShoppingCartWindow.xaml;UserBooksWindow.xaml;
 
 False
 

@@ -36,8 +36,9 @@ namespace BookShelfProject.MVVM.ViewModels
                 _context = ServiceLocator.GetService<DatabaseContext>();
                 _mapper = ServiceLocator.GetService<IMapper>();
 
+
                 _OpenBookPageCommand = new OpenBookPageCommand();
-                
+
                 RecommendedBooks = GetRecommendedBooks();
                 NewBooks = GetNewBooks();
                 OfferedBooks = GetOfferedBooks();
@@ -53,8 +54,10 @@ namespace BookShelfProject.MVVM.ViewModels
         {
             var recommendedBooks = _context.Books.Where(b => b.IsRecommended == true)
                                                  .ToList();
+            if (recommendedBooks == null)
+                return new ObservableCollection<ListBookDto>();
 
-            var mappedBooks = _mapper.Map<List<ListBookDto>>(recommendedBooks[0..5]);
+            var mappedBooks = recommendedBooks.Count >= 5 ? _mapper.Map<List<ListBookDto>>(recommendedBooks[0..5]) : _mapper.Map<List<ListBookDto>>(recommendedBooks);
 
             return new ObservableCollection<ListBookDto>(mappedBooks);
         }
@@ -62,16 +65,22 @@ namespace BookShelfProject.MVVM.ViewModels
         {
             var newBooks = _context.Books.ToList();
 
-            var mappedBooks = _mapper.Map<List<ListBookDto>>(newBooks[7..12]);
+            if (newBooks == null)
+                return new ObservableCollection<ListBookDto>();
+
+            var mappedBooks = newBooks.Count >= 5 ? _mapper.Map<List<ListBookDto>>(newBooks[0..5]) : _mapper.Map<List<ListBookDto>>(newBooks);
 
             return new ObservableCollection<ListBookDto>(mappedBooks);
         }
         private ObservableCollection<ListBookDto> GetOfferedBooks()
         {
-            var newBooks = _context.Books.Where(b=>b.IsDiscount == true)
+            var offeredBooks = _context.Books.Where(b => b.IsDiscount == true)
                                          .ToList();
 
-            var mappedBooks = _mapper.Map<List<ListBookDto>>(newBooks[0..5]);
+            if (offeredBooks == null)
+                return new ObservableCollection<ListBookDto>();
+
+            var mappedBooks = offeredBooks.Count >= 5 ? _mapper.Map<List<ListBookDto>>(offeredBooks[0..5]) : _mapper.Map<List<ListBookDto>>(offeredBooks);
 
             return new ObservableCollection<ListBookDto>(mappedBooks);
         }

@@ -12,11 +12,11 @@ namespace BookShelfProject.MVVM.Models
     {
         [Key]
         public int BookId { get; set; }
-        public string Title { get; set; }
-        public string Author { get; set; }
-        public string Publisher { get; set; }
+        public string? Title { get; set; }
+        public string? Author { get; set; }
+        public string? Publisher { get; set; }
         public int Pages { get; set; }
-        public string Genre { get; set; }
+        public string? Genre { get; set; }
         public decimal CostPrice { get; set; }
         public decimal SalePrice { get; set; }
         public int? ContinuationOf { get; set; }

@@ -32,7 +32,8 @@ namespace BookShelfProject
 
                 services.AddDbContext<DatabaseContext>(options =>
                 {
-                    options.UseSqlServer("Data Source=DESKTOP-AJ6IRLC\\SQLEXPRESS;Initial Catalog=BookstoreDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False"
+                    options.UseSqlServer("Data Source=DESKTOP-C85D6OJ\\SQLEXPRESS;Initial Catalog=BookStore;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False"
+                    //options.UseSqlServer("Data Source=DESKTOP-AJ6IRLC\\SQLEXPRESS;Initial Catalog=BookstoreDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False"
 );
                 }, ServiceLifetime.Scoped);
                 

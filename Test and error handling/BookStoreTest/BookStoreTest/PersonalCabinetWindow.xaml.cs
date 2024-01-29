@@ -28,10 +28,35 @@ namespace BookStoreTest
         {
             InitializeComponent();
             LoadUserData();
+            AdjustButtonVisibility();
 
             Left = left;
             Top = top;
         }
+
+        private void AdjustButtonVisibility()
+        {
+            if (CurrentUser.IsAdmin)
+            {
+                addBookButton.Visibility = Visibility.Collapsed;
+                YourBooks.Visibility = Visibility.Collapsed;
+                CartOpen.Visibility = Visibility.Collapsed;
+                becomeAuthorButton.Visibility = Visibility.Collapsed;
+                instructionsTextBlock.Visibility = Visibility.Collapsed;
+
+                adminButton.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                addBookButton.Visibility = Visibility.Visible;
+                YourBooks.Visibility = Visibility.Visible;
+                CartOpen.Visibility = Visibility.Visible;
+                becomeAuthorButton.Visibility = Visibility.Visible;
+
+                adminButton.Visibility = Visibility.Collapsed;
+            }
+        }
+
 
         public class UserData
         {
@@ -42,6 +67,7 @@ namespace BookStoreTest
             public DateTime? DateOfBirth { get; set; }
             public string? AvatarPath { get; set; }
             public bool IsAuthor { get; set; }
+            public bool IsAdmin { get; set; }
         }
 
         private UserData RetrieveUserData(string username)
@@ -52,7 +78,7 @@ namespace BookStoreTest
             {
                 connection.Open();
 
-                string query = "SELECT username, email, nickname, name, date_of_birth, avatar_path, IsAuthor FROM Users WHERE username = @Username";
+                string query = "SELECT Username, Email, Nickname, Name, BirthDate, AvatarPath, IsAuthor, IsAdmin FROM Users WHERE Username = @Username";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -64,13 +90,14 @@ namespace BookStoreTest
                         {
                             userData = new UserData
                             {
-                                Username = reader["username"].ToString(),
-                                Email = reader["email"].ToString(),
-                                Nickname = reader["nickname"].ToString(),
-                                Name = reader["name"].ToString(),
-                                DateOfBirth = reader["date_of_birth"] != DBNull.Value ? (DateTime?)reader["date_of_birth"] : null,
-                                AvatarPath = reader["avatar_path"].ToString(),
-                                IsAuthor = (bool)reader["IsAuthor"]
+                                Username = reader["Username"].ToString(),
+                                Email = reader["Email"].ToString(),
+                                Nickname = reader["Nickname"].ToString(),
+                                Name = reader["Name"].ToString(),
+                                DateOfBirth = reader["BirthDate"] != DBNull.Value ? (DateTime?)reader["BirthDate"] : null,
+                                AvatarPath = reader["AvatarPath"].ToString(),
+                                IsAuthor = (bool)reader["IsAuthor"],
+                                IsAdmin = (bool)reader["IsAdmin"]
                             };
                         }
                     }
@@ -82,17 +109,7 @@ namespace BookStoreTest
 
         ///================== Avatar ==================///
 
-        private void SelectAvatarButton_Click(object sender, RoutedEventArgs e)
-        {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Image Files (*.png;*.jpg;*.jpeg;*.gif;*.bmp)|*.png;*.jpg;*.jpeg;*.gif;*.bmp|All files (*.*)|*.*";
-
-            if (openFileDialog.ShowDialog() == true)
-            {
-                selectedAvatarPath = openFileDialog.FileName;
-                UpdateAvatarImage(selectedAvatarPath);
-            }
-        }
+        
 
         private void UpdateAvatarImage(string imagePath)
         {
@@ -124,7 +141,8 @@ namespace BookStoreTest
             {
                 connection.Open();
 
-                string query = "UPDATE Users SET " + "email = @Email, " + "nickname = @Nickname, " + "name = @Name, " + "date_of_birth = @DateOfBirth, " + "avatar_path = @AvatarPath " + "WHERE username = @Username";
+                string query = "UPDATE Users SET " + "Email = @Email, " + "Nickname = @Nickname, " + "Name = @Name, " + "BirthDate = @DateOfBirth, "
+                                                   + "AvatarPath = @AvatarPath " + "WHERE Username = @Username";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -151,6 +169,7 @@ namespace BookStoreTest
                 CurrentUser.Name = userData.Name;
                 CurrentUser.DateOfBirth = userData.DateOfBirth;
                 CurrentUser.IsAuthor = userData.IsAuthor;
+                CurrentUser.IsAdmin = userData.IsAdmin;
 
                 selectedAvatarPath = userData.AvatarPath;
                 UpdateAvatarImage(selectedAvatarPath);
@@ -178,7 +197,7 @@ namespace BookStoreTest
             {
                 connection.Open();
 
-                string query = "UPDATE Users " + "SET email = @Email, " + " nickname = @Nickname, " + " name = @Name, " +" date_of_birth = @DateOfBirth " + "WHERE username = @Username";
+                string query = "UPDATE Users " + "SET Email = @Email, " + " Nickname = @Nickname, " + " Name = @Name, " + " BirthDate = @DateOfBirth " + "WHERE Username = @Username";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -206,6 +225,21 @@ namespace BookStoreTest
         private void DatePicker_SelectedDateChanged(object sender, SelectionChangedEventArgs e)
         {
             UpdateBecomeAuthorButtonState();
+        }
+
+
+        ///================== Buttons ==================///
+
+        private void SelectAvatarButton_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Image Files (*.png;*.jpg;*.jpeg;*.gif;*.bmp)|*.png;*.jpg;*.jpeg;*.gif;*.bmp|All files (*.*)|*.*";
+
+            if (openFileDialog.ShowDialog() == true)
+            {
+                selectedAvatarPath = openFileDialog.FileName;
+                UpdateAvatarImage(selectedAvatarPath);
+            }
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
@@ -245,18 +279,43 @@ namespace BookStoreTest
             Close();
         }
 
+        private void OpenAddBookWindow()
+        {
+            AddBookWindow addBookWindow = new AddBookWindow();
+
+            addBookWindow.Left = Left;
+            addBookWindow.Top = Top;
+
+            addBookWindow.Show();
+
+            Close();
+        }
+
+        private void OpenUserBooksWindow()
+        {
+            UserBooksWindow userBooksWindow = new UserBooksWindow();
+
+            userBooksWindow.Left = Left;
+            userBooksWindow.Top = Top;
+
+            userBooksWindow.Show();
+
+            Close();
+        }
+
         private void CartOpen_Click(object sender, RoutedEventArgs e)
         {
             OpenShoppingCartWindow();
         }
 
-        ///================== Becom Author ==================///
-
-        private bool AreRequiredFieldsFilled()
+        private void AddBookButton_Click(object sender, RoutedEventArgs e)
         {
-            return !string.IsNullOrWhiteSpace(editEmailTextBox.Text)
-                && !string.IsNullOrWhiteSpace(editNicknameTextBox.Text)
-                && !string.IsNullOrWhiteSpace(editNameTextBox.Text);
+            OpenAddBookWindow();
+        }
+
+        private void YourBooks_Click(object sender, RoutedEventArgs e)
+        {
+            OpenUserBooksWindow();
         }
 
         private void BecomeAuthorButton_Click(object sender, RoutedEventArgs e)
@@ -268,6 +327,27 @@ namespace BookStoreTest
 
             MessageBox.Show("Congratulations! You are now an author.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
         }
+
+        private void AdminButton_Click(object sender, RoutedEventArgs e)
+        {
+            AdministratorWindow adminWindow = new AdministratorWindow();
+            adminWindow.Show();
+        }
+
+
+        ///================== Buttons ==================///
+
+
+        ///================== Becom Author ==================///
+
+        private bool AreRequiredFieldsFilled()
+        {
+            return !string.IsNullOrWhiteSpace(editEmailTextBox.Text)
+                && !string.IsNullOrWhiteSpace(editNicknameTextBox.Text)
+                && !string.IsNullOrWhiteSpace(editNameTextBox.Text);
+        }
+
+        
 
         private void UpdateUserIsAuthorStatus(string username, bool isAuthor)
         {
@@ -295,11 +375,6 @@ namespace BookStoreTest
                                           && editDateOfBirthDatePicker.SelectedDate != null;
         }
 
-        private void AddBookButton_Click(object sender, RoutedEventArgs e)
-        {
-            AddBookWindow addBookWindow = new AddBookWindow();
-            addBookWindow.Show();
-        }
-
+        ///================== Becom Author ==================///
     }
 }

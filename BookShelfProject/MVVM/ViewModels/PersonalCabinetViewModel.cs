@@ -88,7 +88,7 @@ namespace BookShelfProject.MVVM.ViewModels
             Username = _CurrentUserDataStore.CurrentUser.Username;
             Email = _CurrentUserDataStore.CurrentUser.Email == null ? string.Empty : _CurrentUserDataStore.CurrentUser.Email;
             BirthDate = _CurrentUserDataStore.CurrentUser.BirthDate;
-            AvatarPath = _CurrentUserDataStore.CurrentUser.AvatarPath == null ? "D:\\Code\\admin_logo.jpg" : _CurrentUserDataStore.CurrentUser.AvatarPath;
+            AvatarPath = _CurrentUserDataStore.CurrentUser.AvatarPath == null ? "D:\\My Documents\\Me\\Stockphoto\\no-profile-picture-icon.png" : _CurrentUserDataStore.CurrentUser.AvatarPath;
         }
 
         private bool AreFieldsNotEmpty()

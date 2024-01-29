@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Code\\C#\\course\\BookShelfProject\\BookShelfProject.csproj": {}
+    "F:\\C++\\Bookstore\\BookShelfProject\\BookShelfProject.csproj": {}
   },
   "projects": {
-    "D:\\Code\\C#\\course\\BookShelfProject\\BookShelfProject.csproj": {
+    "F:\\C++\\Bookstore\\BookShelfProject\\BookShelfProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Code\\C#\\course\\BookShelfProject\\BookShelfProject.csproj",
+        "projectUniqueName": "F:\\C++\\Bookstore\\BookShelfProject\\BookShelfProject.csproj",
         "projectName": "BookShelfProject",
-        "projectPath": "D:\\Code\\C#\\course\\BookShelfProject\\BookShelfProject.csproj",
-        "packagesPath": "C:\\Users\\1rtem\\.nuget\\packages\\",
-        "outputPath": "D:\\Code\\C#\\course\\BookShelfProject\\obj\\",
+        "projectPath": "F:\\C++\\Bookstore\\BookShelfProject\\BookShelfProject.csproj",
+        "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
+        "outputPath": "F:\\C++\\Bookstore\\BookShelfProject\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\1rtem\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -26,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {

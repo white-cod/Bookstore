@@ -20,11 +20,11 @@
 
         <TextBox x:Name="highlightingTextBox1" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,199" Width="470" Height="150" TextWrapping="Wrap" IsEnabled="False" IsReadOnly="True" Grid.Column="1"/>
         <StackPanel Orientation="Horizontal"
-            Grid.Column="1"
-            Width="470"
-            Height="138"
-            VerticalAlignment="Top"
-            HorizontalAlignment="Left" Margin="10,69,0,0">
+        Grid.Column="1"
+        Width="470"
+        Height="138"
+        VerticalAlignment="Top"
+        HorizontalAlignment="Left" Margin="10,69,0,0">
 
             <StackPanel Orientation="Vertical">
                 <TextBlock FontFamily="/Files/Fonts/INTER/#Inter" Text="Account name:" Margin="10,10,5,0" />
@@ -42,17 +42,18 @@
                 <DatePicker x:Name="editDateOfBirthDatePicker" FontFamily="/Files/Fonts/INTER/#Inter" SelectedDateChanged="DatePicker_SelectedDateChanged" Margin="10,8,0,0" Width="350"/>
             </StackPanel>
 
-
-
         </StackPanel>
 
         <TextBlock x:Name="instructionsTextBlock" IsEnabled="False" Foreground="Red" Text="In order to become an author, you need to provide all the necessary information about yourself!" TextWrapping="Wrap" HorizontalAlignment="Left" Margin="10,65,0,0" VerticalAlignment="Center" Width="460" Grid.Column="1" Height="38"/>
         <Button x:Name="becomeAuthorButton" FontFamily="/Files/Fonts/INTER/#Inter" Content="Become Author" Click="BecomeAuthorButton_Click" IsEnabled="False" Grid.Column="1" Margin="10,0,0,130" HorizontalAlignment="Left" Width="95" Height="20" VerticalAlignment="Bottom" />
 
         <TextBox x:Name="highlightingTextBox3" IsEnabled="False" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="800" Height="51" TextWrapping="Wrap" IsReadOnly="True" Grid.ColumnSpan="2"/>
-        <Button x:Name="addBookButton" FontFamily="/Files/Fonts/INTER/#Inter" Content="Add Your Book" Click="AddBookButton_Click" Margin="10,10,10,10" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="90" />
-        <Button Grid.Column="1" FontFamily="/Files/Fonts/INTER/#Inter" Content="Save" Background="LightGreen" x:Name="SaveButton" Click="SaveButton_Click" IsEnabled="False" HorizontalAlignment="Right" Margin="10,10,110,10" Width="80" Height="26" VerticalAlignment="Bottom" />
+        <Button x:Name="addBookButton" FontFamily="/Files/Fonts/INTER/#Inter" Content="Add New Book" Click="AddBookButton_Click" Margin="155,0,0,10" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="90" />
+        <Button Content="My Books" x:Name="YourBooks" FontFamily="/Files/Fonts/INTER/#Inter" Margin="80,0,0,10" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="70" Click="YourBooks_Click"/>
+        <Button Grid.Column="1" FontFamily="/Files/Fonts/INTER/#Inter" Content="Save" Background="LightGreen" x:Name="SaveButton" Click="SaveButton_Click" IsEnabled="False" HorizontalAlignment="Right" Margin="0,0,95,10" Width="80" Height="26" VerticalAlignment="Bottom" />
         <Button Grid.Column="1" FontFamily="/Files/Fonts/INTER/#Inter" Content="Cancel" Background="LightSalmon" Click="CancelEditButton_Click" Height="26" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="80" Margin="10" />
         <Button FontFamily="/Files/Fonts/INTER/#Inter" x:Name="CartOpen" Content="My Cart" Background="LightGoldenrodYellow" Margin="10,10,170,10" VerticalAlignment="Bottom" Width="60" Height="30" Click="CartOpen_Click"/>
+
+        <Button Grid.Column="1" FontFamily="/Files/Fonts/INTER/#Inter" x:Name="adminButton" Content="Admin" Background="LightCoral" Click="AdminButton_Click" Height="26" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="80" Margin="0,0,443,12" />
     </Grid>
 </Window>

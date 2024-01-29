@@ -67,7 +67,7 @@ namespace BookStoreTest
             public string Title { get; set; }
             public string Author { get; set; }
             public decimal SalePrice { get; set; }
- 
+
         }
 
         private void CartListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -100,11 +100,10 @@ namespace BookStoreTest
             {
                 connection.Open();
 
-                string query = "SELECT Books.*, ShoppingCarts.quantity, BookCovers.cover_path " +
+                string query = "SELECT Books.*, ShoppingCarts.quantity " +
                                "FROM ShoppingCarts " +
-                               "INNER JOIN Books ON ShoppingCarts.book_id = Books.book_id " +
-                               "LEFT JOIN BookCovers ON Books.book_id = BookCovers.book_id " +
-                               "WHERE ShoppingCarts.user_id = @UserId";
+                               "INNER JOIN Books ON ShoppingCarts.BookId = Books.BookId " +
+                               "WHERE ShoppingCarts.UserId = @UserId";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -116,12 +115,12 @@ namespace BookStoreTest
                         {
                             CartItem item = new CartItem
                             {
-                                BookId = (int)reader["book_id"],
-                                Title = reader["title"].ToString(),
-                                Author = reader["author"].ToString(),
-                                SalePrice = (decimal)reader["sale_price"],
-                                CoverPath = reader["cover_path"].ToString(),
-                                CoverImage = GetBitmapImage(reader["cover_path"].ToString())
+                                BookId = (int)reader["BookId"],
+                                Title = reader["Title"].ToString(),
+                                Author = reader["Author"].ToString(),
+                                SalePrice = (decimal)reader["SalePrice"],
+                                CoverPath = reader["CoverPath"].ToString(),
+                                CoverImage = GetBitmapImage(reader["CoverPath"].ToString())
                             };
 
                             items.Add(item);
@@ -132,6 +131,7 @@ namespace BookStoreTest
 
             return items;
         }
+
 
         private BitmapImage GetBitmapImage(string imagePath)
         {
@@ -165,7 +165,7 @@ namespace BookStoreTest
                     DisplayMemberBinding = new Binding("CoverImage")
                 };
 
-               
+
             }
         }
 
@@ -207,7 +207,7 @@ namespace BookStoreTest
             {
                 connection.Open();
 
-                string query = "SELECT book_id FROM Books WHERE title = @Title";
+                string query = "SELECT BookId FROM Books WHERE Title = @Title";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -231,7 +231,7 @@ namespace BookStoreTest
             {
                 connection.Open();
 
-                string query = "SELECT COUNT(*) FROM ShoppingCarts WHERE user_id = @UserId AND book_id = @BookId";
+                string query = "SELECT COUNT(*) FROM ShoppingCarts WHERE UserId = @UserId AND BookId = @BookId";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -251,7 +251,7 @@ namespace BookStoreTest
             {
                 connection.Open();
 
-                string query = "SELECT COUNT(*) FROM Users WHERE user_id = @UserId";
+                string query = "SELECT COUNT(*) FROM Users WHERE UserId = @UserId";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -270,7 +270,7 @@ namespace BookStoreTest
             {
                 connection.Open();
 
-                string query = "SELECT COUNT(*) FROM Books WHERE book_id = @BookId";
+                string query = "SELECT COUNT(*) FROM Books WHERE BookId = @BookId";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -295,7 +295,7 @@ namespace BookStoreTest
                         {
                             connection.Open();
 
-                            string query = "INSERT INTO ShoppingCarts (user_id, book_id, quantity) VALUES (@UserId, @BookId, 1)";
+                            string query = "INSERT INTO ShoppingCarts (UserId, BookId, quantity) VALUES (@UserId, @BookId, 1)";
 
                             using (SqlCommand command = new SqlCommand(query, connection))
                             {
@@ -357,7 +357,7 @@ namespace BookStoreTest
             {
                 connection.Open();
 
-                string query = "DELETE FROM ShoppingCarts WHERE user_id = @UserId AND book_id = @BookId";
+                string query = "DELETE FROM ShoppingCarts WHERE UserId = @UserId AND BookId = @BookId";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {

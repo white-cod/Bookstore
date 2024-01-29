@@ -27,6 +27,7 @@ namespace BookStoreTest
         {
             InitializeComponent();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
         }
 
         private void RegisterButton_Click(object sender, RoutedEventArgs e)
@@ -90,7 +91,7 @@ namespace BookStoreTest
 
                 string hashedPassword = HashPassword(password);
 
-                string query = "INSERT INTO Users (user_id, username, password) VALUES (NEXT VALUE FOR Seq_Users, @Username, @Password)";
+                string query = "INSERT INTO Users (UserId, Username, Password) VALUES (NEXT VALUE FOR Seq_Users, @Username, @Password)";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@Username", username);
@@ -117,6 +118,5 @@ namespace BookStoreTest
                 return builder.ToString();
             }
         }
-
     }
 }

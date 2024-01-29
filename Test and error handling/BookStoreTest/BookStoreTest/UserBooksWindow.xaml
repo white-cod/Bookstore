@@ -1,0 +1,31 @@
+﻿<Window x:Class="BookStoreTest.UserBooksWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BookStoreTest"
+        mc:Ignorable="d"
+        Title="Your Books" Height="500" Width="725" ResizeMode="NoResize">
+    <Grid>
+        <ListView Name="userBooksListView" SelectionChanged="userBooksListView_SelectionChanged"  ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionMode="Single" HorizontalAlignment="Left" Width="710" Height="387" VerticalAlignment="Top" Margin="0,24,0,0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Cover" Width="100">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <Image Source="{Binding CoverImage}" Width="100" Height="50" />
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Title" DisplayMemberBinding="{Binding Title}" Width="180"/>
+                    <GridViewColumn Header="Author" DisplayMemberBinding="{Binding Author}" Width="173"/>
+                    <GridViewColumn Header="Publisher" DisplayMemberBinding="{Binding Publisher}" Width="150"/>
+                    <GridViewColumn Header="Sale Price" DisplayMemberBinding="{Binding SalePrice}" Width="100"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Content="Edit Selected Book" x:Name="editBookButton" IsEnabled="False" Height="30" Width="110" Click="EditBookButton_Click" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10,0,0,10" RenderTransformOrigin="0.76,-12.074"/>
+        <Button Content="Remove" x:Name="removeBookButton" IsEnabled="False" Height="30" Width="110" Click="RemoveBookButton_Click" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="125,0,0,10" RenderTransformOrigin="0.76,-12.074"/>
+        <Button Content="Close" x:Name="CancelButton" Background="LightSalmon" Height="30" Width="80" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="620,0,0,10" RenderTransformOrigin="0.76,-12.074" Click="CancelButton_Click"/>
+    </Grid>
+</Window>

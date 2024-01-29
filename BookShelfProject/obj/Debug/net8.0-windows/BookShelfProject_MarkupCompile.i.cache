@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-D:\Code\C#\course\BookShelfProject\obj\Debug\net8.0-windows\
+F:\C++\Bookstore\BookShelfProject\obj\Debug\net8.0-windows\
 BookShelfProject
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-D:\Code\C#\course\BookShelfProject\App.xaml
+F:\C++\Bookstore\BookShelfProject\App.xaml
 131338523441
 
 54-1081936804
-2481557806087
+248-444388237
 MainWindow.xaml;MVVM\Views\BookPageView.xaml;MVVM\Views\CatalogueView.xaml;MVVM\Views\HomeView.xaml;MVVM\Views\LoginWindow.xaml;MVVM\Views\PersonalCabinetWindow.xaml;MVVM\Views\RegistrationWindow.xaml;MVVM\Views\SearchResultView.xaml;Themes\BookListBoxTheme.xaml;Themes\CustomFocusVisualStyleTheme.xaml;Themes\MenuButtonTheme.xaml;Themes\RadioButtonStyleTheme.xaml;Themes\SearchListBoxItemTheme.xaml;
 
-True
+False
 

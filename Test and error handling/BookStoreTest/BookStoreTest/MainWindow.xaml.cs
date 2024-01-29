@@ -12,6 +12,7 @@ using System.Data.SqlClient;
 using System.Data;
 using Microsoft.EntityFrameworkCore;
 using System.IO;
+using static BookStoreTest.PersonalCabinetWindow;
 
 namespace BookStoreTest
 {
@@ -36,15 +37,19 @@ namespace BookStoreTest
             public static DateTime? DateOfBirth { get; set; }
             public static string AvatarPath { get; set; }
             public static bool IsAuthor { get; set; }
+            public static bool IsAdmin { get; set; }
         }
 
-        public MainWindow()
+        public MainWindow(double left = 0, double top = 0)
         {
             InitializeComponent();
             booksTable = GetBooksData();
             currentBookIndex = 0;
             DisplayBookInfo();
             WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
+            Left = left;
+            Top = top;
         }
 
         private DataTable GetBooksData()
@@ -55,7 +60,7 @@ namespace BookStoreTest
             {
                 connection.Open();
 
-                string query = "SELECT Books.*, BookCovers.cover_path, BookSummaries.summary_path " + "FROM Books " + "LEFT JOIN BookCovers ON Books.book_id = BookCovers.book_id " + "LEFT JOIN BookSummaries ON Books.book_id = BookSummaries.book_id";
+                string query = "SELECT * FROM Books";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     using (SqlDataAdapter adapter = new SqlDataAdapter(command))
@@ -74,12 +79,12 @@ namespace BookStoreTest
             {
                 DataRow bookRow = booksTable.Rows[currentBookIndex];
 
-                titleLabel.Content = $"{bookRow["title"]}";
-                authorLabel.Content = $"{bookRow["author"]}";
-                publisherLabel.Content = $"{bookRow["publisher"]}";
-                pagesLabel.Content = $"{bookRow["pages"]}";
+                titleLabel.Content = $"{bookRow["Title"]}";
+                authorLabel.Content = $"{bookRow["Author"]}";
+                publisherLabel.Content = $"{bookRow["Publisher"]}";
+                pagesLabel.Content = $"{bookRow["Pages"]}";
 
-                string? coverImagePath = bookRow["cover_path"] as string;
+                string? coverImagePath = bookRow["CoverPath"] as string;
                 if (!string.IsNullOrEmpty(coverImagePath) && File.Exists(coverImagePath))
                 {
                     BitmapImage bitmapImage = new BitmapImage(new Uri(coverImagePath));
@@ -90,7 +95,7 @@ namespace BookStoreTest
                     coverImage.Source = null;
                 }
 
-                string? summaryFilePath = bookRow["summary_path"] as string;
+                string? summaryFilePath = bookRow["SummaryPath"] as string;
                 if (!string.IsNullOrEmpty(summaryFilePath) && File.Exists(summaryFilePath))
                 {
                     string summaryText = File.ReadAllText(summaryFilePath);
@@ -129,7 +134,16 @@ namespace BookStoreTest
 
         private void OpenPersonalCabinet_Click(object sender, RoutedEventArgs e)
         {
+            OpenPersonalCabinetWindow();
+        }
+
+        private void OpenPersonalCabinetWindow()
+        {
             PersonalCabinetWindow personalCabinetWindow = new PersonalCabinetWindow();
+
+            personalCabinetWindow.Left = Left;
+            personalCabinetWindow.Top = Top;
+
             personalCabinetWindow.Show();
         }
 

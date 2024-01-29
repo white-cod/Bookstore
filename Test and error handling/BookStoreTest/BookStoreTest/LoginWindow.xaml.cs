@@ -49,7 +49,7 @@ namespace BookStoreTest
             {
                 connection.Open();
 
-                string query = "SELECT user_id FROM Users WHERE username = @Username";
+                string query = "SELECT UserId FROM Users WHERE username = @Username";
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
@@ -87,7 +87,7 @@ namespace BookStoreTest
             {
                 connection.Open();
 
-                string query = "SELECT password FROM Users WHERE username = @Username";
+                string query = "SELECT Password FROM Users WHERE Username = @Username";
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
                     command.Parameters.AddWithValue("@Username", username);

@@ -67,4 +67,3 @@ public class LoginCommand : CommandBase
         return builder.ToString();
     }
 }
-
