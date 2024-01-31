@@ -1,8 +1,11 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Style for the CustomFocusVisualStyle, targeting Control type -->
     <Style x:Key="CustomFocusVisualStyleTheme" TargetType="{x:Type Control}">
         <Setter Property="Control.Template">
             <Setter.Value>
+                <!-- ControlTemplate with a transparent Rectangle as focus visual -->
                 <ControlTemplate>
                     <Rectangle SnapsToDevicePixels="true" Stroke="Transparent"/>
                 </ControlTemplate>

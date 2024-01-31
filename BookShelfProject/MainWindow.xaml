@@ -138,6 +138,36 @@
                     </Button.Template>
                     
                 </Button>
+                
+                <!-- Shopping cart-->
+
+                <Button VerticalAlignment="Center"
+HorizontalAlignment="Right"
+Cursor="Hand"
+Width="70"
+Height="70"
+Margin="0,0,80,0"      
+                        Command="{Binding Path=_OpenCartCommand}">
+                    <Button.Template>
+                        <ControlTemplate>
+                            <Grid>
+                                <Image >
+                                    <Image.Style>
+                                        <Style TargetType="Image">
+                                            <Setter Property="Source" Value="/Files/Images/ShoppingCartIcon.png"/>
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Source" Value="Files/Images/ShoppingCartIconActive.png"/>
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Image.Style>
+                                </Image>
+                            </Grid>
+                        </ControlTemplate>
+                    </Button.Template>
+
+                </Button>
 
                 <!-- Previous page button -->
                 <Button HorizontalAlignment="Center"
@@ -221,7 +251,7 @@ Cursor="Hand">
                                                      Width="335"
                                                      HorizontalAlignment="Left"
                                                      Foreground="Black"
-                                                     FontSize="20"
+                                                     FontSize="18"
                                                      FontFamily="Files/Fonts/INTER/#Inter"
                                                      Cursor="IBeam"/>
                                                 <Button Width="30"
@@ -251,7 +281,7 @@ Cursor="Hand">
                                                        VerticalAlignment="Center"
                                                        HorizontalAlignment="Left"
                                                        Margin="10,0,0,0"
-                                                       FontSize="20"
+                                                       FontSize="18"
                                                        Foreground="Gray"
                                                        Grid.Column="1"
                                                        FontFamily="Files/Fonts/INTER/#Inter">

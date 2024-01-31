@@ -25,29 +25,22 @@ namespace BookShelfProject.MVVM.ViewModels
     {
         private readonly DatabaseContext _context;
         private readonly IMapper _mapper;
+
         public ObservableCollection<ListBookDto> RecommendedBooks { get; }
         public ObservableCollection<ListBookDto> NewBooks { get; }
         public ObservableCollection<ListBookDto> OfferedBooks { get; }
         public ICommand _OpenBookPageCommand { get; }
+
         public HomeViewModel()
         {
-            try
-            {
-                _context = ServiceLocator.GetService<DatabaseContext>();
-                _mapper = ServiceLocator.GetService<IMapper>();
+            _context = ServiceLocator.GetService<DatabaseContext>();
+            _mapper = ServiceLocator.GetService<IMapper>();
 
+            _OpenBookPageCommand = new OpenBookPageCommand();
 
-                _OpenBookPageCommand = new OpenBookPageCommand();
-
-                RecommendedBooks = GetRecommendedBooks();
-                NewBooks = GetNewBooks();
-                OfferedBooks = GetOfferedBooks();
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+            RecommendedBooks = GetRecommendedBooks();
+            NewBooks = GetNewBooks();
+            OfferedBooks = GetOfferedBooks();
         }
 
         private ObservableCollection<ListBookDto> GetRecommendedBooks()
@@ -61,6 +54,7 @@ namespace BookShelfProject.MVVM.ViewModels
 
             return new ObservableCollection<ListBookDto>(mappedBooks);
         }
+
         private ObservableCollection<ListBookDto> GetNewBooks()
         {
             var newBooks = _context.Books.ToList();
@@ -72,6 +66,7 @@ namespace BookShelfProject.MVVM.ViewModels
 
             return new ObservableCollection<ListBookDto>(mappedBooks);
         }
+
         private ObservableCollection<ListBookDto> GetOfferedBooks()
         {
             var offeredBooks = _context.Books.Where(b => b.IsDiscount == true)

@@ -10,9 +10,5 @@ namespace BookShelfProject.Core.Stores
     public class CurrentBookDataStore
     {
         public Book CurrentBook { get; set; }
-        public CurrentBookDataStore()
-        {
-
-        }
     }
 }

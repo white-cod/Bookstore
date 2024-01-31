@@ -7,10 +7,19 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="MVVM\Views\AddBookWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MVVM\Views\AdministratorWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="MVVM\Views\BookPageView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="MVVM\Views\CatalogueView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MVVM\Views\EditBookWindow.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="MVVM\Views\HomeView.xaml.cs">
@@ -28,15 +37,33 @@
     <Compile Update="MVVM\Views\SearchResultView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="MVVM\Views\ShoppingCartWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MVVM\Views\StartupWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="MVVM\Views\UsersBooksWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MVVM\Views\AddBookWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MVVM\Views\AdministratorWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MVVM\Views\BookPageView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MVVM\Views\CatalogueView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MVVM\Views\EditBookWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MVVM\Views\HomeView.xaml">
@@ -52,6 +79,15 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MVVM\Views\SearchResultView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MVVM\Views\ShoppingCartWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MVVM\Views\StartupWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MVVM\Views\UsersBooksWindow.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Themes\BookListBoxTheme.xaml">

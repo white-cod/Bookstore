@@ -1,0 +1,71 @@
+﻿<Window x:Class="BookShelfProject.MVVM.Views.AdministratorWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BookShelfProject.MVVM.Views"
+        mc:Ignorable="d"
+        Title="AdministratorWindow" Height="550" Width="1000"
+        ResizeMode="NoResize"
+        FontFamily="/Files/Fonts/INTER/#Inter"
+        MouseLeftButtonDown="Window_MouseLeftButtonDown">
+
+    <!-- Window Style -->
+    <Window.Style>
+        <Style TargetType="Window">
+            <Setter Property="WindowStyle" Value="None"/>
+            <Setter Property="AllowsTransparency" Value="True"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="BorderBrush" Value="Black"/>
+        </Style>
+    </Window.Style>
+
+    <!-- Main Grid -->
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="450"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <!-- TabControl with Tabs for Books, Users, and Carts -->
+        <TabControl>
+            <TabItem Header="Books">
+                <DataGrid ItemsSource="{Binding Path=_Books, Mode=TwoWay}">
+                    <!-- Add DataGrid columns and settings if needed -->
+                </DataGrid>
+            </TabItem>
+
+            <TabItem Header="Users">
+                <DataGrid ItemsSource="{Binding Path=_Users, Mode=TwoWay}">
+                    <!-- Add DataGrid columns and settings if needed -->
+                </DataGrid>
+            </TabItem>
+
+            <TabItem Header="Carts">
+                <DataGrid ItemsSource="{Binding Path=_Carts, Mode=TwoWay}">
+                    <!-- Add DataGrid columns and settings if needed -->
+                </DataGrid>
+            </TabItem>
+        </TabControl>
+
+        <!-- Save All Changes Button -->
+        <Button Grid.Row="1"
+                Width="100"
+                Height="30"
+                Content="Save all changes"
+                HorizontalAlignment="Right"
+                Margin="10,5,125,5"
+                Command="{Binding Path=_SaveAdminChangesCommand}"/>
+
+        <!-- Close Window Button -->
+        <Button Grid.Row="1"
+                Background="LightSalmon"
+                Width="100"
+                Height="30"
+                Content="Close window"
+                HorizontalAlignment="Right"
+                Margin="10,5,10,5"
+                Command="{Binding Path=_OpenShopWindowCommand}"/>
+    </Grid>
+</Window>

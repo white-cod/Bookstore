@@ -18,9 +18,9 @@ namespace BookShelfProject.MVVM.ViewModels
 {
     public class CatalogueViewModel : ViewModelBase
     {
-        public ObservableCollection<string> Categories { get; private set; } 
-
+        public ObservableCollection<string> Categories { get; private set; }
         public ICommand _OpenSearchResultCommand { get; }
+
         public CatalogueViewModel()
         {
             InitializeCategories();

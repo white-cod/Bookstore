@@ -9,44 +9,52 @@
              d:DesignHeight="565" d:DesignWidth="980">
 
     <UserControl.Resources>
+        <!-- FileContentConverter resource -->
         <converters:FileContentConverter x:Key="FileContentConverter"/>
     </UserControl.Resources>
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="350"/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
+        <!-- Book Cover Image -->
         <Image Source="{Binding Path=_CurrentBookDataStore.CurrentBook.CoverPath}"
-       HorizontalAlignment="Center"
-       VerticalAlignment="Top"
-       Width="200"
-       Height="200"
-       Margin="0,40,0,0"/>
+               HorizontalAlignment="Center"
+               VerticalAlignment="Top"
+               Width="200"
+               Height="200"
+               Margin="0,40,0,0"/>
 
+        <!-- Buy Button StackPanel -->
         <StackPanel Orientation="Horizontal"
-            VerticalAlignment="Bottom"
-            HorizontalAlignment="Center"
-            Margin="0,0,0,90">
+                    VerticalAlignment="Bottom"
+                    HorizontalAlignment="Center"
+                    Margin="0,0,0,90">
+            <!-- Shopping Cart Button -->
             <Button Height="50"
-            Width="50"
-            Padding="3">
+                    Width="50"
+                    Padding="3"
+                    Command="{Binding _AddCurrentBookToCartCommand}">
                 <Button.Content>
                     <Image Source="/Files/Images/ShoppingCartIcon.png"/>
                 </Button.Content>
             </Button>
+            <!-- Buy Button -->
             <Button Height="50"
-            Width="150"
-            Margin="20,0,0,0"
-            Content="Buy"
-            FontSize="30"
-            FontFamily="/Files/Fonts/INTER/#Inter"
-            FontWeight="SemiBold">
+                    Width="150"
+                    Margin="20,0,0,0"
+                    Content="Buy"
+                    FontSize="30"
+                    FontFamily="/Files/Fonts/INTER/#Inter"
+                    FontWeight="SemiBold">
             </Button>
         </StackPanel>
 
+        <!-- Book Details Border -->
         <Border BorderThickness="0"
-        Grid.Column="1">
+                Grid.Column="1">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="90"/>
@@ -54,99 +62,119 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
+                <!-- Book Title TextBlock -->
                 <TextBlock Width="560"
-                   Height="60"
-                   VerticalAlignment="Top"
-                   Margin="20,20,20,0"
-                   Text="{Binding Path=_CurrentBookDataStore.CurrentBook.Title}"
-                   FontSize="24"
-                   FontFamily="/Files/Fonts/INTER/#Inter"
-                   FontWeight="SemiBold"/>
+                           Height="60"
+                           VerticalAlignment="Top"
+                           Margin="20,20,20,0"
+                           Text="{Binding Path=_CurrentBookDataStore.CurrentBook.Title}"
+                           FontSize="24"
+                           FontFamily="/Files/Fonts/INTER/#Inter"
+                           FontWeight="SemiBold"/>
 
+                <!-- Book Details StackPanel -->
                 <StackPanel Grid.Row="1" Orientation="Vertical"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Margin="10">
-
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Margin="10">
+                    <!-- Author -->
                     <StackPanel Margin="10" Orientation="Horizontal">
                         <TextBlock Text="Author:" 
-                           FontSize="18"
-                           FontFamily="/Files/Fonts/INTER/#Inter"
-                           FontWeight="Light"/>
+                                   FontSize="18"
+                                   FontFamily="/Files/Fonts/INTER/#Inter"
+                                   FontWeight="Light"/>
                         <TextBlock Text="{Binding Path=_CurrentBookDataStore.CurrentBook.Author}"
-                           FontSize="18"
-                           FontFamily="/Files/Fonts/INTER/#Inter"
-                           FontWeight="Light"
-                           Margin="30,0,0,0"/>
+                                   FontSize="18"
+                                   FontFamily="/Files/Fonts/INTER/#Inter"
+                                   FontWeight="Light"
+                                   Margin="30,0,0,0"/>
                     </StackPanel>
-
+                    <!-- Publisher -->
                     <StackPanel Margin="10" Orientation="Horizontal">
                         <TextBlock Text="Publisher:" 
-                           FontSize="18"
-                           FontFamily="/Files/Fonts/INTER/#Inter"
-                           FontWeight="Light"/>
+                                   FontSize="18"
+                                   FontFamily="/Files/Fonts/INTER/#Inter"
+                                   FontWeight="Light"/>
                         <TextBlock Text="{Binding Path=_CurrentBookDataStore.CurrentBook.Publisher}"
-                           FontSize="18"
-                           FontFamily="/Files/Fonts/INTER/#Inter"
-                           FontWeight="Light"
-                           Margin="30,0,0,0"/>
+                                   FontSize="18"
+                                   FontFamily="/Files/Fonts/INTER/#Inter"
+                                   FontWeight="Light"
+                                   Margin="30,0,0,0"/>
                     </StackPanel>
-
+                    <!-- Pages -->
                     <StackPanel Margin="10" Orientation="Horizontal">
                         <TextBlock Text="Pages:" 
-                           FontSize="18"
-                           FontFamily="/Files/Fonts/INTER/#Inter"
-                           FontWeight="Light"/>
+                                   FontSize="18"
+                                   FontFamily="/Files/Fonts/INTER/#Inter"
+                                   FontWeight="Light"/>
                         <TextBlock Text="{Binding Path=_CurrentBookDataStore.CurrentBook.Pages}"
-                           FontSize="18"
-                           FontFamily="/Files/Fonts/INTER/#Inter"
-                           FontWeight="Light"
-                           Margin="30,0,0,0"/>
+                                   FontSize="18"
+                                   FontFamily="/Files/Fonts/INTER/#Inter"
+                                   FontWeight="Light"
+                                   Margin="30,0,0,0"/>
                     </StackPanel>
-
+                    <!-- Cost/Sale Price -->
                     <StackPanel Grid.Row="1"
-                        Margin="0,10,0,0"
-                        VerticalAlignment="Top"
-                        Orientation="Horizontal"
-                        HorizontalAlignment="Left">
-
-                        <TextBlock Text="Sale Price:" 
-                           FontSize="36"
-                           FontFamily="/Files/Fonts/INTER/#Inter"
-                           FontWeight="SemiBold"
-                           Margin="10,0,0,0"/>
-
-                        <TextBlock Text="{Binding Path=_CurrentBookDataStore.CurrentBook.SalePrice}"
-                           FontSize="36"
-                           FontFamily="/Files/Fonts/INTER/#Inter"
-                           FontWeight="Medium"
-                           Margin="20,0,0,0"/>
+                                Margin="0,10,0,0"
+                                VerticalAlignment="Top"
+                                Orientation="Horizontal"
+                                HorizontalAlignment="Left">
+                        <TextBlock FontSize="36"
+                                   FontFamily="/Files/Fonts/INTER/#Inter"
+                                   FontWeight="SemiBold"
+                                   Margin="10,0,0,0">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Text" Value="Cost Price"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Path=_CurrentBookDataStore.CurrentBook.IsDiscount}" Value="True">
+                                            <Setter Property="Text" Value="Sale Price"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                        <TextBlock FontSize="36"
+                                   FontFamily="/Files/Fonts/INTER/#Inter"
+                                   FontWeight="Medium"
+                                   Margin="20,0,0,0">
+                            <TextBlock.Style>
+                                <Style TargetType="TextBlock">
+                                    <Setter Property="Text" Value="{Binding Path=_CurrentBookDataStore.CurrentBook.CostPrice}"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding Path=_CurrentBookDataStore.CurrentBook.IsDiscount}" Value="True">
+                                            <Setter Property="Text" Value="{Binding Path=_CurrentBookDataStore.CurrentBook.SalePrice}"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
                     </StackPanel>
-
                 </StackPanel>
 
+                <!-- Description StackPanel -->
                 <StackPanel Orientation="Vertical"
-                    Grid.Row="2"
-                    VerticalAlignment="Top"
-                    HorizontalAlignment="Left"
-                    Margin="10"
-                    Width="580"
-                    Height="180">
-
+                            Grid.Row="2"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Left"
+                            Margin="10"
+                            Width="580"
+                            Height="180">
+                    <!-- Description Label -->
                     <TextBlock Text="Description:"
-                       FontFamily="/Files/Fonts/INTER/#Inter"
-                       FontSize="24"
-                       FontWeight="Light"
-                       HorizontalAlignment="Left"/>
+                               FontFamily="/Files/Fonts/INTER/#Inter"
+                               FontSize="24"
+                               FontWeight="Light"
+                               HorizontalAlignment="Left"/>
+                    <!-- Description TextBlock -->
                     <TextBlock Text="{Binding Path=_CurrentBookDataStore.CurrentBook.SummaryPath, Converter={StaticResource FileContentConverter}}"
-                       FontSize="12"
-                       FontFamily="/Files/Fonts/INTER/#Inter"
-                       FontWeight="Light"
-                       TextWrapping="Wrap"
-                       Height="140"
-                       MaxHeight="140"/>
+                               FontSize="12"
+                               FontFamily="/Files/Fonts/INTER/#Inter"
+                               FontWeight="Light"
+                               TextWrapping="Wrap"
+                               Height="140"
+                               MaxHeight="140"/>
                 </StackPanel>
-
             </Grid>
         </Border>
     </Grid>

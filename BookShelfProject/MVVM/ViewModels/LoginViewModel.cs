@@ -16,6 +16,7 @@ namespace BookShelfProject.MVVM.ViewModels
 
         private string username;
         private string password;
+
         public string Username
         {
             get
@@ -28,6 +29,7 @@ namespace BookShelfProject.MVVM.ViewModels
                 OnPropertyChanged(nameof(Username));
             }
         }
+
         public string Password
         {
             get
@@ -40,12 +42,12 @@ namespace BookShelfProject.MVVM.ViewModels
                 OnPropertyChanged(nameof(Password));
             }
         }
+
         public LoginViewModel()
         {
             _OpenRegisterWindowCommand = new OpenRegisterWindowCommand();
             _OpenShopWindowCommand = new OpenShopWindowCommand();
             _LoginCommand = new LoginCommand(this);
-            
         }
     }
 }

@@ -1,24 +1,31 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Style for RadioButton based on ToggleButton, used as a menu button theme -->
     <Style BasedOn="{StaticResource {x:Type ToggleButton}}"
-    TargetType="RadioButton"
-    x:Key="MenuButtonTheme">
+           TargetType="RadioButton"
+           x:Key="MenuButtonTheme">
+
         <Style.Setters>
+            <!-- Setter for the RadioButton template -->
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="RadioButton">
                         <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Background="{TemplateBinding Background}">
+                            <!-- TextBlock to display the content -->
                             <TextBlock Text="{TemplateBinding Property=Content}" VerticalAlignment="Center" Margin="20,0,0,0"/>
                         </Grid>
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
 
+            <!-- Default setters for Background and BorderThickness -->
             <Setter Property="Background" Value="LightGray"/>
             <Setter Property="BorderThickness" Value="0"/>
         </Style.Setters>
 
         <Style.Triggers>
+            <!-- Trigger to change Background when RadioButton is checked -->
             <Trigger Property="IsChecked" Value="True">
                 <Setter Property="Background" Value="White"/>
             </Trigger>

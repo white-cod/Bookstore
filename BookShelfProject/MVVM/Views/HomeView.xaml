@@ -21,7 +21,7 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        
+
         <!-- Recommended Books -->
         <Border Grid.Row="0"
                 VerticalAlignment="Center"

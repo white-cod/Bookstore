@@ -16,6 +16,15 @@ namespace BookShelfProject.Core.Profiles
         {
             CreateMap<Book, ListBookDto>();
             CreateMap<ListBookDto, Book>();
+
+            CreateMap<Book, DbBookDto>();
+            CreateMap<DbBookDto, Book>();
+
+            CreateMap<User, DbUserDto>();
+            CreateMap<DbUserDto, User>();
+
+            CreateMap<Cart, DbCartDto>();
+            CreateMap<DbCartDto, Cart>();
         }
     }
 

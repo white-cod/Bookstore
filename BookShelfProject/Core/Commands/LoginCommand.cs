@@ -7,6 +7,7 @@ using BookShelfProject.Core.Locators;
 using BookShelfProject.Core.Stores;
 using BookShelfProject.MVVM.Models;
 using BookShelfProject.MVVM.ViewModels;
+using Microsoft.EntityFrameworkCore;
 
 namespace BookShelfProject.Core.Commands;
 
@@ -33,7 +34,7 @@ public class LoginCommand : CommandBase
             MessageBox.Show("Username or password is incorrect", "Registration Error", MessageBoxButton.OK, MessageBoxImage.Hand);
             return;
         }
-        User user = _context.Users.Where((User u) => u.Username == _currentViewModel.Username).ToList().FirstOrDefault();
+        User user = _context.Users.Where((User u) => u.Username == _currentViewModel.Username).Include(u => u._ShoppingCart).ToList().FirstOrDefault();
         CurrentUserDataStore userData = ServiceLocator.GetService<CurrentUserDataStore>();
         userData.CurrentUser = user;
         userData.LoginUser();
@@ -67,3 +68,4 @@ public class LoginCommand : CommandBase
         return builder.ToString();
     }
 }
+

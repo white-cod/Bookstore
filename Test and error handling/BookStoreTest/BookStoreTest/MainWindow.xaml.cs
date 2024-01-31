@@ -20,8 +20,7 @@ namespace BookStoreTest
     {
         //private const string ConnectionString = "Server=DESKTOP-AJ6IRLC\\\SQLEXPRESS;Database=BookStore;Integrated Security=True;";
 
-        private const string ConnectionString = "Server=DESKTOP-C85D6OJ\\SQLEXPRESS;Database=BookStore;Integrated Security=True;";
-
+        private const string ConnectionString = "Data Source=OST_LAPTOP\\SQLEXPRESS;Initial Catalog=BookstoreDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=True;Multi Subnet Failover=False";
         private SqlConnection connection = new SqlConnection(ConnectionString);
 
         private DataTable booksTable;

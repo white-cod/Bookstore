@@ -18,9 +18,9 @@ namespace BookShelfProject.MVVM.ViewModels
 {
     public class SearchResultViewModel : ViewModelBase
     {
-        private readonly DatabaseContext _context;
         private readonly SearchDataStore _searchDataStore;
         private ObservableCollection<ListBookDto> _resultsList;
+
         public ObservableCollection<ListBookDto> ResultsList
         {
             get
@@ -33,6 +33,7 @@ namespace BookShelfProject.MVVM.ViewModels
                 OnPropertyChanged(nameof(ResultsList));
             }
         }
+
         public FilterType _FilterType
         {
             get => _searchDataStore._FilterType;
@@ -42,6 +43,7 @@ namespace BookShelfProject.MVVM.ViewModels
                 OnPropertyChanged(nameof(_FilterType));
             }
         }
+
         public ICommand FilterAllCommand { get; }
         public ICommand FilterByTitleCommand { get; }
         public ICommand FilterByAuthorCommand { get; }
@@ -56,7 +58,7 @@ namespace BookShelfProject.MVVM.ViewModels
 
             _OpenBookPageCommand = new OpenBookPageCommand();
 
-            FilterAllCommand = new FilterCommand(FilterType.All, _searchDataStore,this);
+            FilterAllCommand = new FilterCommand(FilterType.All, _searchDataStore, this);
             FilterByTitleCommand = new FilterCommand(FilterType.Book, _searchDataStore, this);
             FilterByAuthorCommand = new FilterCommand(FilterType.Author, _searchDataStore, this);
             FilterByGenreCommand = new FilterCommand(FilterType.Genre, _searchDataStore, this);

@@ -18,7 +18,9 @@ namespace BookShelfProject.MVVM.ViewModels
     public class MainViewModel : ViewModelBase
     {
         private readonly NavigationStore _navigationStore;
+
         public CurrentUserDataStore _CurrentUserDataStore { get; }
+
         public ViewModelBase CurrentViewModel
         {
             get => _navigationStore.CurrentViewModel;
@@ -34,6 +36,7 @@ namespace BookShelfProject.MVVM.ViewModels
         public ICommand _NavigateNextCommand { get; }
         public ICommand _NavigatePreviousCommand { get; }
         public ICommand _OpenProfileCommand { get; }
+        public ICommand _OpenCartCommand { get; }
         public ICommand SearchBookCommand { get; }
 
         public MainViewModel()
@@ -53,6 +56,7 @@ namespace BookShelfProject.MVVM.ViewModels
 
             SearchBookCommand = new OpenSearchResultCommand();
             _OpenProfileCommand = new OpenProfileCommand();
+            _OpenCartCommand = new OpenCartCommand();
         }
 
         private void OnCurrentViewModelChanged()

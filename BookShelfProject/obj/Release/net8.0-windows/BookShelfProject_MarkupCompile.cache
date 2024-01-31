@@ -1,0 +1,20 @@
+﻿BookShelfProject
+
+
+winexe
+C#
+.cs
+C:\Artem Ostrizhnev\Code\C#\CourseWork\Bookstore\BookShelfProject\obj\Release\net8.0-windows\
+BookShelfProject
+none
+false
+TRACE;RELEASE;NET;NET8_0;NETCOREAPP
+C:\Artem Ostrizhnev\Code\C#\CourseWork\Bookstore\BookShelfProject\App.xaml
+14-986058260
+
+57-689198792
+2481925813608
+MainWindow.xaml;MVVM\Views\BookPageView.xaml;MVVM\Views\CatalogueView.xaml;MVVM\Views\HomeView.xaml;MVVM\Views\LoginWindow.xaml;MVVM\Views\PersonalCabinetWindow.xaml;MVVM\Views\RegistrationWindow.xaml;MVVM\Views\SearchResultView.xaml;MVVM\Views\ShoppingCartWindow.xaml;Themes\BookListBoxTheme.xaml;Themes\CustomFocusVisualStyleTheme.xaml;Themes\MenuButtonTheme.xaml;Themes\RadioButtonStyleTheme.xaml;Themes\SearchListBoxItemTheme.xaml;
+
+True
+

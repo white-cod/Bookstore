@@ -23,7 +23,7 @@
                     VerticalAlignment="Center"
                     Height="325"
                     Width="210">
-            
+
             <Label Content="User Login" 
                    FontSize="16" 
                    FontWeight="Bold" 
@@ -46,13 +46,14 @@
                     Height="25" 
                     Margin="0,40,0,0"
                     Command="{Binding _LoginCommand}"/>
-            
+
             <Button Content="Register" 
                     HorizontalAlignment="Center" 
                     Margin="0,10,0,0" Width="100" 
                     Height="25"
                     Command="{Binding _OpenRegisterWindowCommand}"/>
             <Button Content="Cancel" 
+                    Background="LightSalmon"
                     Width="100" Height="25" 
                     Margin="0,10,0,0"
                     Command="{Binding _OpenShopWindowCommand}"/>

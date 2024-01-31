@@ -1,11 +1,17 @@
 ﻿
 
-FF:\C++\Bookstore\BookShelfProject\MainWindow.xaml;;
-FF:\C++\Bookstore\BookShelfProject\MVVM\Views\BookPageView.xaml;;
-FF:\C++\Bookstore\BookShelfProject\MVVM\Views\CatalogueView.xaml;;
-FF:\C++\Bookstore\BookShelfProject\MVVM\Views\HomeView.xaml;;
-FF:\C++\Bookstore\BookShelfProject\MVVM\Views\LoginWindow.xaml;;
-FF:\C++\Bookstore\BookShelfProject\MVVM\Views\PersonalCabinetWindow.xaml;;
-FF:\C++\Bookstore\BookShelfProject\MVVM\Views\RegistrationWindow.xaml;;
-FF:\C++\Bookstore\BookShelfProject\MVVM\Views\SearchResultView.xaml;;
+FC:\Artem Ostrizhnev\Code\C#\CourseWork\BookShelfProject\MainWindow.xaml;;
+FC:\Artem Ostrizhnev\Code\C#\CourseWork\BookShelfProject\MVVM\Views\AddBookWindow.xaml;;
+FC:\Artem Ostrizhnev\Code\C#\CourseWork\BookShelfProject\MVVM\Views\AdministratorWindow.xaml;;
+FC:\Artem Ostrizhnev\Code\C#\CourseWork\BookShelfProject\MVVM\Views\BookPageView.xaml;;
+FC:\Artem Ostrizhnev\Code\C#\CourseWork\BookShelfProject\MVVM\Views\CatalogueView.xaml;;
+FC:\Artem Ostrizhnev\Code\C#\CourseWork\BookShelfProject\MVVM\Views\EditBookWindow.xaml;;
+FC:\Artem Ostrizhnev\Code\C#\CourseWork\BookShelfProject\MVVM\Views\HomeView.xaml;;
+FC:\Artem Ostrizhnev\Code\C#\CourseWork\BookShelfProject\MVVM\Views\LoginWindow.xaml;;
+FC:\Artem Ostrizhnev\Code\C#\CourseWork\BookShelfProject\MVVM\Views\PersonalCabinetWindow.xaml;;
+FC:\Artem Ostrizhnev\Code\C#\CourseWork\BookShelfProject\MVVM\Views\RegistrationWindow.xaml;;
+FC:\Artem Ostrizhnev\Code\C#\CourseWork\BookShelfProject\MVVM\Views\SearchResultView.xaml;;
+FC:\Artem Ostrizhnev\Code\C#\CourseWork\BookShelfProject\MVVM\Views\ShoppingCartWindow.xaml;;
+FC:\Artem Ostrizhnev\Code\C#\CourseWork\BookShelfProject\MVVM\Views\StartupWindow.xaml;;
+FC:\Artem Ostrizhnev\Code\C#\CourseWork\BookShelfProject\MVVM\Views\UsersBooksWindow.xaml;;
 

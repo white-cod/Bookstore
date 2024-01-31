@@ -30,8 +30,7 @@ namespace BookStoreTest
 {
     public partial class UserBooksWindow : Window
     {
-        private const string ConnectionString = "Server=DESKTOP-C85D6OJ\\SQLEXPRESS;Database=BookStore;Integrated Security=True;";
-
+        private const string ConnectionString = "Data Source=OST_LAPTOP\\SQLEXPRESS;Initial Catalog=BookstoreDatabase;Integrated Security=True;Connect Timeout=30;Encrypt=True;Multi Subnet Failover=False";
         private ObservableCollection<Book> userBooks;
 
         public class Book

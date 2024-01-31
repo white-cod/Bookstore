@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-F:\C++\Bookstore\Test and error handling\BookStoreTest\BookStoreTest\obj\Debug\net8.0-windows\
+C:\Artem Ostrizhnev\Code\C#\CourseWork\Bookstore\Test and error handling\BookStoreTest\BookStoreTest\obj\Debug\net8.0-windows\
 BookStoreTest
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-F:\C++\Bookstore\Test and error handling\BookStoreTest\BookStoreTest\App.xaml
+C:\Artem Ostrizhnev\Code\C#\CourseWork\Bookstore\Test and error handling\BookStoreTest\BookStoreTest\App.xaml
 91576527693
 
 12-1059154729
-227-1653759006
+227-633511151
 AddBookWindow.xaml;AdministratorWindow.xaml;EditBookWindow.xaml;LoginWindow.xaml;MainWindow.xaml;PersonalCabinetWindow.xaml;RegistrationWindow.xaml;ShoppingCartWindow.xaml;UserBooksWindow.xaml;
 
 False

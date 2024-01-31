@@ -15,15 +15,25 @@ namespace BookShelfProject.MVVM.ViewModels
     public class PersonalCabinetViewModel : ViewModelBase
     {
         public CurrentUserDataStore _CurrentUserDataStore { get; }
-        public bool IsSaveButtonEnabled => AreFieldsNotEmpty();
+        public bool AreFieldsFilled => AreFieldsNotEmpty();
+        public bool IsCurrentUserAuthor => IsUserAuthor();
+        public bool IsAuthorStatusAvailable => IsAuthorAvailable();
+
         public ICommand _OpenShopWindowCommand { get; }
+        public ICommand _OpenCartCommand { get; }
         public ICommand _ChangeAvatarCommand { get; }
         public ICommand _SaveProfileChangesCommand { get; }
+        public ICommand _OpenAdminWindowCommand { get; }
+        public ICommand _OpenAddBookWindowCommand { get; }
+        public ICommand _OpenUsersBooksWindowCommand { get; }
+        public ICommand _BecomeAuthorCommand { get; }
 
         private string username;
+        private string name;
         private string email;
         private DateTime? birthDate;
         private string avatarPath;
+
         public string Username
         {
             get
@@ -33,9 +43,25 @@ namespace BookShelfProject.MVVM.ViewModels
             set
             {
                 username = value;
+                OnPropertyChanged(nameof(AreFieldsFilled));
                 OnPropertyChanged(nameof(Username));
             }
         }
+
+        public string Name
+        {
+            get
+            {
+                return name;
+            }
+            set
+            {
+                name = value;
+                OnPropertyChanged(nameof(AreFieldsFilled));
+                OnPropertyChanged(nameof(Name));
+            }
+        }
+
         public string Email
         {
             get
@@ -46,10 +72,11 @@ namespace BookShelfProject.MVVM.ViewModels
             set
             {
                 email = value;
+                OnPropertyChanged(nameof(AreFieldsFilled));
                 OnPropertyChanged(nameof(Email));
-                OnPropertyChanged(nameof(IsSaveButtonEnabled));
             }
         }
+
         public DateTime? BirthDate
         {
             get
@@ -60,10 +87,11 @@ namespace BookShelfProject.MVVM.ViewModels
             set
             {
                 birthDate = value;
+                OnPropertyChanged(nameof(AreFieldsFilled));
                 OnPropertyChanged(nameof(BirthDate));
-                OnPropertyChanged(nameof(IsSaveButtonEnabled));
             }
         }
+
         public string AvatarPath
         {
             get
@@ -74,30 +102,57 @@ namespace BookShelfProject.MVVM.ViewModels
             set
             {
                 avatarPath = value;
+                OnPropertyChanged(nameof(AreFieldsFilled));
                 OnPropertyChanged(nameof(AvatarPath));
-                OnPropertyChanged(nameof(IsSaveButtonEnabled));
             }
         }
+
         public PersonalCabinetViewModel()
         {
             _CurrentUserDataStore = ServiceLocator.GetService<CurrentUserDataStore>();
             _OpenShopWindowCommand = new OpenShopWindowCommand();
             _ChangeAvatarCommand = new ChangeAvatarCommand(this);
             _SaveProfileChangesCommand = new SaveProfileChangesCommand(this);
+            _OpenCartCommand = new OpenCartCommand();
+            _OpenAdminWindowCommand = new OpenAdminWindowCommand();
+            _OpenAddBookWindowCommand = new OpenAddBookWindowCommand();
+            _BecomeAuthorCommand = new BecomeAuthorCommand(this);
+            _OpenUsersBooksWindowCommand = new OpenUsersBooksWindowCommand();
 
             Username = _CurrentUserDataStore.CurrentUser.Username;
             Email = _CurrentUserDataStore.CurrentUser.Email == null ? string.Empty : _CurrentUserDataStore.CurrentUser.Email;
+            Name = _CurrentUserDataStore.CurrentUser.Name == null ? string.Empty : _CurrentUserDataStore.CurrentUser.Name;
             BirthDate = _CurrentUserDataStore.CurrentUser.BirthDate;
-            AvatarPath = _CurrentUserDataStore.CurrentUser.AvatarPath == null ? "D:\\My Documents\\Me\\Stockphoto\\no-profile-picture-icon.png" : _CurrentUserDataStore.CurrentUser.AvatarPath;
+            AvatarPath = _CurrentUserDataStore.CurrentUser.AvatarPath == null ? string.Empty : _CurrentUserDataStore.CurrentUser.AvatarPath;
+        }
+
+        public void RaisePropertyChanged(string propertyName)
+        {
+            OnPropertyChanged(propertyName);
         }
 
         private bool AreFieldsNotEmpty()
         {
             return !string.IsNullOrEmpty(Username?.Trim()) &&
                    !string.IsNullOrEmpty(Email?.Trim()) &&
+                   !string.IsNullOrEmpty(Name?.Trim()) &&
                    BirthDate.HasValue;
         }
 
-       
+        private bool IsAuthorAvailable()
+        {
+            if (_CurrentUserDataStore.CurrentUser.IsAuthor)
+                return false;
+
+            return !string.IsNullOrEmpty(_CurrentUserDataStore.CurrentUser.Name?.Trim()) &&
+                   !string.IsNullOrEmpty(_CurrentUserDataStore.CurrentUser.Username?.Trim()) &&
+                   !string.IsNullOrEmpty(_CurrentUserDataStore.CurrentUser.Email?.Trim()) &&
+                   _CurrentUserDataStore.CurrentUser.BirthDate.HasValue;
+        }
+
+        private bool IsUserAuthor()
+        {
+            return _CurrentUserDataStore.CurrentUser.IsAuthor;
+        }
     }
 }
