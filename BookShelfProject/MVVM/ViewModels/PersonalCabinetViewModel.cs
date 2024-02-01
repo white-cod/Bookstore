@@ -27,6 +27,7 @@ namespace BookShelfProject.MVVM.ViewModels
         public ICommand _OpenAddBookWindowCommand { get; }
         public ICommand _OpenUsersBooksWindowCommand { get; }
         public ICommand _BecomeAuthorCommand { get; }
+        public ICommand _LogoutCommand { get; }
 
         private string username;
         private string name;
@@ -118,6 +119,7 @@ namespace BookShelfProject.MVVM.ViewModels
             _OpenAddBookWindowCommand = new OpenAddBookWindowCommand();
             _BecomeAuthorCommand = new BecomeAuthorCommand(this);
             _OpenUsersBooksWindowCommand = new OpenUsersBooksWindowCommand();
+            _LogoutCommand = new LogoutCommand();
 
             Username = _CurrentUserDataStore.CurrentUser.Username;
             Email = _CurrentUserDataStore.CurrentUser.Email == null ? string.Empty : _CurrentUserDataStore.CurrentUser.Email;

@@ -111,6 +111,17 @@
                 Command="{Binding Path=_BecomeAuthorCommand}">
         </Button>
 
+        <Button Content="Logout" 
+                Grid.Column="1"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Right"
+                Margin="0,0,65,0"
+                Width="80"
+                Height="35"
+                FontSize="16"
+                FontWeight="SemiBold"
+                Command="{Binding Path=_LogoutCommand}"/>
+
         <TextBlock Text="In order to become an author, you need to provide all the necessary information about yourself!"
                    TextWrapping="Wrap"
                    Grid.Column="1"

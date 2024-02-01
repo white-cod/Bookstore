@@ -11,6 +11,14 @@ namespace BookShelfProject.Core.Stores
     {
         public User CurrentUser { get; set; }
         public bool IsLogin { get; private set; } = false;
-        public void LoginUser() => IsLogin = true;
+        public void LoginUser()
+        {
+            IsLogin = true;
+        }
+        public void LogoutUser()
+        {
+            IsLogin = false;
+            CurrentUser = null;
+        }
     }
 }

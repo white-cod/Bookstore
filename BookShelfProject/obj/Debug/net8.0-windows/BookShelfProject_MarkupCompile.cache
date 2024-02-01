@@ -12,7 +12,7 @@ TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 C:\Artem Ostrizhnev\Code\C#\CourseWork\BookShelfProject\App.xaml
 19-1122613912
 1-2100245895
-85-2142188463
+86-842475609
 2481925813608
 MainWindow.xaml;MVVM\Views\AddBookWindow.xaml;MVVM\Views\AdministratorWindow.xaml;MVVM\Views\BookPageView.xaml;MVVM\Views\CatalogueView.xaml;MVVM\Views\EditBookWindow.xaml;MVVM\Views\HomeView.xaml;MVVM\Views\LoginWindow.xaml;MVVM\Views\PersonalCabinetWindow.xaml;MVVM\Views\RegistrationWindow.xaml;MVVM\Views\SearchResultView.xaml;MVVM\Views\ShoppingCartWindow.xaml;MVVM\Views\StartupWindow.xaml;MVVM\Views\UsersBooksWindow.xaml;Themes\BookListBoxTheme.xaml;Themes\CustomFocusVisualStyleTheme.xaml;Themes\MenuButtonTheme.xaml;Themes\RadioButtonStyleTheme.xaml;Themes\SearchListBoxItemTheme.xaml;
 
