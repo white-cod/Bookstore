@@ -5216,11 +5216,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Artem Ostrizhnev\\Code\\C#\\CourseWork\\BookShelfProject\\BookShelfProject.csproj",
+      "projectUniqueName": "C:\\Artem Ostrizhnev\\Code\\C#\\CourseWork\\Bookstore\\BookShelfProject\\BookShelfProject.csproj",
       "projectName": "BookShelfProject",
-      "projectPath": "C:\\Artem Ostrizhnev\\Code\\C#\\CourseWork\\BookShelfProject\\BookShelfProject.csproj",
+      "projectPath": "C:\\Artem Ostrizhnev\\Code\\C#\\CourseWork\\Bookstore\\BookShelfProject\\BookShelfProject.csproj",
       "packagesPath": "C:\\Users\\ostri\\.nuget\\packages\\",
-      "outputPath": "C:\\Artem Ostrizhnev\\Code\\C#\\CourseWork\\BookShelfProject\\obj\\",
+      "outputPath": "C:\\Artem Ostrizhnev\\Code\\C#\\CourseWork\\Bookstore\\BookShelfProject\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

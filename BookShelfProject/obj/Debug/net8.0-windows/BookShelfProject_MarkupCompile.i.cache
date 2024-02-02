@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Artem Ostrizhnev\Code\C#\CourseWork\BookShelfProject\obj\Debug\net8.0-windows\
+C:\Artem Ostrizhnev\Code\C#\CourseWork\Bookstore\BookShelfProject\obj\Debug\net8.0-windows\
 BookShelfProject
 none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
-C:\Artem Ostrizhnev\Code\C#\CourseWork\BookShelfProject\App.xaml
+C:\Artem Ostrizhnev\Code\C#\CourseWork\Bookstore\BookShelfProject\App.xaml
 19-1122613912
 1-2100245895
-88-1021564274
+89-342571783
 2481925813608
 MainWindow.xaml;MVVM\Views\AddBookWindow.xaml;MVVM\Views\AdministratorWindow.xaml;MVVM\Views\BookPageView.xaml;MVVM\Views\CatalogueView.xaml;MVVM\Views\EditBookWindow.xaml;MVVM\Views\HomeView.xaml;MVVM\Views\LoginWindow.xaml;MVVM\Views\PersonalCabinetWindow.xaml;MVVM\Views\RegistrationWindow.xaml;MVVM\Views\SearchResultView.xaml;MVVM\Views\ShoppingCartWindow.xaml;MVVM\Views\StartupWindow.xaml;MVVM\Views\UsersBooksWindow.xaml;Themes\BookListBoxTheme.xaml;Themes\CustomFocusVisualStyleTheme.xaml;Themes\MenuButtonTheme.xaml;Themes\RadioButtonStyleTheme.xaml;Themes\SearchListBoxItemTheme.xaml;
 
-True
+False
 

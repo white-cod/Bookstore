@@ -17,8 +17,6 @@ namespace BookShelfProject.MVVM.ViewModels
 {
     public class ShoppingCartViewModel : ViewModelBase
     {
-        private readonly DatabaseContext _context;
-
         private decimal? totalPrice;
         private ObservableCollection<Cart> currentCart;
 

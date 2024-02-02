@@ -53,7 +53,7 @@ namespace BookShelfProject.MVVM.Views {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/BookShelfProject;component/mvvm/views/administratorwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/BookShelfProject;V1.0.0.0;component/mvvm/views/administratorwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\..\MVVM\Views\AdministratorWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

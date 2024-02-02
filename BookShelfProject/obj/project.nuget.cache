@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "69dIHZwZVdXu01acPWWIS0kecNEUKlJUF1B4g+s2JHD5i5ARkE4M36c0NjuSG/t0Kd9R6a75AJcwSI5MneQPRA==",
+  "dgSpecHash": "wWONbEshGwGGwOtzsLW4Y3bLvLlZZrOgHoQbkyxHPJ8TXJEtYEKRQZbZTCMME8+nVEJIi1u2d4kkl2auW1OInw==",
   "success": true,
-  "projectFilePath": "C:\\Artem Ostrizhnev\\Code\\C#\\CourseWork\\BookShelfProject\\BookShelfProject.csproj",
+  "projectFilePath": "C:\\Artem Ostrizhnev\\Code\\C#\\CourseWork\\Bookstore\\BookShelfProject\\BookShelfProject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ostri\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\ostri\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
