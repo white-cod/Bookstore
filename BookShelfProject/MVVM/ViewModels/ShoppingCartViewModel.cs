@@ -17,6 +17,7 @@ namespace BookShelfProject.MVVM.ViewModels
 {
     public class ShoppingCartViewModel : ViewModelBase
     {
+
         private decimal? totalPrice;
         private ObservableCollection<Cart> currentCart;
 
@@ -58,7 +59,6 @@ namespace BookShelfProject.MVVM.ViewModels
         public ShoppingCartViewModel()
         {
             _CurrentUserDataStore = ServiceLocator.GetService<CurrentUserDataStore>();
-            _context = ServiceLocator.GetService<DatabaseContext>();
 
             CurrentCart = new ObservableCollection<Cart>(_CurrentUserDataStore.CurrentUser._ShoppingCart);
 

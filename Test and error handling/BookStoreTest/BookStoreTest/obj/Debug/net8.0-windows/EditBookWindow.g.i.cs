@@ -157,7 +157,7 @@ namespace BookStoreTest {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/BookStoreTest;component/editbookwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/BookStoreTest;V1.0.0.0;component/editbookwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\EditBookWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

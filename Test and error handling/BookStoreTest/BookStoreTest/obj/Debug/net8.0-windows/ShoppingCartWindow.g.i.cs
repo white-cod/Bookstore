@@ -85,7 +85,7 @@ namespace BookStoreTest {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/BookStoreTest;component/shoppingcartwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/BookStoreTest;V1.0.0.0;component/shoppingcartwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\ShoppingCartWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

@@ -61,7 +61,7 @@ namespace BookStoreTest {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/BookStoreTest;component/administratorwindow.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/BookStoreTest;V1.0.0.0;component/administratorwindow.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\AdministratorWindow.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
