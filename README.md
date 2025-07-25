@@ -199,14 +199,6 @@ Please ensure your code follows our style guidelines and includes appropriate te
 
 This project is licensed under the MIT License - see the [LICENSE](https://github.com/white-cod/Bookstore/blob/main/LICENSE) file for details.
 
-## Contact
-
-For questions or support, please contact:
-
-Project Maintainer: white-cod  
-Email: contact@bookstore.example.com  
-[Project Discussion Board](https://github.com/white-cod/Bookstore/discussions)
-
 ---
 
 **Bookstore** © 2023-present, white-cod, artem-ost. Released under the MIT License.
